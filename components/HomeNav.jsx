@@ -10,14 +10,14 @@ const HomeNav = () => {
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
-      setNavClass('shadow-lg lg:pt-4')
+      setNavClass('shadow-lg lg:pt-4 bg-blue-1')
       controls.start({
         scale: 0.95,
         translateY: 0,
         transition: { duration: 0.2 },
       })
     } else {
-      setNavClass('lg:pt-12')
+      setNavClass('lg:pt-12 ')
       controls.start({ scale: 1, translateY: 0, transition: { duration: 0.3 } })
     }
   }
@@ -31,7 +31,7 @@ const HomeNav = () => {
   return (
     <motion.div>
       <nav
-        className={`fixed inset-x-0 left-0 top-0 z-50 flex h-[74px] w-full items-center px-4 py-4 transition-all delay-100  duration-300 ease-in-out lg:h-24 lg:bg-slate-1 lg:px-32 lg:dark:from-slatedark-1 lg:dark:to-slatedark-1  ${navClass}`}
+        className={`fixed inset-x-0 left-0 top-0 z-50 flex h-[74px] w-full items-center  px-4 py-4 transition-all  delay-100 duration-300 ease-in-out lg:h-24 lg:bg-slate-1 lg:px-32 lg:dark:from-slatedark-1 lg:dark:to-slatedark-1 ${navClass}`}
       >
         <motion.div
           className="w-full"
