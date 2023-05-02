@@ -8,15 +8,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        'accent-1': '#FAFAFA',
-        'accent-2': '#EAEAEA',
-        'accent-7': '#333',
-        success: '#0070f3',
-        cyan: '#79FFE1',
-        'blue-500': '#2276FC',
-        'yellow-100': '#fef7da',
-      },
       spacing: {
         28: '7rem',
       },
@@ -38,5 +29,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwindcss-radix-colors')],
 }
