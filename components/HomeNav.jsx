@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import logoBlack from '../public/logoblack.svg'
+import WavingTurtle from '../public/turtlewaving.svg'
 import Image from 'next/image'
-import logoWhite from '../public/logowhite.svg'
 
 const HomeNav = () => {
   const [navClass, setNavClass] = useState('')
   const controls = useAnimation()
+  const [drawerOpen, setDrawerOpen] = useState(false)
+  const [turtleVisible, setTurtleVisible] = useState(false)
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
-      setNavClass('shadow-lg lg:pt-4 bg-blue-11')
+      setNavClass(
+        `${
+          drawerOpen ? 'shadow-none' : 'shadow-md'
+        } lg:pt-4 bg-blue-11 lg:bg-blue-1`
+      )
       controls.start({
         scale: 0.95,
         translateY: 0,
         transition: { duration: 0.2 },
       })
     } else {
-      setNavClass('lg:pt-12 lg:dark:bg-slatedark-1')
+      setNavClass('lg:pt-12 lg:dark:bg-slatedark-1 bg-transparent')
       controls.start({ scale: 1, translateY: 0, transition: { duration: 0.3 } })
     }
   }
@@ -26,7 +31,32 @@ const HomeNav = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [drawerOpen])
+
+  const turtleAnimation = {
+    hidden: { y: '100%', opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  }
+
+  const toggleDrawer = () => {
+    setDrawerOpen(!drawerOpen)
+
+    setTurtleVisible(!turtleVisible)
+  }
+
+  const navItems = [
+    { text: 'News', href: '/buy' },
+    { text: 'Reviews', href: '/lend' },
+    { text: 'Streaming', href: '/borrow' },
+    { text: 'Manga', href: '/staking' },
+    { text: 'Events', href: '/tax' },
+    { text: 'Culture', href: '/nft' },
+    { text: 'Merchandise', href: '/news' },
+  ]
+
+  const drawerStyle = drawerOpen
+    ? 'transform translate-x-0'
+    : 'transform -translate-x-full'
 
   return (
     <motion.div>
@@ -42,16 +72,43 @@ const HomeNav = () => {
             <div className="flex items-center justify-between">
               <div className="flex items-center">
                 <div>
-                  <button class="group relative lg:hidden">
-                    <div class="ring-gray-300 relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full ring-0 ring-opacity-30 transition-all duration-200 hover:ring-8 group-focus:ring-4">
-                      <div class="flex h-[20px] w-[20px] origin-center transform flex-col justify-between overflow-hidden transition-all duration-300">
-                        <div class="h-[2px] w-7 origin-left transform bg-slate-1 transition-all duration-300 group-focus:translate-x-10"></div>
-                        <div class="h-[2px] w-7 transform rounded bg-slate-1 transition-all delay-75 duration-300 group-focus:translate-x-10"></div>
-                        <div class="h-[2px] w-7 origin-left transform bg-slate-1 transition-all delay-150 duration-300 group-focus:translate-x-10"></div>
+                  <button
+                    onClick={toggleDrawer}
+                    className="group relative lg:hidden"
+                  >
+                    <div className="relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full transition-all duration-200">
+                      <div className="flex h-[20px] w-[20px] origin-center transform flex-col justify-between overflow-hidden transition-all duration-300">
+                        <div
+                          className={`h-[2px] w-7 origin-left transform bg-slate-1 transition-all duration-300 ${
+                            drawerOpen ? 'translate-x-10' : ''
+                          }`}
+                        ></div>
+                        <div
+                          className={`h-[2px] w-7 transform rounded bg-slate-1 transition-all delay-75 duration-300 ${
+                            drawerOpen ? 'translate-x-10' : ''
+                          }`}
+                        ></div>
+                        <div
+                          className={`h-[2px] w-7 origin-left transform bg-slate-1 transition-all delay-150 duration-300 ${
+                            drawerOpen ? 'translate-x-10' : ''
+                          }`}
+                        ></div>
 
-                        <div class="absolute top-2.5 flex w-0 -translate-x-10 transform items-center justify-between transition-all duration-500 group-focus:w-12 group-focus:translate-x-0">
-                          <div class="absolute h-[2px] w-5 rotate-0 transform bg-slate-1 transition-all delay-300 duration-500 group-focus:rotate-45"></div>
-                          <div class="absolute h-[2px] w-5 -rotate-0 transform bg-slate-1 transition-all delay-300 duration-500 group-focus:-rotate-45"></div>
+                        <div
+                          className={`absolute top-2.5 flex w-0 -translate-x-10 transform items-center justify-between transition-all duration-500 ${
+                            drawerOpen ? 'w-12 translate-x-0' : ''
+                          }`}
+                        >
+                          <div
+                            className={`absolute h-[2px] w-5 rotate-0 transform bg-slate-1 transition-all delay-300 duration-500 ${
+                              drawerOpen ? 'rotate-45' : ''
+                            }`}
+                          ></div>
+                          <div
+                            className={`absolute h-[2px] w-5 -rotate-0 transform bg-slate-1 transition-all delay-300 duration-500 ${
+                              drawerOpen ? '-rotate-45' : ''
+                            }`}
+                          ></div>
                         </div>
                       </div>
                     </div>
@@ -175,6 +232,44 @@ const HomeNav = () => {
           </div>
         </motion.div>
       </nav>
+      <div
+        className={` container fixed left-0 top-[74px] z-40 h-[110%]  w-full -translate-y-20  bg-blue-11 pl-4 pt-24 transition-transform duration-300 ease-in-out ${drawerStyle}`}
+      >
+        <div className="container mx-auto lg:max-w-[72rem]">
+          <ul
+            className="relative z-10 flex flex-col text-slate-1 md:text-center"
+            style={{ opacity: 1 }}
+          >
+            {navItems.map(({ text, href }) => (
+              <li
+                key={text}
+                className="relative inline-block"
+                style={{ transform: 'translateX(0%) translateZ(0px)' }}
+              >
+                <a
+                  className="text-white focus:text-milkroad-blue-500 group relative inline-block overflow-hidden py-2 text-5xl font-black hover:text-blue-5"
+                  href={href}
+                >
+                  <span className="relative z-10">{text}</span>
+                  <span className="bg-white absolute inset-0 inline-block translate-y-[101%]  transition duration-300 ease-in-out group-hover:translate-y-0 group-focus:translate-y-0"></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <motion.div
+            className="fixed bottom-0 left-0 overflow-hidden p-4"
+            initial="hidden"
+            animate={turtleVisible ? 'visible' : 'hidden'}
+            variants={turtleAnimation}
+            transition={{ duration: 0.4, delay: 0.05 }}
+          >
+            <Image
+              src={WavingTurtle}
+              className="z-10 translate-x-28 scale-150 overflow-hidden lg:hidden "
+            />
+          </motion.div>
+        </div>
+      </div>
     </motion.div>
   )
 }

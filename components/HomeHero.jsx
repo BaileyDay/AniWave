@@ -39,7 +39,7 @@ const HomeHero = () => {
                   Immerse yourself in the world of{' '}
                   <strong className="font-semibold">Anime & Manga</strong>
                 </h1>
-                <p className="text-xl leading-normal text-slate-9 sm:leading-relaxed lg:font-light lg:leading-normal">
+                <p className="text-md leading-normal text-slate-9 sm:leading-relaxed lg:text-xl lg:font-light lg:leading-normal">
                   Join our community of fans who receive our regular newsletter,
                   covering the essentials of the anime and manga industry.
                 </p>
