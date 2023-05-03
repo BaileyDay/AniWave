@@ -30,12 +30,12 @@ const HomeHero = () => {
           />
         </div>
       </div>
-      <div className=" relative z-10 mt-4 w-full overflow-hidden bg-slate-1 px-4 pb-32 lg:mt-32 lg:flex lg:h-full lg:items-center lg:bg-transparent lg:p-48 lg:pt-32">
+      <div className=" relative z-10 mt-4 w-full overflow-hidden bg-slate-1 px-4 pb-32 dark:bg-slatedark-1 lg:mt-32 lg:flex lg:h-full lg:items-center lg:bg-transparent lg:p-48 lg:pt-32">
         <div className="container mx-auto lg:flex lg:max-w-[72rem]">
           <div className="space-y-7  lg:mx-0 lg:w-1/2 lg:space-y-8">
             <div className="space-y-6 lg:space-y-10">
               <div className="space-y-4 lg:space-y-8">
-                <h1 className="text-3xl leading-snug  sm:leading-normal lg:text-6xl lg:font-light">
+                <h1 className="text-3xl leading-snug  dark:text-slatedark-12 sm:leading-normal lg:text-6xl lg:font-light">
                   Immerse yourself in the world of{' '}
                   <strong className="font-semibold">Anime & Manga</strong>
                 </h1>
