@@ -10,6 +10,7 @@ import type { Post, Settings } from 'lib/sanity.queries'
 import HomeNav from './HomeNav'
 import HomeHero from './HomeHero'
 import Reviews from './TwitterReviews'
+import News from './News'
 
 export interface IndexPageProps {
   preview?: boolean
@@ -31,6 +32,7 @@ export default function IndexPage(props: IndexPageProps) {
       <Layout preview={preview} loading={loading}>
         <HomeHero />
         <Reviews />
+        <News />
         {/* <Container>
           <BlogHeader title={title} description={description} level={1} />
           {heroPost && (
