@@ -55,7 +55,7 @@ const News = () => {
         <h2 class="dark:text-white  text-2xl font-bold text-blue-11">
           Fresh Rolls 🍱
         </h2>
-        <h3 class="dark:text-white mb-8 text-2xl font-bold text-slate-12">
+        <h3 class="dark:text-white mb-8 text-2xl font-bold text-slate-12 dark:text-slatedark-12 ">
           Top Anime News
         </h3>
         <div id="animation-carousel" data-carousel="slide">
