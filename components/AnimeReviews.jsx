@@ -80,12 +80,16 @@ const Stars = ({ rating }) => {
 
 const AnimeReviews = () => {
   return (
-    <div className="container mx-auto px-4 lg:max-w-[90rem]">
-      <div>
-        <h2 className="text-3xl font-semibold text-slate-12 dark:text-slatedark-12">
+    <div className="container mx-auto px-4 py-12 lg:max-w-[90rem]">
+      <div className="text-center">
+        <h2 className="dark:text-white text-2xl font-bold text-blue-11">
           Rare Rates 🏆
         </h2>
+        <h2 className="dark:text-white text-3xl font-bold text-slate-12">
+          Anime Reviews
+        </h2>
       </div>
+
       <ul className="flex snap-x snap-mandatory scroll-mr-4 gap-x-4 overflow-x-auto">
         {reviews.map((review) => (
           <li
@@ -101,7 +105,7 @@ const AnimeReviews = () => {
 
               {/* Add the review information as an overlay on the image */}
               <div className="absolute bottom-0 left-0 w-full p-4">
-                <h3 className="rounded-xl bg-blue-11 bg-opacity-50 p-2 text-2xl font-bold text-slate-1">
+                <h3 className="rounded-xl bg-blue-9 bg-opacity-50 p-2 text-2xl font-bold text-slate-1">
                   {review.title}
                 </h3>
                 <span className="text-lg text-gray-4">{review.tagline}</span>
@@ -119,6 +123,27 @@ const AnimeReviews = () => {
           </li>
         ))}
       </ul>
+      <button class="group-hover:from-cyan-500 focus:ring-cyan-200 group relative mb-2 mr-2 inline-flex  w-full items-center  justify-center overflow-hidden rounded-lg bg-gradient-to-br from-sky-9 to-blue-9 p-0.5 text-sm font-medium text-slate-11 hover:text-slate-1 focus:outline-none focus:ring-4 group-hover:to-blue-9 dark:text-slate-1 dark:focus:ring-sky-8 lg:w-auto">
+        <span class="relative w-full items-center justify-center rounded-md bg-slate-1 px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0 dark:bg-slatedark-1">
+          <div class="flex items-center justify-center">
+            <span>More Reviews</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="ml-1 h-4 w-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+              />
+            </svg>
+          </div>
+        </span>
+      </button>
     </div>
   )
 }

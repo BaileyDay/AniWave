@@ -32,7 +32,7 @@ const News = () => {
   return (
     <aside
       aria-label="Related articles"
-      className="bg-slate-1 py-8 dark:bg-slatedark-1"
+      className="bg-slate-1 py-6 dark:bg-slatedark-1"
     >
       <div className="mx-auto w-full max-w-screen-xl px-4">
         <h2 className="dark:text-white text-2xl font-bold text-blue-11">
@@ -42,7 +42,7 @@ const News = () => {
           Top Anime News
         </h3>
         <section className="bg-white dark:bg-gray-900">
-          <div className="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
+          <div className="mx-auto max-w-screen-xl px-4 pb-8 lg:px-6 lg:pb-16">
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {articles.map((article, index) => (
                 <article
@@ -83,6 +83,27 @@ const News = () => {
             </div>
           </div>
         </section>
+        <button class="group-hover:from-cyan-500 focus:ring-cyan-200 group relative mb-2 mr-2 inline-flex  w-full items-center  justify-center overflow-hidden rounded-lg bg-gradient-to-br from-sky-9 to-blue-9 p-0.5 text-sm font-medium text-slate-11 hover:text-slate-1 focus:outline-none focus:ring-4 group-hover:to-blue-9 dark:text-slate-1 dark:focus:ring-sky-8 lg:w-auto">
+          <span class="relative w-full items-center justify-center rounded-md bg-slate-1 px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0 dark:bg-slatedark-1">
+            <div class="flex items-center justify-center">
+              <span>More News</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="ml-1 h-4 w-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
+                />
+              </svg>
+            </div>
+          </span>
+        </button>
       </div>
     </aside>
   )

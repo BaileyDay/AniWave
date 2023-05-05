@@ -12,6 +12,7 @@ import HomeHero from './HomeHero'
 import Reviews from './TwitterReviews'
 import News from './News'
 import AnimeReviews from './AnimeReviews'
+import HomeTabs from './HomeTabs'
 
 export interface IndexPageProps {
   preview?: boolean
@@ -35,6 +36,7 @@ export default function IndexPage(props: IndexPageProps) {
         <Reviews />
         <News />
         <AnimeReviews />
+        <HomeTabs />
         {/* <Container>
           <BlogHeader title={title} description={description} level={1} />
           {heroPost && (
