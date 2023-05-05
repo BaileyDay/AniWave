@@ -47,7 +47,7 @@ const News = () => {
               {articles.map((article, index) => (
                 <article
                   key={index}
-                  className="bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700 rounded-lg border p-4 shadow-md"
+                  className="rounded-lg border border-slate-2 bg-slate-1 p-4 shadow-md dark:border-slate-8 dark:bg-slate-4"
                 >
                   <a href={article.link}>
                     <img
