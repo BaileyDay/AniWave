@@ -85,7 +85,7 @@ const AnimeReviews = () => {
         <h2 className="dark:text-white text-2xl font-bold text-blue-11">
           Rare Rates 🏆
         </h2>
-        <h2 className="dark:text-white text-3xl font-bold text-slate-12">
+        <h2 className="dark:text-white text-3xl font-bold text-slate-12 dark:text-slatedark-12">
           Anime Reviews
         </h2>
       </div>
