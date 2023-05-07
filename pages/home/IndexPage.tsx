@@ -1,10 +1,5 @@
-import Container from 'components/BlogContainer'
-import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
-import HeroPost from 'components/HeroPost'
 import IndexPageHead from 'components/IndexPageHead'
-import MoreStories from 'components/MoreStories'
-import IntroTemplate from 'intro-template'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 import HomeNav from './HomeNav'
@@ -14,7 +9,7 @@ import News from './News'
 import AnimeReviews from './AnimeReviews'
 import HomeTabs from './HomeTabs'
 import RelatedPosts from './RelatedPosts'
-import GlobalFooter from './GlobalFooter'
+import GlobalFooter from '../../components/common/GlobalFooter'
 
 export interface IndexPageProps {
   preview?: boolean

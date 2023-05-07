@@ -1,5 +1,5 @@
-import WavingTurtle from '../public/turtlewaving.svg'
 import Image from 'next/image'
+import WavingTurtle from '../../public/turtlewaving.svg'
 
 const HomeHero = () => {
   return (
