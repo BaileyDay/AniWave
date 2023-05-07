@@ -31,7 +31,7 @@ const Reviews = () => {
   return (
     <section
       id="reviews"
-      className="bg-slate-5 px-4  py-10 dark:bg-slatedark-5 lg:py-16"
+      className="bg-slate-5 px-4  py-10 dark:bg-slatedark-3 lg:py-16"
     >
       <div className="container mx-auto space-y-5 lg:max-w-[72rem]">
         <div>
@@ -46,7 +46,7 @@ const Reviews = () => {
               className="w-11/12 flex-shrink-0 snap-center lg:w-full lg:flex-shrink"
             >
               <a
-                className="border-black-50 relative block h-full space-y-5  rounded-[20px] border bg-slate-1 p-6 shadow-md transition duration-300 ease-in-out hover:bg-slate-3 hover:text-current dark:bg-slatedark-3 md:rounded-md"
+                className="border-black-50 relative block h-full space-y-5  rounded-[20px] border bg-slate-1 p-6 shadow-md transition duration-300 ease-in-out hover:bg-slate-3 hover:text-current dark:bg-slatedark-12 md:rounded-md"
                 href={review.link}
                 target="_BLANK"
                 rel="noopener"
