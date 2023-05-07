@@ -14,6 +14,7 @@ import News from './News'
 import AnimeReviews from './AnimeReviews'
 import HomeTabs from './HomeTabs'
 import RelatedPosts from './RelatedPosts'
+import GlobalFooter from './GlobalFooter'
 
 export interface IndexPageProps {
   preview?: boolean
@@ -39,6 +40,7 @@ export default function IndexPage(props: IndexPageProps) {
         <AnimeReviews />
         <HomeTabs />
         <RelatedPosts />
+        <GlobalFooter />
         {/* <Container>
           <BlogHeader title={title} description={description} level={1} />
           {heroPost && (
