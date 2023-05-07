@@ -1,7 +1,7 @@
 import { motion, useAnimation } from 'framer-motion'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
-
+import Link from 'next/link'
 import Logo from '../../components/common/Logo'
 import MobileLogo from '../../components/common/MobileLogo'
 import WavingTurtle from '../../public/turtlewaving.svg'
@@ -118,8 +118,8 @@ const HomeNav = () => {
                   </button>
                 </div>
 
-                <a
-                  href="https://aniwave.io/"
+                <Link
+                  href="https://AniWave.io/"
                   className="justify-center"
                   title="AniWave Home"
                 >
@@ -127,7 +127,7 @@ const HomeNav = () => {
                     <Logo />
                   </div>
                   <MobileLogo />
-                </a>
+                </Link>
               </div>
               <div className="flex items-center">
                 <div
@@ -136,87 +136,88 @@ const HomeNav = () => {
                 >
                   <ul className="flex flex-row space-x-8 font-semibold">
                     <li>
-                      <a
-                        href="#"
+                      <Link
+                        href="/"
                         title="Home"
                         className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
                         aria-current="page"
                       >
                         Home
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        title="Strains"
+                      <Link
+                        href="category/news"
+                        title="News"
                         className="block  text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
                         News
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        title="Products"
+                      <Link
+                        href="category/reviews"
+                        title="Reviews"
                         className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
                         Reviews
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        title="Grow"
+                      <Link
+                        href="category/streaming"
+                        title="Streaming"
                         className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
                         Streaming
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        title="Health"
+                      <Link
+                        href="category/Manga"
+                        title="Manga"
                         className="block flex-none text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
                         Manga
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        title="Legislation"
+                      <Link
+                        href="category/events"
+                        title="Events"
                         className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
                         Events
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        title="News"
-                        className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
-                      >
-                        Culture
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="#"
+                      <Link
+                        href="category/culture"
                         title="Culture"
                         className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
+                        Culture
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="category/merchandise"
+                        title="Merchandise"
+                        className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
+                      >
                         Merchandise
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
-                <button
+                <Link
+                  href="subscribe"
                   type="button"
                   className="ml-8 inline-flex  flex-none rounded-full border border-slate-1 p-2 text-center text-sm
                   font-light text-blue-1 transition duration-300  ease-in-out hover:text-slate-1 focus:outline-none focus:ring-4 lg:mr-0 lg:rounded-xl lg:border-2 lg:border-none lg:bg-gradient-to-br lg:from-blue-10 lg:to-sky-10 lg:px-10  lg:py-6 lg:font-semibold lg:hover:from-blue-11 lg:hover:to-sky-11"
                 >
                   Subscribe
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -236,13 +237,13 @@ const HomeNav = () => {
                 className="relative inline-block"
                 style={{ transform: 'translateX(0%) translateZ(0px)' }}
               >
-                <a
+                <Link
                   className="text-white focus:text-milkroad-blue-500 group relative inline-block overflow-hidden py-2 text-5xl font-black hover:text-blue-5"
                   href={href}
                 >
                   <span className="relative z-10">{text}</span>
                   <span className="bg-white absolute inset-0 inline-block translate-y-[101%]  transition duration-300 ease-in-out group-hover:translate-y-0 group-focus:translate-y-0"></span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
