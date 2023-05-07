@@ -173,10 +173,10 @@ export default function PostListings({ category }) {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tight text-slate-12 sm:text-4xl">
-            {category.title}
+            {category?.title}
           </h2>
           <p className="mt-2 text-lg leading-8 text-slate-9">
-            {category.description}
+            {category?.description}
           </p>
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
             {posts.slice(0, visiblePosts).map((post) => (
@@ -201,14 +201,14 @@ export default function PostListings({ category }) {
                       href={post.category.href}
                       className="hover:bg-slate-3-100 relative z-10 rounded-full bg-slate-5 px-3 py-1.5 font-medium text-slate-9"
                     >
-                      {post.category.title}
+                      {post?.category?.title}
                     </a>
                   </div>
                   <div className="group relative max-w-xl">
                     <h3 className="mt-3 text-lg font-semibold leading-6 text-slate-12 group-hover:text-slate-9">
                       <a href={post.href}>
                         <span className="absolute inset-0" />
-                        {post.title}
+                        {post?.title}
                       </a>
                     </h3>
                     <p className="mt-5 text-sm leading-6 text-slate-9">
