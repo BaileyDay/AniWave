@@ -1,6 +1,6 @@
 import { motion, useAnimation } from 'framer-motion'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import Link from 'next/link'
 import Logo from '../../components/common/Logo'
 import MobileLogo from '../../components/common/MobileLogo'
@@ -12,7 +12,7 @@ const HomeNav = () => {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [turtleVisible, setTurtleVisible] = useState(false)
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     if (window.scrollY > 0) {
       setNavClass(
         `${
@@ -28,13 +28,14 @@ const HomeNav = () => {
       setNavClass('lg:pt-12 lg:dark:bg-slatedark-1 bg-transparent')
       controls.start({ scale: 1, translateY: 0, transition: { duration: 0.3 } })
     }
-  }
+  }, [drawerOpen, controls])
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [drawerOpen])
+  }, [drawerOpen, handleScroll])
 
   const turtleAnimation = {
     hidden: { y: '100%', opacity: 0 },
