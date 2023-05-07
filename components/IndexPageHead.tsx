@@ -9,17 +9,17 @@ export interface IndexPageHeadProps {
 }
 
 export default function IndexPageHead({ settings }: IndexPageHeadProps) {
-  const {
-    title = demo.title,
-    description = demo.description,
-    ogImage = {},
-  } = settings
-  const ogImageTitle = ogImage?.title || demo.ogImageTitle
+  // const {
+  //   title = 'AniWave',
+  //   description = demo.description,
+  //   ogImage = {},
+  // } = settings
+  // const ogImageTitle = ogImage?.title || demo.ogImageTitle
 
   return (
     <Head>
-      <title>{title}</title>
-      <BlogMeta />
+      <title>AniWave</title>
+      {/* <BlogMeta />
       <meta
         key="description"
         name="description"
@@ -34,7 +34,7 @@ export default function IndexPageHead({ settings }: IndexPageHeadProps) {
         content={`${
           process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : ''
         }/api/og?${new URLSearchParams({ title: ogImageTitle })}`}
-      />
+      /> */}
     </Head>
   )
 }
