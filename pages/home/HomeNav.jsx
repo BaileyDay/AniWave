@@ -49,13 +49,13 @@ const HomeNav = () => {
   }
 
   const navItems = [
-    { text: 'News', href: '/buy' },
-    { text: 'Reviews', href: '/lend' },
-    { text: 'Streaming', href: '/borrow' },
-    { text: 'Manga', href: '/staking' },
-    { text: 'Events', href: '/tax' },
-    { text: 'Culture', href: '/nft' },
-    { text: 'Merchandise', href: '/news' },
+    { text: 'News', href: '/category/news' },
+    { text: 'Reviews', href: '/category/news' },
+    { text: 'Streaming', href: '/category/streaming' },
+    { text: 'Manga', href: '/category/manga' },
+    { text: 'Events', href: '/category/events' },
+    { text: 'Culture', href: '/category/culture' },
+    { text: 'Merchandise', href: '/category/merchandise' },
   ]
 
   const drawerStyle = drawerOpen
@@ -119,11 +119,7 @@ const HomeNav = () => {
                   </button>
                 </div>
 
-                <Link
-                  href="https://AniWave.io/"
-                  className="justify-center"
-                  title="AniWave Home"
-                >
+                <Link href="/" className="justify-center" title="AniWave Home">
                   <div className="hidden lg:block">
                     <Logo />
                   </div>

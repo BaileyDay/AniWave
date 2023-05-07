@@ -25,7 +25,7 @@ const GlobalNav = () => {
         transition: { duration: 0.2 },
       })
     } else {
-      setNavClass('lg:pt-12 lg:dark:bg-slatedark-1 bg-transparent')
+      setNavClass('lg:pt-12 lg:dark:bg-slatedark-1')
       controls.start({ scale: 1, translateY: 0, transition: { duration: 0.3 } })
     }
   }, [drawerOpen, controls])
@@ -44,18 +44,22 @@ const GlobalNav = () => {
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen)
-
     setTurtleVisible(!turtleVisible)
   }
 
+  const closeDrawer = () => {
+    setDrawerOpen(false)
+    setTurtleVisible(false)
+  }
+
   const navItems = [
-    { text: 'News', href: '/buy' },
-    { text: 'Reviews', href: '/lend' },
-    { text: 'Streaming', href: '/borrow' },
-    { text: 'Manga', href: '/staking' },
-    { text: 'Events', href: '/tax' },
-    { text: 'Culture', href: '/nft' },
-    { text: 'Merchandise', href: '/news' },
+    { text: 'News', href: '/category/news' },
+    { text: 'Reviews', href: '/category/reviews' },
+    { text: 'Streaming', href: '/category/streaming' },
+    { text: 'Manga', href: '/category/manga' },
+    { text: 'Events', href: '/category/events' },
+    { text: 'Culture', href: '/category/culture' },
+    { text: 'Merchandise', href: '/category/merchandise' },
   ]
 
   const drawerStyle = drawerOpen
@@ -65,7 +69,7 @@ const GlobalNav = () => {
   return (
     <motion.div>
       <nav
-        className={`fixed inset-x-0 left-0 top-0 z-50 flex h-[74px] w-full items-center  bg-blue-11 px-4 py-4 transition-all delay-100 duration-300 ease-in-out  lg:h-24 lg:bg-transparent lg:px-32  ${navClass}`}
+        className={`fixed inset-x-0 left-0 top-0 z-50 flex h-[74px] w-full items-center bg-blue-11 px-4  py-4 transition-all delay-100 duration-300 ease-in-out lg:h-24 lg:bg-slate-1  lg:px-32 lg:dark:bg-slatedark-1  ${navClass}`}
       >
         <motion.div
           className="w-full"
@@ -119,11 +123,7 @@ const GlobalNav = () => {
                   </button>
                 </div>
 
-                <Link
-                  href="https://aniwave.io/"
-                  className="justify-center"
-                  title="AniWave Home"
-                >
+                <Link href="/" className="justify-center" title="AniWave Home">
                   <div className="hidden lg:block">
                     <Logo />
                   </div>
@@ -241,6 +241,7 @@ const GlobalNav = () => {
                 <Link
                   className="text-white focus:text-milkroad-blue-500 group relative inline-block overflow-hidden py-2 text-5xl font-black hover:text-blue-5"
                   href={href}
+                  onClick={closeDrawer}
                 >
                   <span className="relative z-10">{text}</span>
                   <span className="bg-white absolute inset-0 inline-block translate-y-[101%]  transition duration-300 ease-in-out group-hover:translate-y-0 group-focus:translate-y-0"></span>
