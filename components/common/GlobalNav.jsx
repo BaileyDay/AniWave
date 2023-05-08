@@ -148,7 +148,7 @@ const GlobalNav = () => {
                     </li>
                     <li>
                       <Link
-                        href="category/news"
+                        href="/category/news"
                         title="News"
                         className="block  text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
@@ -157,7 +157,7 @@ const GlobalNav = () => {
                     </li>
                     <li>
                       <Link
-                        href="category/reviews"
+                        href="/category/reviews"
                         title="Reviews"
                         className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
@@ -166,7 +166,7 @@ const GlobalNav = () => {
                     </li>
                     <li>
                       <Link
-                        href="category/streaming"
+                        href="/category/streaming"
                         title="Streaming"
                         className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
@@ -175,7 +175,7 @@ const GlobalNav = () => {
                     </li>
                     <li>
                       <Link
-                        href="category/Manga"
+                        href="/category/manga"
                         title="Manga"
                         className="block flex-none text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
@@ -184,7 +184,7 @@ const GlobalNav = () => {
                     </li>
                     <li>
                       <Link
-                        href="category/events"
+                        href="/category/events"
                         title="Events"
                         className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
@@ -193,7 +193,7 @@ const GlobalNav = () => {
                     </li>
                     <li>
                       <Link
-                        href="category/culture"
+                        href="/category/culture"
                         title="Culture"
                         className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
@@ -202,7 +202,7 @@ const GlobalNav = () => {
                     </li>
                     <li>
                       <Link
-                        href="category/merchandise"
+                        href="/category/merchandise"
                         title="Merchandise"
                         className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
                       >
@@ -212,7 +212,7 @@ const GlobalNav = () => {
                   </ul>
                 </div>
                 <Link
-                  href="subscribe"
+                  href="/subscribe"
                   type="button"
                   className="ml-8 inline-flex  flex-none rounded-full border border-slate-1 p-2 text-center text-sm
                   font-light text-blue-1 transition duration-300  ease-in-out hover:text-slate-1 focus:outline-none focus:ring-4 lg:mr-0 lg:rounded-xl lg:border-2 lg:border-none lg:bg-gradient-to-br lg:from-blue-10 lg:to-sky-10 lg:px-10  lg:py-6 lg:font-semibold lg:hover:from-blue-11 lg:hover:to-sky-11"

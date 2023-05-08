@@ -172,7 +172,7 @@ export default function PostListings({ category }) {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-12 sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-blue-11 sm:text-4xl">
             {category?.title}
           </h2>
           <p className="mt-2 text-lg leading-8 text-slate-9">
@@ -194,7 +194,7 @@ export default function PostListings({ category }) {
                 </div>
                 <div>
                   <div className="flex items-center gap-x-4 text-xs">
-                    <time dateTime={post.datetime} className="text-slate-50">
+                    <time dateTime={post.datetime} className="text-slate-8">
                       {post.date}
                     </time>
                     <a
@@ -205,7 +205,7 @@ export default function PostListings({ category }) {
                     </a>
                   </div>
                   <div className="group relative max-w-xl">
-                    <h3 className="mt-3 text-lg font-semibold leading-6 text-slate-12 group-hover:text-slate-9">
+                    <h3 className="mt-3 text-lg font-semibold leading-6 text-slate-12 group-hover:text-slate-9 dark:text-slatedark-12">
                       <a href={post.href}>
                         <span className="absolute inset-0" />
                         {post?.title}
@@ -223,13 +223,13 @@ export default function PostListings({ category }) {
                         className="h-10 w-10 rounded-full bg-slate-5"
                       />
                       <div className="text-sm leading-6">
-                        <p className="font-semibold text-slate-12">
+                        <p className="font-semibold text-slate-12 dark:text-slatedark-12">
                           <a href={post.author.href}>
-                            <span className="absolute inset-0" />
+                            <span className="absolute inset-0 dark:text-slatedark-12" />
                             {post.author.name}
                           </a>
                         </p>
-                        <p className="text-slate-9">{post.author.role}</p>
+                        <p className="text-blue-11">{post.author.role}</p>
                       </div>
                     </div>
                   </div>
@@ -241,7 +241,7 @@ export default function PostListings({ category }) {
             <div className="mt-8 text-center">
               <button
                 onClick={loadMorePosts}
-                className="text-white rounded bg-slate-9 px-6 py-2 hover:bg-slate-11"
+                className="rounded bg-blue-9 px-6 py-2 text-slate-1 hover:bg-blue-11"
               >
                 Load More
               </button>
