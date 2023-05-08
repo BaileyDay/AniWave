@@ -57,9 +57,10 @@ const Subscribe = () => {
             <div class="mx-auto max-w-screen-md text-left">
               <h2 class="mb-4 text-5xl font-extrabold tracking-tight dark:text-slatedark-12">
                 Immerse yourself in the world of <br class="lg:hidden" />
-                <span class="text-blue-9 lg:text-slate-1">
-                  Anime
-                </span> &amp;{' '}
+                <span class="text-blue-9 lg:text-slate-1">Anime</span>{' '}
+                <span className="text-slate-12 dark:text-slatedark-12">
+                  &amp;{' '}
+                </span>
                 <span class="text-blue-9 lg:text-slate-1">Manga</span>
               </h2>
               <p class="mb-6 font-light text-slate-9 dark:text-slate-8 lg:text-lg lg:text-slate-11">
