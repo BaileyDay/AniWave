@@ -55,7 +55,7 @@ const Subscribe = () => {
         <section class="-mt-12 flex items-center bg-slate-1 dark:bg-slatedark-1 ">
           <div class="z-10 mx-auto max-w-screen-xl px-4">
             <div class="mx-auto max-w-screen-md text-left">
-              <h2 class="dark:text-white mb-4 text-5xl font-extrabold tracking-tight">
+              <h2 class="mb-4 text-5xl font-extrabold tracking-tight dark:text-slatedark-12">
                 Immerse yourself in the world of <br class="lg:hidden" />
                 <span class="text-blue-9 lg:text-slate-1">
                   Anime
