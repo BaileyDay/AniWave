@@ -24,7 +24,7 @@ const Subscribe = () => {
           id="visual"
           viewBox="0 0 900 600"
           preserveAspectRatio="none"
-          className="z-20 fill-slate-1 lg:hidden lg:w-[50%]"
+          className="z-20 fill-slate-1 dark:fill-slatedark-1 lg:hidden lg:w-[50%]"
         >
           <path
             d="M0 458L37.5 435C75 412 150 366 225 363.8C300 361.7 375 403.3 450 393.7C525 384 600 323 675 274.3C750 225.7 825 189.3 862.5 171.2L900 153L900 601L862.5 601C825 601 750 601 675 601C600 601 525 601 450 601C375 601 300 601 225 601C150 601 75 601 37.5 601L0 601Z"
@@ -36,7 +36,7 @@ const Subscribe = () => {
           id="visual"
           viewBox="100 200 1000 200"
           preserveAspectRatio="none"
-          className="hidden w-[150%] fill-slate-1 lg:block"
+          className="hidden w-[150%] fill-slate-1 dark:fill-slatedark-1 lg:block"
         >
           <path
             d="M0 458L37.5 435C75 412 150 366 225 363.8C300 361.7 375 403.3 450 393.7C525 384 600 323 675 274.3C750 225.7 825 189.3 862.5 171.2L900 153L900 601L862.5 601C825 601 750 601 675 601C600 601 525 601 450 601C375 601 300 601 225 601C150 601 75 601 37.5 601L0 601Z"
@@ -88,7 +88,7 @@ const Subscribe = () => {
                       </svg>
                     </div>
                     <input
-                      class="focus:ring-primary-500 dark:bg-gray-700 dark:text-white dark:focus:ring-primary-500 block w-full rounded-3xl border border-none bg-slate-3  p-8 pl-10 text-sm text-slate-12 focus:border-blue-8 dark:border-slate-8 dark:placeholder-slate-4 dark:focus:border-blue-8"
+                      class="focus:ring-primary-500 dark:bg-gray-700 dark:text-white dark:focus:ring-primary-500 block w-full rounded-3xl border border-none bg-slate-3  p-8 pl-10 text-sm text-slate-12 focus:border-blue-8 dark:border-slate-8 dark:placeholder-slate-11 dark:focus:border-blue-8"
                       placeholder="Enter your email"
                       type="email"
                       name="member[email]"
