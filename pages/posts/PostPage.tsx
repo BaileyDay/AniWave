@@ -191,8 +191,8 @@ export default function PostPage(props: PostPageProps) {
                         Get the best of Flowbite News delivered to your inbox
                       </h4>
                       <p className="text-gray-500 dark:text-gray-400 mb-4 text-sm font-light">
-                        Subscribe our newsletter for latest world news. Let's
-                        stay updated!
+                        Subscribe our newsletter for latest world news.
+                        Let&apos;s stay updated!
                       </p>
                       <form action="#">
                         <label htmlFor="name-icon" className="sr-only">
@@ -326,8 +326,8 @@ export default function PostPage(props: PostPageProps) {
                         </div>
                       </div>
                       <p className="text-gray-500 dark:text-gray-400 mb-4 text-sm font-light">
-                        Hey! I'm Jese Leos. I'm a career-changer. Bootcamp grad
-                        & Dev.
+                        Hey! I&apos;m Jese Leos. I&apos;m a career-changer.
+                        Bootcamp grad & Dev.
                       </p>
                       <button
                         type="button"
@@ -482,7 +482,7 @@ export default function PostPage(props: PostPageProps) {
                       </a>
                       <h2 className="mb-2 text-xl font-bold leading-tight text-slatedark-1 dark:text-slate-1">
                         <a href="#">
-                          For developers, too many meetings, too little 'focus'
+                          For developers, too many meetings, too little focus
                           time
                         </a>
                       </h2>
