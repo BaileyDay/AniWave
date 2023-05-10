@@ -1,4 +1,3 @@
-import Container from 'pages/posts/BlogContainer'
 import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
 import MoreStories from 'components/MoreStories'
@@ -9,12 +8,14 @@ import PostTitle from 'components/PostTitle'
 import SectionSeparator from 'components/SectionSeparator'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
-import { notFound } from 'next/navigation'
-import GlobalNav from '../../components/common/GlobalNav'
-import GlobalFooter from '../../components/common/GlobalFooter'
-import ScrollingShare from './ScrollingShare'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
+
+import GlobalFooter from '../../components/common/GlobalFooter'
+import GlobalNav from '../../components/common/GlobalNav'
 import AniwavePromise from './AniwavePromise'
+import Container from './BlogContainer'
+import ScrollingShare from './ScrollingShare'
 
 export interface PostPageProps {
   preview?: boolean
@@ -92,8 +93,11 @@ export default function PostPage(props: PostPageProps) {
                         </div>
                       </div>
                       <div className="flex pb-2">
-                        <span>{post?.readTime} Min Read</span>
-                        <button className="ml-2 text-blue-9 underline">
+                        <span>
+                          <i className="fa-regular fa-clock mr-1 text-slate-12"></i>
+                          {post?.readTime} Min Read
+                        </span>
+                        <button className="ml-2 text-blue-11 underline">
                           Advertising Disclosure
                         </button>
                       </div>

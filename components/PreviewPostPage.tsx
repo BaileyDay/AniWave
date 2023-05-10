@@ -1,4 +1,5 @@
-import PostPage, { PostPageProps } from 'pages/posts/PostPage'
+import PostPage from '../components/posts/PostPage'
+import { PostPageProps } from '../components/posts/PostPage'
 import { usePreview } from 'lib/sanity.preview'
 import { type Post, postAndMoreStoriesQuery } from 'lib/sanity.queries'
 

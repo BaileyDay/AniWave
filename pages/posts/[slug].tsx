@@ -1,5 +1,5 @@
 import { PreviewSuspense } from '@sanity/preview-kit'
-import PostPage from 'pages/posts/PostPage'
+import PostPage from '../../components/posts/PostPage'
 import {
   getAllPostsSlugs,
   getPostAndMoreStories,

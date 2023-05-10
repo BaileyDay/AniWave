@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
 import React from 'react'
 import GlobalNav from '../../components/common/GlobalNav'
-import PostListings from './PostListings'
+import PostListings from '../../components/category/PostListings'
 import GlobalFooter from '../../components/common/GlobalFooter'
 
 // Mock data
