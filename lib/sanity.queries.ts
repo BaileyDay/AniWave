@@ -4,6 +4,7 @@ const postFields = groq`
   _id,
   title,
   date,
+  readTime,
   excerpt,
   coverImage,
   "slug": slug.current,
@@ -49,6 +50,7 @@ export interface Post {
   title?: string
   coverImage?: any
   date?: string
+  readTime?: number
   excerpt?: string
   author?: Author
   slug?: string

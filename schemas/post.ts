@@ -76,6 +76,13 @@ export default defineType({
       type: 'array',
       of: [{ type: 'reference', to: { type: 'tag' } }],
     }),
+    defineField({
+      name: 'readTime',
+      title: 'Read Time',
+      type: 'number',
+      description: 'Estimated read time in minutes',
+      validation: (Rule) => Rule.integer().positive(),
+    }),
   ],
   preview: {
     select: {
