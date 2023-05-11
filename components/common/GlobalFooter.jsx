@@ -1,4 +1,44 @@
 import Logo from './Logo'
+import Link from 'next/link'
+
+const footerLinks = [
+  {
+    category: 'About',
+    links: [
+      { name: 'About Us', url: '/about' },
+      { name: 'Contact Us', url: '/contact' },
+      { name: 'Privacy Policy', url: '/privacy-policy' },
+      { name: 'Terms of Service', url: '/terms-of-service' },
+    ],
+  },
+  {
+    category: 'Most Popular',
+    links: [
+      { name: 'Top Anime Series', url: '#' },
+      { name: 'Upcoming Anime Releases', url: '#' },
+      { name: 'Anime Merchandise', url: '#' },
+      { name: 'Anime Movie Reviews', url: '#' },
+    ],
+  },
+  {
+    category: 'Explore',
+    links: [
+      { name: 'Anime Genre Guide', url: '#' },
+      { name: 'Studio Spotlights', url: '#' },
+      { name: 'Voice Actors Profiles', url: '#' },
+    ],
+  },
+  {
+    category: 'Community',
+    links: [
+      { name: 'AniWave Discord Server', url: '#' },
+      { name: 'AniWave Contests', url: '#' },
+      { name: 'Local Anime Events', url: '#' },
+      { name: 'AniWave Collaborations', url: '#' },
+    ],
+  },
+]
+
 const GlobalFooter = () => {
   return (
     <>
@@ -121,114 +161,23 @@ const GlobalFooter = () => {
                 </li>
               </ul>
             </div>
-            <div class="lg:mx-auto">
-              <h2 class="text-gray-900 dark:text-white mb-6 text-sm font-semibold uppercase">
-                About
-              </h2>
-              <ul class="text-gray-500 dark:text-gray-400">
-                <li class="mb-4">
-                  <a href="#" class=" hover:underline">
-                    About Us
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Contact Us
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Terms of Service
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Discord Server
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="lg:mx-auto">
-              <h2 class="text-gray-900 dark:text-white mb-6 text-sm font-semibold uppercase">
-                Most Popular
-              </h2>
-              <ul class="text-gray-500 dark:text-gray-400">
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Top Anime Series
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Upcoming Anime Releases
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Anime Merchandise
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Anime Movie Reviews
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="lg:mx-auto">
-              <h2 class="text-gray-900 dark:text-white mb-6 text-sm font-semibold uppercase">
-                Explore
-              </h2>
-              <ul class="text-gray-500 dark:text-gray-400">
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Anime Genre Guide
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Studio Spotlights
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Voice Actors Profiles
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="lg:mx-auto">
-              <h2 class="text-gray-900 dark:text-white mb-6 text-sm font-semibold uppercase">
-                Community
-              </h2>
-              <ul class="text-gray-500 dark:text-gray-400">
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    AniWave Discord Server
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    AniWave Contests
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    Local Anime Events
-                  </a>
-                </li>
-                <li class="mb-4">
-                  <a href="#" class="hover:underline">
-                    AniWave Collaborations
-                  </a>
-                </li>
-              </ul>
-            </div>
+
+            {footerLinks.map((category) => (
+              <div className="lg:mx-auto" key={category.category}>
+                <h2 className="text-gray-900 dark:text-white mb-6 text-sm font-semibold uppercase">
+                  {category.category}
+                </h2>
+                <ul className="text-gray-500 dark:text-gray-400">
+                  {category.links.map((link) => (
+                    <li className="mb-4" key={link.name}>
+                      <Link href={link.url} className="hover:underline">
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
           <hr class="border-gray-200 dark:border-gray-700 my-6 sm:mx-auto lg:my-8" />
           <span className="text-gray-500 dark:text-gray-400 block text-center text-sm">

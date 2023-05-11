@@ -40,6 +40,16 @@ export const postBySlugQuery = groq`
 }
 `
 
+export const pageBySlugQuery = `*[_type == "page" && slug.current == $slug][0]{
+  title,
+  body,
+  slug
+}`
+
+export const pageSlugsQuery = `*[_type == "page" && defined(slug.current)]{
+  "slug": slug.current
+}`
+
 export interface Author {
   name?: string
   picture?: any
@@ -62,5 +72,13 @@ export interface Settings {
   description?: any[]
   ogImage?: {
     title?: string
+  }
+}
+
+export interface Page {
+  title: string
+  body: any
+  slug: {
+    current: string
   }
 }
