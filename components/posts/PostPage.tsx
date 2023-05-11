@@ -1,7 +1,7 @@
 import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
 import MoreStories from 'components/MoreStories'
-import PostBody from 'components/PostBody'
+import PostBody from 'components/posts/PostBody'
 import PostHeader from 'components/PostHeader'
 import PostPageHead from 'components/PostPageHead'
 import PostTitle from 'components/PostTitle'
@@ -10,12 +10,17 @@ import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import GlobalFooter from '../../components/common/GlobalFooter'
 import GlobalNav from '../../components/common/GlobalNav'
+import AdvertisingModal from './AdvertisingModal'
 import AniwavePromise from './AniwavePromise'
 import Container from './BlogContainer'
 import ScrollingShare from './ScrollingShare'
+import SideBar from './SideBar'
+
+import { urlForImage } from 'lib/sanity.image'
 
 export interface PostPageProps {
   preview?: boolean
@@ -29,7 +34,31 @@ const NO_POSTS: Post[] = []
 
 export default function PostPage(props: PostPageProps) {
   const { preview, loading, morePosts = NO_POSTS, post, settings } = props
-  console.log(post)
+  const [disclosureOpen, setDisclosureOpen] = useState(false)
+  const [sectionTitles, setSectionTitles] = useState([])
+
+  useEffect(() => {
+    const titles = Array.from(document.querySelectorAll('.post-body h2')).map(
+      (h2) => {
+        // Transform the text content into a suitable id.
+        const id = `section-${h2.textContent
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')}`
+
+        // Add the id to the h2 element for linking.
+        h2.id = id
+
+        return {
+          id,
+          title: h2.textContent,
+        }
+      }
+    )
+
+    setSectionTitles(titles)
+  }, [post?.content])
+
+  console.log(sectionTitles)
   const slug = post?.slug
 
   if (!slug && !preview) {
@@ -47,9 +76,14 @@ export default function PostPage(props: PostPageProps) {
             <PostTitle>Loading…</PostTitle>
           ) : (
             <>
+              <AdvertisingModal
+                open={disclosureOpen}
+                setOpen={setDisclosureOpen}
+              />
               <main className="bg-slate-1 py-8 dark:bg-slatedark-1 lg:py-16">
                 <div className="mx-auto flex max-w-screen-xl justify-between px-4">
                   <ScrollingShare />
+
                   <article className="format format-sm sm:format-base lg:format-lg format-blue dark:format-invert mx-auto w-full p-4">
                     <header className="not-format mb-4 lg:mb-6">
                       <nav className="flex" aria-label="Breadcrumb"></nav>
@@ -57,22 +91,25 @@ export default function PostPage(props: PostPageProps) {
                       <h1 className="mb-2 text-3xl font-semibold leading-tight text-slatedark-1 dark:text-slate-1 lg:mb-6 lg:text-4xl">
                         {post?.title}
                       </h1>
+
                       <div className=" flex items-center justify-between  py-4">
                         <div className="mr-4 text-xl">
-                          <address className="inline font-light not-italic">
+                          <address className="inline font-light not-italic text-slate-12 dark:text-slatedark-12">
                             By{' '}
                             <Link
                               rel="author"
-                              className="font-bold text-slatedark-1 no-underline hover:underline dark:text-slate-1"
+                              className="font-bold text-slatedark-1 no-underline hover:underline dark:text-blue-9 "
                               href="#"
                             >
                               {post.author.name}
                             </Link>
                           </address>{' '}
                           <span>
-                            <span className="font-light">on </span>
+                            <span className="font-light text-slate-12 dark:text-slatedark-12">
+                              on{' '}
+                            </span>
                             <time
-                              className="font-semibold"
+                              className="font-semibold text-slate-12 dark:text-blue-9"
                               dateTime={post.date}
                               title={new Date(post.date).toLocaleDateString(
                                 'en-US',
@@ -93,278 +130,55 @@ export default function PostPage(props: PostPageProps) {
                         </div>
                       </div>
                       <div className="flex pb-2">
-                        <span>
-                          <i className="fa-regular fa-clock mr-1 text-slate-12"></i>
+                        <span className="dark:text-slatedark-12">
+                          <i className="fa-regular fa-clock mr-1 text-slate-12 dark:text-slatedark-12 "></i>
                           {post?.readTime} Min Read
                         </span>
-                        <button className="ml-2 text-blue-11 underline">
-                          Advertising Disclosure
-                        </button>
+                        <span className="mx-2 text-slate-12 dark:text-slatedark-12">
+                          •
+                        </span>
+                        <div>
+                          <i className="fa-regular fa-clipboard mr-1 text-slate-12 dark:text-slatedark-12"></i>
+                          <button
+                            className=" font-semibold text-blue-11"
+                            onClick={() => setDisclosureOpen(true)}
+                          >
+                            Advertising Disclosure
+                          </button>
+                        </div>
                       </div>
                       <AniwavePromise />
                     </header>
+                    <div>
+                      <p className="text-[1.25rem] text-slate-12 dark:text-slatedark-12">
+                        {post?.excerpt}
+                      </p>
+                    </div>
+                    <div className="mt-4 flex  w-full items-center gap-6 border-b border-t border-slate-8 bg-slate-1 py-6 pl-3  lg:hidden lg:border-slate-3 lg:px-10">
+                      On this Page
+                      <ul className="scrollbar-hide flex h-full flex-1 snap-x snap-mandatory items-center gap-8 overflow-x-auto overscroll-x-contain whitespace-nowrap lg:w-full lg:flex-col lg:items-start ">
+                        {sectionTitles.map(({ id, title }) => (
+                          <li key={id} className=" my-1 font-bold">
+                            <a href={`#${id}`}>{title}</a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    {/* <div className="relative h-64 w-full">
+                        <Image
+                          src={urlForImage(post?.coverImage).url()}
+                          alt={`Cover Image for ${post?.title}`}
+                          layout="fill"
+                          objectFit="cover"
+                          className="rounded-xl"
+                        />
+                      </div> */}
 
                     <div className="overflow-auto whitespace-normal">
                       <PostBody content={post?.content} />
                     </div>
                   </article>
-                  <aside
-                    className="hidden xl:block xl:w-80"
-                    aria-labelledby="sidebar-label"
-                  >
-                    <h3 id="sidebar-label" className="sr-only">
-                      Sidebar
-                    </h3>
-                    <div className="text-gray-500 border-gray-200 divide-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:divide-gray-700 mb-6 divide-y rounded-lg border bg-slate-1 p-5 font-medium shadow">
-                      <h4 className="mb-4 text-sm font-bold uppercase text-slatedark-1 dark:text-slate-1">
-                        Latest news
-                      </h4>
-                      <div className="flex items-center py-4">
-                        <a href="#" className="shrink-0">
-                          <img
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-1.png"
-                            className="mr-4 h-12 w-12 max-w-full rounded-lg"
-                            alt="Image 1"
-                          />
-                        </a>
-                        <a href="#">
-                          <h5 className="font-semibold leading-tight text-slatedark-1 hover:underline dark:text-slate-1">
-                            SaaS can help speed up Cybersecurity projects
-                          </h5>
-                        </a>
-                      </div>
-                      <div className="flex items-center py-4">
-                        <a href="#" className="shrink-0">
-                          <img
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-2.png"
-                            className="mr-4 h-12 w-12 max-w-full rounded-lg"
-                            alt="Image 2"
-                          />
-                        </a>
-                        <a href="#">
-                          <h5 className="font-semibold leading-tight text-slatedark-1 hover:underline dark:text-slate-1">
-                            Crunching large datasets made fast: Flowbite Library
-                          </h5>
-                        </a>
-                      </div>
-                      <div className="flex items-center py-4">
-                        <a href="#" className="shrink-0">
-                          <img
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-3.png"
-                            className="mr-4 h-12 w-12 max-w-full rounded-lg"
-                            alt="Image 2"
-                          />
-                        </a>
-                        <a href="#">
-                          <h5 className="font-semibold leading-tight text-slatedark-1 hover:underline dark:text-slate-1">
-                            Here’s how to make a react app with Flowbite Blocks
-                          </h5>
-                        </a>
-                      </div>
-                      <div className="flex items-center py-4">
-                        <a href="#" className="shrink-0">
-                          <img
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-2.png"
-                            className="mr-4 h-12 w-12 max-w-full rounded-lg"
-                            alt="Image 3"
-                          />
-                        </a>
-                        <a href="#">
-                          <h5 className="font-semibold leading-tight text-slatedark-1 hover:underline dark:text-slate-1">
-                            AI meets IoT: What is the artificial intelligence
-                          </h5>
-                        </a>
-                      </div>
-                      <div className="flex items-center pt-4">
-                        <a href="#" className="shrink-0">
-                          <img
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/image-1.png"
-                            className="mr-4 h-12 w-12 max-w-full rounded-lg"
-                            alt="Image 2"
-                          />
-                        </a>
-                        <a href="#">
-                          <h5 className="font-semibold leading-tight text-slatedark-1 hover:underline dark:text-slate-1">
-                            How to create a basic application with Flowbite
-                          </h5>
-                        </a>
-                      </div>
-                    </div>
-                    <div className="border-gray-200 dark:bg-gray-800 dark:border-gray-700 mb-6 rounded-lg border bg-slate-1 p-5 shadow">
-                      <h4 className="mb-2 font-semibold text-slatedark-1 dark:text-slate-1">
-                        Get the best of Flowbite News delivered to your inbox
-                      </h4>
-                      <p className="text-gray-500 dark:text-gray-400 mb-4 text-sm font-light">
-                        Subscribe our newsletter for latest world news.
-                        Let&apos;s stay updated!
-                      </p>
-                      <form action="#">
-                        <label htmlFor="name-icon" className="sr-only">
-                          Your Email
-                        </label>
-                        <div className="relative mb-4">
-                          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                            <svg
-                              aria-hidden="true"
-                              className="text-gray-500 dark:text-gray-400 h-5 w-5"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                                clip-rule="evenodd"
-                              ></path>
-                            </svg>
-                          </div>
-                          <input
-                            required
-                            type="text"
-                            id="name-icon"
-                            className="bg-gray-50 border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg  border p-2.5 pl-10 text-sm text-slatedark-1 dark:text-slate-1"
-                            placeholder="Your name"
-                          />
-                        </div>
-                        <div className="relative mb-4">
-                          <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                            <svg
-                              aria-hidden="true"
-                              className="text-gray-500 dark:text-gray-400 h-5 w-5"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                            </svg>
-                          </div>
-                          <input
-                            required
-                            type="email"
-                            id="email-address-icon"
-                            className="bg-gray-50 border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg  border p-2.5 pl-10 text-sm text-slatedark-1 dark:text-slate-1"
-                            placeholder="name@company.com"
-                          />
-                        </div>
-                        <button
-                          type="submit"
-                          className="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 mb-2 mr-2 w-full rounded-lg px-5 py-2.5 text-center text-sm font-medium text-slate-1 focus:outline-none focus:ring-4"
-                        >
-                          Subscribe
-                        </button>
-                      </form>
-                    </div>
-                    <div className="text-gray-500 border-gray-200 divide-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:divide-gray-700 mb-6 divide-y rounded-lg border bg-slate-1 p-5 font-medium shadow">
-                      <h4 className="mb-4 text-sm font-bold uppercase text-slatedark-1 dark:text-slate-1">
-                        Recent comments
-                      </h4>
-                      <div className="py-4">
-                        <p className="text-gray-500 dark:text-gray-400 font-light">
-                          Bonnie Green on{' '}
-                          <a
-                            href="#"
-                            className="font-medium italic text-slatedark-1 hover:underline dark:text-slate-1"
-                          >
-                            5 Ways SaaS Can Help Speed Up Cybersecurity
-                            Implementation
-                          </a>
-                        </p>
-                      </div>
-                      <div className="py-4">
-                        <p className="text-gray-500 dark:text-gray-400 font-light">
-                          Lana Byrd on{' '}
-                          <a
-                            href="#"
-                            className="font-medium italic text-slatedark-1 hover:underline dark:text-slate-1"
-                          >
-                            Jese Leos on Crunching Large Datasets Made Fast and
-                            Easy: the Polars Library
-                          </a>
-                        </p>
-                      </div>
-                      <div className="py-4">
-                        <p className="text-gray-500 dark:text-gray-400 font-light">
-                          Jese Leos on{' '}
-                          <a
-                            href="#"
-                            className="font-medium italic text-slatedark-1 hover:underline dark:text-slate-1"
-                          >
-                            Founders, ditch your long presentations. Here’s how
-                            to make ...
-                          </a>
-                        </p>
-                      </div>
-                      <div className="py-4">
-                        <p className="text-gray-500 dark:text-gray-400 font-light">
-                          Thomas Lean on{' '}
-                          <a
-                            href="#"
-                            className="font-medium italic text-slatedark-1 hover:underline dark:text-slate-1"
-                          >
-                            AI Meets IoT: What is the Artificial Intelligence of
-                            Things
-                          </a>
-                        </p>
-                      </div>
-                    </div>
-                    <div className="text-gray-500 border-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 mb-6 rounded-lg border bg-slate-1 p-5 font-medium shadow">
-                      <h4 className="mb-4 text-sm font-bold uppercase text-slatedark-1 dark:text-slate-1">
-                        Follow me
-                      </h4>
-                      <div className="mb-4 flex items-center">
-                        <div className="mr-3 shrink-0">
-                          <img
-                            className="mt-1 h-8 w-8 rounded-full"
-                            src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
-                            alt="Jese Leos"
-                          />
-                        </div>
-                        <div className="mr-3">
-                          <span className="block font-medium text-slatedark-1 dark:text-slate-1">
-                            Jese Leos
-                          </span>
-                          <span className="text-sm font-light">
-                            546k followers
-                          </span>
-                        </div>
-                      </div>
-                      <p className="text-gray-500 dark:text-gray-400 mb-4 text-sm font-light">
-                        Hey! I&apos;m Jese Leos. I&apos;m a career-changer.
-                        Bootcamp grad & Dev.
-                      </p>
-                      <button
-                        type="button"
-                        className="bg-primary-700 hover:bg-primary-800 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 w-full rounded-lg px-5 py-2.5 text-sm font-medium text-slate-1 focus:outline-none focus:ring-4"
-                      >
-                        Follow
-                      </button>
-                    </div>
-                    <div>
-                      <div className="bg-gray-100 dark:bg-gray-800 mb-3 flex h-48 w-full items-center justify-center rounded-lg">
-                        <svg
-                          aria-hidden="true"
-                          className="text-gray-400 h-8 w-8"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                      </div>
-                      <p className="text-gray-500 dark:text-gray-400 mb-2 text-sm font-light">
-                        Students and Teachers, save up to 60% on Flowbite
-                        Creative Cloud.
-                      </p>
-                      <p className="text-gray-400 dark:text-gray-500 text-xs font-light uppercase">
-                        Ads placeholder
-                      </p>
-                    </div>
-                  </aside>
+                  <SideBar sectionTitles={sectionTitles} />
                 </div>
               </main>
 

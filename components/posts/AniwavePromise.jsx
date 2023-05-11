@@ -1,8 +1,6 @@
-import React from 'react'
-
 const AniwavePromise = () => {
   return (
-    <div className="space-y-2 rounded-2xl bg-slate-3 p-5 text-sm dark:bg-slatedark-3">
+    <div className="space-y-2 rounded-2xl border-solid bg-slate-3 p-5 text-[0.88rem] text-sm leading-5 dark:bg-slatedark-3">
       <p className="font-semibold text-slate-12 dark:text-slatedark-12">
         The Aniwave Assurance
       </p>

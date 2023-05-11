@@ -5,10 +5,10 @@ const ScrollingShare = () => {
         className="relative ml-auto hidden xl:block"
         aria-labelledby="sidebar-label"
       >
-        <div className="sticky top-40 rounded-lg border border-slate-4 bg-slate-3 p-2 dark:border-slatedark-2 dark:bg-slatedark-1">
+        <div className="sticky top-40 rounded-lg border border-slate-4 bg-slate-3 p-2 dark:border-slatedark-3 dark:bg-slatedark-2">
           <button
             data-tooltip-target="share-twitter"
-            className="mb-2 flex items-center rounded-lg bg-slate-3 p-2 text-center text-sm font-medium text-slate-9 hover:bg-slate-4 focus:outline-none focus:ring-4 focus:ring-slate-3 dark:bg-slatedark-1 dark:text-slate-1 dark:hover:bg-slatedark-2 dark:focus:ring-slatedark-3"
+            className="mb-2 flex items-center rounded-lg bg-slate-3 p-2 text-center text-sm font-medium text-slate-9 hover:bg-slate-4 focus:outline-none focus:ring-4 focus:ring-slate-3 dark:bg-slatedark-2 dark:text-slate-1 dark:hover:bg-slatedark-2 dark:focus:ring-slatedark-3"
             type="button"
           >
             <svg
@@ -26,7 +26,7 @@ const ScrollingShare = () => {
           </button>
           <button
             data-tooltip-target="share-facebook"
-            className="mb-2 flex items-center rounded-lg bg-slate-3 p-2 text-center text-sm font-medium text-slate-9 hover:bg-slate-4 focus:outline-none focus:ring-4 focus:ring-slate-3 dark:bg-slatedark-1 dark:text-slate-1 dark:hover:bg-slatedark-2 dark:focus:ring-slatedark-3"
+            className="mb-2 flex items-center rounded-lg bg-slate-3 p-2 text-center text-sm font-medium text-slate-9 hover:bg-slate-4 focus:outline-none focus:ring-4 focus:ring-slate-3 dark:bg-slatedark-2 dark:text-slate-1 dark:hover:bg-slatedark-2 dark:focus:ring-slatedark-3"
             type="button"
           >
             <svg
@@ -60,7 +60,7 @@ const ScrollingShare = () => {
           </button>
           <button
             data-tooltip-target="share-reddit"
-            className="mb-2 flex items-center rounded-lg bg-slate-3 p-2 text-center text-sm font-medium text-slate-9 hover:bg-slate-4 focus:outline-none focus:ring-4 focus:ring-slate-3 dark:bg-slatedark-1 dark:text-slate-1 dark:hover:bg-slatedark-2 dark:focus:ring-slatedark-3"
+            className="mb-2 flex items-center rounded-lg bg-slate-3 p-2 text-center text-sm font-medium text-slate-9 hover:bg-slate-4 focus:outline-none focus:ring-4 focus:ring-slate-3 dark:bg-slatedark-2 dark:text-slate-1 dark:hover:bg-slatedark-2 dark:focus:ring-slatedark-3"
             type="button"
           >
             <svg
@@ -94,7 +94,7 @@ const ScrollingShare = () => {
           </button>
           <button
             data-tooltip-target="share-linkedin"
-            className="flex items-center rounded-lg bg-slate-3 p-2 text-center text-sm font-medium text-slate-9 hover:bg-slate-4 focus:outline-none focus:ring-4 focus:ring-slate-3 dark:bg-slatedark-1 dark:text-slate-1 dark:hover:bg-slatedark-2 dark:focus:ring-slatedark-3"
+            className="flex items-center rounded-lg bg-slate-3 p-2 text-center text-sm font-medium text-slate-9 hover:bg-slate-4 focus:outline-none focus:ring-4 focus:ring-slate-3 dark:bg-slatedark-2 dark:text-slate-1 dark:hover:bg-slatedark-2 dark:focus:ring-slatedark-3"
             type="button"
           >
             <svg
