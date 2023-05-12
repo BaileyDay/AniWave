@@ -3,13 +3,13 @@ import React from 'react'
 const Subscribe = () => {
   return (
     <>
-      <section class="mt-24 rounded-xl bg-slate-3 dark:bg-slate-9">
+      <section class="mt-24 rounded-xl bg-slate-3 dark:bg-slatedark-4">
         <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
           <div class="mx-auto max-w-screen-md sm:text-center">
-            <h2 class="text-gray-900 dark:text-white mb-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
+            <h2 class="text-gray-900 dark:text-white mb-4 text-3xl font-extrabold tracking-tight dark:text-slate-1 sm:text-4xl">
               🚀 Join the AniWave Universe! 🌌
             </h2>
-            <p class="mx-auto mb-8 max-w-xl font-light text-slate-12 dark:text-slate-8 sm:text-lg md:mb-12">
+            <p class="text-md mx-auto mb-8 max-w-xl font-light text-slate-12 dark:text-slate-8 sm:text-lg md:mb-12">
               By subscribing to our AniWave newsletter, you become a part of our
               close-knit otaku family. You&apos;ll get first dibs on the
               freshest anime news, insider peeks into upcoming releases, and

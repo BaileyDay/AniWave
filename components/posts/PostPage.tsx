@@ -155,7 +155,7 @@ export default function PostPage(props: PostPageProps) {
                         {post?.excerpt}
                       </p>
                     </div>
-                    <div className="mt-4 flex  w-full items-center gap-6 border-b border-t border-slate-8 bg-slate-1 py-6 pl-3  lg:hidden lg:border-slate-3 lg:px-10">
+                    <div className="mt-4 flex  w-full items-center gap-6 border-b border-t border-slate-8 bg-slate-1 py-6 pl-3 dark:bg-slatedark-1  dark:text-slatedark-12 lg:hidden lg:border-slate-3 lg:px-10">
                       On this Page
                       <ul className="scrollbar-hide flex h-full flex-1 snap-x snap-mandatory items-center gap-8 overflow-x-auto overscroll-x-contain whitespace-nowrap lg:w-full lg:flex-col lg:items-start ">
                         {sectionTitles.map(({ id, title }) => (
