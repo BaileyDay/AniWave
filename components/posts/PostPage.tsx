@@ -19,6 +19,7 @@ import AniwavePromise from './AniwavePromise'
 import Container from './BlogContainer'
 import ScrollingShare from './ScrollingShare'
 import SideBar from './SideBar'
+import EmailForm from '../common/EmailForm'
 
 import { urlForImage } from 'lib/sanity.image'
 
@@ -177,6 +178,7 @@ export default function PostPage(props: PostPageProps) {
                     <div className="overflow-auto whitespace-normal">
                       <PostBody content={post?.content} />
                     </div>
+                    <EmailForm />
                   </article>
                   <SideBar sectionTitles={sectionTitles} />
                 </div>
