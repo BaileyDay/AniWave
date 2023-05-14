@@ -155,6 +155,15 @@ export default function PostPage(props: PostPageProps) {
                         {post?.excerpt}
                       </p>
                     </div>
+                    <div className=" relative h-96 w-full rounded-xl">
+                      <Image
+                        src={urlForImage(post?.coverImage).url()}
+                        alt={`Cover Image for ${post?.title}`}
+                        layout="fill"
+                        objectFit="cover" // Change this line
+                        className="rounded-xl"
+                      />
+                    </div>
                     <div className="mt-4 flex  w-full items-center gap-6 border-b border-t border-slate-8 bg-slate-1 py-6 pl-3 dark:bg-slatedark-1  dark:text-slatedark-12 lg:hidden lg:border-slate-3 lg:px-10">
                       On this Page
                       <ul className="scrollbar-hide flex h-full flex-1 snap-x snap-mandatory items-center gap-8 overflow-x-auto overscroll-x-contain whitespace-nowrap lg:w-full lg:flex-col lg:items-start ">
@@ -165,15 +174,6 @@ export default function PostPage(props: PostPageProps) {
                         ))}
                       </ul>
                     </div>
-                    {/* <div className="relative h-64 w-full">
-                        <Image
-                          src={urlForImage(post?.coverImage).url()}
-                          alt={`Cover Image for ${post?.title}`}
-                          layout="fill"
-                          objectFit="cover"
-                          className="rounded-xl"
-                        />
-                      </div> */}
 
                     <div className="overflow-auto whitespace-normal">
                       <PostBody content={post?.content} />

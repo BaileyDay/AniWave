@@ -21,11 +21,17 @@ export const indexQuery = groq`
 export const postAndMoreStoriesQuery = groq`
 {
   "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
-    content,
+    content[]{
+      ...,
+      "asset": asset-> // This fetches the asset fields for the image blocks
+    },
     ${postFields}
   },
   "morePosts": *[_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
-    content,
+    content[]{
+      ...,
+      "asset": asset-> // This fetches the asset fields for the image blocks
+    },
     ${postFields}
   }
 }`
@@ -36,6 +42,10 @@ export const postSlugsQuery = groq`
 
 export const postBySlugQuery = groq`
 *[_type == "post" && slug.current == $slug][0] {
+  content[]{
+    ...,
+    "asset": asset-> // This fetches the asset fields for the image blocks
+  },
   ${postFields}
 }
 `
