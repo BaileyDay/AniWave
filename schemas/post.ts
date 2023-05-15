@@ -44,7 +44,33 @@ export default defineType({
       title: 'Content',
       type: 'array',
       of: [
-        { type: 'block' },
+        {
+          type: 'block',
+          marks: {
+            annotations: [
+              {
+                name: 'alignment',
+                type: 'object',
+                title: 'Text alignment',
+                fields: [
+                  {
+                    title: 'Align',
+                    name: 'align',
+                    type: 'string',
+                    options: {
+                      list: [
+                        { title: 'Left', value: 'left' },
+                        { title: 'Center', value: 'center' },
+                        { title: 'Right', value: 'right' },
+                      ],
+                      layout: 'radio', // <-- this will give you button-like options to select from
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        },
         {
           type: 'image',
           fields: [

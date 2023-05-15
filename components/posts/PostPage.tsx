@@ -82,7 +82,7 @@ export default function PostPage(props: PostPageProps) {
                 setOpen={setDisclosureOpen}
               />
               <main className="bg-slate-1 py-8 dark:bg-slatedark-1 lg:py-16">
-                <div className="mx-auto flex max-w-screen-xl justify-between px-4">
+                <div className="mx-auto flex max-w-screen-xl justify-between px-1 lg:px-4">
                   <ScrollingShare />
 
                   <article className="format format-sm sm:format-base lg:format-lg format-blue dark:format-invert mx-auto w-full p-4">
@@ -102,7 +102,7 @@ export default function PostPage(props: PostPageProps) {
                               className="font-bold text-slatedark-1 no-underline hover:underline dark:text-blue-9 "
                               href="#"
                             >
-                              {post.author.name}
+                              {post?.author.name}
                             </Link>
                           </address>{' '}
                           <span>
@@ -111,8 +111,8 @@ export default function PostPage(props: PostPageProps) {
                             </span>
                             <time
                               className="font-semibold text-slate-12 dark:text-blue-9"
-                              dateTime={post.date}
-                              title={new Date(post.date).toLocaleDateString(
+                              dateTime={post?.date}
+                              title={new Date(post?.date).toLocaleDateString(
                                 'en-US',
                                 {
                                   year: 'numeric',
@@ -151,11 +151,11 @@ export default function PostPage(props: PostPageProps) {
                       <AniwavePromise />
                     </header>
                     <div>
-                      <p className="text-[1.25rem] text-slate-12 dark:text-slatedark-12">
+                      <p className="text-[1.25rem] text-lg text-slate-12 dark:text-slatedark-12 lg:text-xl">
                         {post?.excerpt}
                       </p>
                     </div>
-                    <div className=" relative h-96 w-full rounded-xl">
+                    <div className="relative my-2 h-96 w-full rounded-xl">
                       <Image
                         src={urlForImage(post?.coverImage).url()}
                         alt={`Cover Image for ${post?.title}`}
