@@ -154,7 +154,7 @@ export default function PostPage(props: PostPageProps) {
                         {post?.excerpt}
                       </p>
                     </div>
-                    <div className="relative my-2 h-96 w-full rounded-xl">
+                    <div className="relative my-2 h-56 w-full rounded-xl lg:h-96">
                       <Image
                         src={urlForImage(post?.coverImage).url()}
                         alt={`Cover Image for ${post?.title}`}
