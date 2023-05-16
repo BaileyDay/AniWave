@@ -41,11 +41,11 @@ export default async function handler(req, res) {
       sitemap = value.toString()
     })
 
-    smStream.end()
-
     streamToPromise(smStream).then((sm) => {
       sitemap = sm.toString()
     })
+
+    smStream.end()
 
     smStream.pipe(res).on('error', (e) => {
       throw e
