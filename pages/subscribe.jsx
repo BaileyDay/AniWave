@@ -2,10 +2,14 @@ import React from 'react'
 import Image from 'next/image'
 import sideImage from '../public/side.png'
 import Logo from '../components/common/Logo'
+import Head from 'next/head'
 
 const Subscribe = () => {
   return (
     <div className="relative overflow-hidden">
+      <Head>
+        <title>Subscribe</title>
+      </Head>
       <div className="relative bg-gradient-to-br from-blue-9 to-sky-9 lg:h-2/3 lg:w-full ">
         <div className="  flex items-center justify-center">
           <div className="relative -left-16 top-24 lg:-left-64 lg:top-28">
