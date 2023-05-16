@@ -59,7 +59,6 @@ export default function PostPage(props: PostPageProps) {
     setSectionTitles(titles)
   }, [post?.content])
 
-  console.log(sectionTitles)
   const slug = post?.slug
 
   if (!slug && !preview) {

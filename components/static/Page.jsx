@@ -3,7 +3,6 @@ import GlobalNav from '../common/GlobalNav'
 import PostBody from 'components/posts/PostBody'
 
 const Page = ({ page }) => {
-  console.log(page)
   return (
     <>
       <GlobalNav />

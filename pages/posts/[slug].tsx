@@ -84,6 +84,7 @@ export const getStaticProps: GetStaticProps<
       preview,
       token: previewData.token ?? null,
     },
+    revalidate: 60, // The page will be regenerated after 60 seconds if a request comes in
   }
 }
 
