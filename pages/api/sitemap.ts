@@ -35,7 +35,7 @@ export default async function handler(req, res) {
       })
     })
 
-    // smStream.write({ url: '/about', changefreq: 'monthly', priority: 0.7 })
+    smStream.write({ url: '/subscribe', changefreq: 'monthly', priority: 0.7 })
 
     streamToPromise(smStream).then((value) => {
       sitemap = value.toString()
