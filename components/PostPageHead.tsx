@@ -11,19 +11,21 @@ export interface PostPageHeadProps {
 
 export default function PostPageHead({ settings, post }: PostPageHeadProps) {
   const title = settings.title ?? demo.title
+
+  const ogImageUrl = post.coverImage?.asset?._ref
+    ? urlForImage(post.coverImage).url()
+    : undefined
+
   return (
     <Head>
       <title>{post.title ? `${post.title} | ${title}` : title}</title>
       <BlogMeta />
-      {post.coverImage?.asset?._ref && (
-        <meta
-          property="og:image"
-          content={urlForImage(post.coverImage)
-            .width(1200)
-            .height(627)
-            .fit('crop')
-            .url()}
-        />
+      {ogImageUrl && (
+        <>
+          <meta property="og:image" content={ogImageUrl} />
+          <meta property="og:title" content={post.title} />
+          <meta property="og:description" content={post.excerpt} />
+        </>
       )}
     </Head>
   )

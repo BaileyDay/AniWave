@@ -8,6 +8,7 @@ import {
 import { Post, Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import { lazy } from 'react'
+import Head from 'next/head'
 
 const PreviewPostPage = lazy(() => import('components/PreviewPostPage'))
 
@@ -53,7 +54,11 @@ export default function ProjectSlugRoute(props: PageProps) {
     )
   }
 
-  return <PostPage post={post} morePosts={morePosts} settings={settings} />
+  return (
+    <>
+      <PostPage post={post} morePosts={morePosts} settings={settings} />
+    </>
+  )
 }
 
 export const getStaticProps: GetStaticProps<
