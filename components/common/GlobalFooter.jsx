@@ -51,30 +51,30 @@ const GlobalFooter = () => {
       >
         <path d="M0 514L37.5 522.2C75 530.3 150 546.7 225 551.3C300 556 375 549 450 530C525 511 600 480 675 475.2C750 470.3 825 491.7 862.5 502.3L900 513L900 601L862.5 601C825 601 750 601 675 601C600 601 525 601 450 601C375 601 300 601 225 601C150 601 75 601 37.5 601L0 601Z"></path>
       </svg>
-      <footer class="bg-slate-4 dark:bg-slatedark-2 dark:text-slatedark-12">
-        <div class="lg:-10 mx-auto max-w-screen-xl p-4 py-6 md:p-8">
-          <div class="grid grid-cols-2 gap-8 lg:grid-cols-6">
-            <div class="col-span-2">
+      <footer className="bg-slate-4 dark:bg-slatedark-2 dark:text-slatedark-12">
+        <div className="lg:-10 mx-auto max-w-screen-xl p-4 py-6 md:p-8">
+          <div className="grid grid-cols-2 gap-8 lg:grid-cols-6">
+            <div className="col-span-2">
               <a
                 href="https://aniwave.io"
-                class="text-gray-900 dark:text-white mb-2 flex items-center text-2xl font-semibold sm:mb-0"
+                className="text-gray-900 dark:text-white mb-2 flex items-center text-2xl font-semibold sm:mb-0"
               >
                 <Logo />
               </a>
-              <p class="text-gray-500 dark:text-gray-400 my-4 font-light">
+              <p className="text-gray-500 dark:text-gray-400 my-4 font-light">
                 AniWave is your ultimate destination for all things anime,
                 offering a unique media publishing site and newsletter to keep
                 you updated on the latest trends, news, and insights in the
                 anime world.
               </p>
-              <ul class="mt-5 flex space-x-6">
+              <ul className="mt-5 flex space-x-6">
                 <li>
                   <a
                     href="#"
-                    class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                    className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
                   >
                     <svg
-                      class="h-5 w-5"
+                      className="h-5 w-5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -90,10 +90,10 @@ const GlobalFooter = () => {
                 <li>
                   <a
                     href="#"
-                    class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                    className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
                   >
                     <svg
-                      class="h-5 w-5"
+                      className="h-5 w-5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -109,10 +109,10 @@ const GlobalFooter = () => {
                 <li>
                   <a
                     href="#"
-                    class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                    className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
                   >
                     <svg
-                      class="h-5 w-5"
+                      className="h-5 w-5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -124,10 +124,10 @@ const GlobalFooter = () => {
                 <li>
                   <a
                     href="#"
-                    class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                    className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
                   >
                     <svg
-                      class="h-5 w-5"
+                      className="h-5 w-5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -143,10 +143,10 @@ const GlobalFooter = () => {
                 <li>
                   <a
                     href="#"
-                    class="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                    className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
                   >
                     <svg
-                      class="h-5 w-5"
+                      className="h-5 w-5"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
@@ -179,7 +179,7 @@ const GlobalFooter = () => {
               </div>
             ))}
           </div>
-          <hr class="border-gray-200 dark:border-gray-700 my-6 sm:mx-auto lg:my-8" />
+          <hr className="border-gray-200 dark:border-gray-700 my-6 sm:mx-auto lg:my-8" />
           <span className="text-gray-500 dark:text-gray-400 block text-center text-sm">
             © {new Date().getFullYear()}{' '}
             <a href="#" className="hover:underline">
