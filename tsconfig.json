@@ -27,7 +27,8 @@
     "**/*.tsx",
     "./**/*.d.ts",
     ".next/types/**/*.ts",
-    "schemas/page.js"
+    "schemas/page.js",
+    "pages/category/[slug].jsx"
   ],
   "exclude": ["node_modules"]
 }

@@ -1,10 +1,11 @@
-// pages/categories/[slug].tsx
-import { GetStaticPaths, GetStaticProps } from 'next'
+// pages/category/[slug].jsx
+
 import { useRouter } from 'next/router'
 import React from 'react'
 import GlobalNav from '../../components/common/GlobalNav'
 import PostListings from '../../components/category/PostListings'
 import GlobalFooter from '../../components/common/GlobalFooter'
+import { getPostsByTag } from 'lib/sanity.client'
 
 // Mock data
 const mockCategories = [
@@ -71,14 +72,19 @@ export const getStaticProps = async ({ params }) => {
     }
   }
 
+  let posts = await getPostsByTag(slug)
+
+  console.log(`Posts for category ${slug}: `, posts) // Add this line
+
   return {
     props: {
       category,
+      posts,
     },
   }
 }
 
-const CategoryPage = ({ category }) => {
+const CategoryPage = ({ category, posts }) => {
   const router = useRouter()
 
   if (router.isFallback) {
@@ -89,7 +95,7 @@ const CategoryPage = ({ category }) => {
     <>
       <GlobalNav />
       <div className="lg:mt-24">
-        <PostListings category={category} />
+        <PostListings category={category} posts={posts} />
       </div>
       <GlobalFooter />
     </>

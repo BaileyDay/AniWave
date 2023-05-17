@@ -60,6 +60,12 @@ export const pageSlugsQuery = `*[_type == "page" && defined(slug.current)]{
   "slug": slug.current
 }`
 
+export const postsByTagQuery = groq`
+*[_type == "post" && references(*[_type == "tag" && slug.current == $tag]._id)] {
+  ${postFields}
+} | order(date desc)
+`
+
 export interface Author {
   name?: string
   picture?: any
