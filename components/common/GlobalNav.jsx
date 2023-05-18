@@ -69,7 +69,7 @@ const GlobalNav = () => {
   return (
     <motion.div>
       <nav
-        className={`fixed inset-x-0 left-0 top-0 z-50 flex h-[74px] w-full items-center bg-blue-11 px-4  py-4 transition-all delay-100 duration-300 ease-in-out lg:h-24 lg:bg-slate-1  lg:px-32 lg:dark:bg-slatedark-1  ${navClass}`}
+        className={`fixed inset-x-0 left-0 top-0 z-50 mx-auto flex h-[74px] w-full items-center bg-blue-11  px-4 py-4 transition-all delay-100 duration-300 ease-in-out lg:h-24  lg:bg-slate-1 lg:px-32 lg:dark:bg-slatedark-1  ${navClass}`}
       >
         <motion.div
           className="w-full"
