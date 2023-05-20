@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import WavingTurtle from '../../public/turtlewaving.svg'
+import Yuki from '../../public/yuki.png'
 
 const HomeHero = () => {
   return (
@@ -22,12 +22,9 @@ const HomeHero = () => {
             top: '80%',
             transform: 'translate(-50%, -50%)',
           }}
-          className="absolute z-10 w-1/2 overflow-hidden"
+          className="s/12 absolute z-10 w-1/3 overflow-hidden"
         >
-          <Image
-            src={WavingTurtle}
-            className="z-10 overflow-hidden lg:hidden "
-          />
+          <Image src={Yuki} className="z-10 overflow-hidden lg:hidden " />
         </div>
       </div>
       <div className=" relative z-10 mt-4 w-full overflow-hidden bg-slate-1 px-4 pb-32 dark:bg-slatedark-1 lg:mt-32 lg:flex lg:h-full lg:items-center lg:bg-transparent lg:p-48 lg:pt-32">
@@ -112,10 +109,11 @@ const HomeHero = () => {
               top: '80%',
               transform: 'translate(-50%, -50%)',
             }}
-            className="absolute z-10 w-1/2 "
+            className="absolute z-10 w-3/12
+             "
           >
             <Image
-              src={WavingTurtle}
+              src={Yuki}
               className="z-10 hidden overflow-hidden lg:block"
             />
           </div>
