@@ -11,5 +11,8 @@ export default function PreviewIndexPage({ token }: { token: null | string }) {
   const posts: Post[] = usePreview(token, indexQuery) || []
   const settings: Settings = usePreview(token, settingsQuery) || {}
 
-  return <IndexPage preview posts={posts} settings={settings} newsArticles={newsArticles} />
+  return (
+    // <IndexPage preview posts={posts} settings={settings} />
+    <h1>Hello</h1>
+  )
 }
