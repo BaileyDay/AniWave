@@ -56,10 +56,10 @@ const Subscribe = () => {
             className="hidden rounded-3xl shadow-xl lg:block"
           />
         </div>
-        <section class="-mt-20 flex items-center bg-slate-1 dark:bg-slatedark-1 ">
+        <section class="-mt-16 flex items-center bg-slate-1 dark:bg-slatedark-1 ">
           <div class="z-10 mx-auto max-w-screen-xl px-2">
             <div class="mx-auto max-w-screen-md text-left">
-              <h2 class="mb-2 text-4xl font-extrabold tracking-tight dark:text-slatedark-12">
+              <h2 class="mb-2 text-5xl font-extrabold tracking-tight dark:text-slatedark-12">
                 Immerse yourself in the world of <br class="lg:hidden" />
                 <span class="text-blue-9 lg:text-slate-1">Anime</span>{' '}
                 <span className="text-slate-12 dark:text-slatedark-12">
