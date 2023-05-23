@@ -1,34 +1,7 @@
-const News = () => {
-  const randomImage = 'https://placewaifu.com/image/600'
-  const articles = [
-    {
-      title: 'The Best Anime of 2022',
-      author: 'Miyuki Nakamura',
-      publicationDate: 'April 1, 2022',
-      image: 'https://picsum.photos/600/400/?image=1005',
-      description:
-        'As the year comes to a close, we take a look back at the best anime series of 2022. From heartwarming dramas to action-packed adventures, these are the shows that captured our hearts and minds this year.',
-      link: 'https://example.com/best-anime-2022',
-    },
-    {
-      title: 'Interview with the Creator of Attack on Titan',
-      author: 'Takeshi Suzuki',
-      publicationDate: 'March 15, 2022',
-      image: 'https://picsum.photos/600/400/?image=1012',
-      description:
-        "We sit down with Hajime Isayama, the creator of the hit anime series Attack on Titan, to discuss the show's final season, his inspirations, and what's next for him.",
-      link: 'https://example.com/interview-with-hajime-isayama',
-    },
-    {
-      title: 'The Rise of Virtual Reality in Anime',
-      author: 'Kazuo Yamamoto',
-      publicationDate: 'February 28, 2022',
-      image: 'https://picsum.photos/600/400/?image=1009',
-      description:
-        'As virtual reality technology continues to advance, anime creators are finding new ways to incorporate it into their shows. We explore the rise of VR in anime and what it means for the future of the medium.',
-      link: 'https://example.com/virtual-reality-in-anime',
-    },
-  ]
+import Link from 'next/link'
+import { urlForImage } from 'lib/sanity.image'
+
+const News = ({ newsArticles }) => {
   return (
     <aside
       aria-label="Related articles"
@@ -44,7 +17,7 @@ const News = () => {
         <section className="bg-white dark:bg-gray-900">
           <div className="mx-auto max-w-screen-xl px-4 pb-8 lg:px-6 lg:pb-16">
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {articles.map((article, index) => (
+              {newsArticles.map((article, index) => (
                 <article
                   key={index}
                   className="rounded-lg border border-slate-2 bg-slate-1 p-4 shadow-md dark:border-slate-8 dark:bg-slate-4"
@@ -52,29 +25,49 @@ const News = () => {
                   <a href={article.link}>
                     <img
                       className="mb-5 rounded-lg"
-                      src={article.image}
+                      src={urlForImage(article?.coverImage).url()}
                       alt={article.title}
                     />
                   </a>
-                  <span className="bg-purple-100 text-purple-800 dark:bg-purple-200 dark:text-purple-900 mr-2 rounded px-2.5 py-0.5 text-xs font-semibold">
-                    Article
+                  <span className="dark:bg-purple-200 dark:text-purple-900 mr-2 rounded-lg bg-blue-11 px-2.5 py-0.5 text-xs font-semibold text-slate-1">
+                    News
                   </span>
                   <h2 className="text-gray-900 dark:text-white my-2 text-2xl font-bold tracking-tight">
-                    <a href={article.link}>{article.title}</a>
+                    <Link href={`/posts/${article.slug}`}>{article.title}</Link>
                   </h2>
                   <p className="text-gray-500 dark:text-gray-400 mb-4 font-light">
-                    {article.description}
+                    {article?.excerpt && article.excerpt.length > 200
+                      ? `${article.excerpt.substring(0, 200)}...`
+                      : article.excerpt}
                   </p>
                   <div className="flex items-center space-x-4">
                     <img
                       className="h-10 w-10 rounded-full"
-                      src={randomImage}
+                      src={urlForImage(article?.author.picture).url()}
                       alt={article.author.name}
                     />
                     <div className="dark:text-white font-medium">
                       <div>{article.author.name}</div>
                       <div className="text-gray-500 dark:text-gray-400 text-sm font-normal">
-                        {article.publicationDate} · 16 min read
+                        <time
+                          className="font-semibold text-slate-12 dark:text-blue-9"
+                          dateTime={article?.date}
+                          title={new Date(article?.date).toLocaleDateString(
+                            'en-US',
+                            {
+                              year: 'numeric',
+                              month: 'long',
+                              day: 'numeric',
+                            }
+                          )}
+                        >
+                          {new Date(article.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric',
+                          })}
+                        </time>{' '}
+                        · {article?.readTime} min read
                       </div>
                     </div>
                   </div>
@@ -83,7 +76,10 @@ const News = () => {
             </div>
           </div>
         </section>
-        <button class="group-hover:from-cyan-500 focus:ring-cyan-200 group relative mb-2 mr-2 inline-flex  w-full items-center  justify-center overflow-hidden rounded-lg bg-gradient-to-br from-sky-9 to-blue-9 p-0.5 text-sm font-medium text-slate-11 hover:text-slate-1 focus:outline-none focus:ring-4 group-hover:to-blue-9 dark:text-slate-1 dark:focus:ring-sky-8 lg:w-auto">
+        <Link
+          class="group-hover:from-cyan-500 focus:ring-cyan-200 group relative mb-2 mr-2 inline-flex  w-full items-center  justify-center overflow-hidden rounded-lg bg-gradient-to-br from-sky-9 to-blue-9 p-0.5 text-sm font-medium text-slate-11 hover:text-slate-1 focus:outline-none focus:ring-4 group-hover:to-blue-9 dark:text-slate-1 dark:focus:ring-sky-8 lg:w-auto"
+          href="/category/news"
+        >
           <span class="relative w-full items-center justify-center rounded-md bg-slate-1 px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0 dark:bg-slatedark-1">
             <div class="flex items-center justify-center">
               <span>More News</span>
@@ -103,7 +99,7 @@ const News = () => {
               </svg>
             </div>
           </span>
-        </button>
+        </Link>
       </div>
     </aside>
   )

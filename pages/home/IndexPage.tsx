@@ -16,10 +16,11 @@ export interface IndexPageProps {
   loading?: boolean
   posts: Post[]
   settings: Settings
+  newsArticles: Post[]
 }
 
 export default function IndexPage(props: IndexPageProps) {
-  const { preview, loading, posts, settings } = props
+  const { preview, loading, posts, settings, newsArticles } = props
   const [heroPost, ...morePosts] = posts || []
   const { title = demo.title, description = demo.description } = settings || {}
 
@@ -31,7 +32,7 @@ export default function IndexPage(props: IndexPageProps) {
       <Layout preview={preview} loading={loading}>
         <HomeHero />
         <Reviews />
-        <News />
+        <News newsArticles={newsArticles} />
         <AnimeReviews />
         <HomeTabs />
         <RelatedPosts />

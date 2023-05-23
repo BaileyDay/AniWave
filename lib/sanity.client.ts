@@ -11,6 +11,7 @@ import {
   pageBySlugQuery,
   pageSlugsQuery,
   postsByTagQuery,
+  latestNewsQuery,
 } from 'lib/sanity.queries'
 import { createClient } from 'next-sanity'
 
@@ -104,6 +105,13 @@ export async function getAllPagesSlugs(): Promise<Pick<Page, 'slug'>[]> {
 export async function getPostsByTag(tag: string): Promise<Post[]> {
   if (client) {
     return await client.fetch(postsByTagQuery, { tag })
+  }
+  return []
+}
+
+export async function getLatestNews(): Promise<Post[]> {
+  if (client) {
+    return (await client.fetch(latestNewsQuery)) || []
   }
   return []
 }

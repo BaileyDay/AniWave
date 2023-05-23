@@ -66,6 +66,12 @@ export const postsByTagQuery = groq`
 } | order(date desc)
 `
 
+export const latestNewsQuery = groq`
+*[_type == "post" && references(*[_type == "tag" && slug.current == "news"]._id)] | order(date desc) [0...3] {
+  ${postFields}
+}
+`
+
 export interface Author {
   name?: string
   picture?: any
