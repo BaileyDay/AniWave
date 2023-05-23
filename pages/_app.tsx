@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
-import { AppProps } from 'next/app'
-import { useRouter } from 'next/router'
-import ReactGA from 'react-ga4'
 import 'tailwindcss/tailwind.css'
 import '../global.css'
+
+import { AppProps } from 'next/app'
+import { useRouter } from 'next/router'
+import React, { useEffect } from 'react'
+import ReactGA from 'react-ga4'
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()

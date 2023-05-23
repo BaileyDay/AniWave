@@ -1,7 +1,8 @@
 import { motion, useAnimation } from 'framer-motion'
 import Image from 'next/image'
-import React, { useEffect, useState, useCallback } from 'react'
 import Link from 'next/link'
+import React, { useCallback, useEffect, useState } from 'react'
+
 import Logo from '../../components/common/Logo'
 import MobileLogo from '../../components/common/MobileLogo'
 import Yuki from '../../public/yuki.png'

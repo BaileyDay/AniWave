@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { urlForImage } from 'lib/sanity.image'
+import Link from 'next/link'
 
 const News = ({ newsArticles }) => {
   return (
@@ -17,37 +17,39 @@ const News = ({ newsArticles }) => {
         <section className="bg-white dark:bg-gray-900">
           <div className="mx-auto max-w-screen-xl px-4 pb-8 lg:px-6 lg:pb-16">
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {newsArticles.map((article, index) => (
+              {newsArticles?.map((article, index) => (
                 <article
                   key={index}
                   className="rounded-lg border border-slate-2 bg-slate-1 p-4 shadow-md dark:border-slate-8 dark:bg-slate-4"
                 >
-                  <Link href={`/posts/${article.slug}`}>
+                  <Link href={`/posts/${article?.slug}`}>
                     <img
                       className="mb-5 rounded-lg"
                       src={urlForImage(article?.coverImage).url()}
-                      alt={article.title}
+                      alt={article?.title}
                     />
                   </Link>
                   <span className="dark:bg-purple-200 dark:text-purple-900 mr-2 rounded-lg bg-blue-11 px-2.5 py-0.5 text-xs font-semibold text-slate-1">
                     News
                   </span>
                   <h2 className="text-gray-900 dark:text-white my-2 text-2xl font-bold tracking-tight">
-                    <Link href={`/posts/${article.slug}`}>{article.title}</Link>
+                    <Link href={`/posts/${article?.slug}`}>
+                      {article?.title}
+                    </Link>
                   </h2>
                   <p className="text-gray-500 dark:text-gray-400 mb-4 font-light">
-                    {article?.excerpt && article.excerpt.length > 200
-                      ? `${article.excerpt.substring(0, 200)}...`
-                      : article.excerpt}
+                    {article?.excerpt && article?.excerpt.length > 200
+                      ? `${article?.excerpt.substring(0, 200)}...`
+                      : article?.excerpt}
                   </p>
                   <div className="flex items-center space-x-4">
                     <img
                       className="h-10 w-10 rounded-full"
                       src={urlForImage(article?.author.picture).url()}
-                      alt={article.author.name}
+                      alt={article?.author.name}
                     />
                     <div className="dark:text-white font-medium">
-                      <div>{article.author.name}</div>
+                      <div>{article?.author.name}</div>
                       <div className="text-gray-500 dark:text-gray-400 text-sm font-normal">
                         <time
                           className="font-semibold text-slate-12 dark:text-blue-9"
@@ -61,7 +63,7 @@ const News = ({ newsArticles }) => {
                             }
                           )}
                         >
-                          {new Date(article.date).toLocaleDateString('en-US', {
+                          {new Date(article?.date).toLocaleDateString('en-US', {
                             year: 'numeric',
                             month: 'long',
                             day: 'numeric',

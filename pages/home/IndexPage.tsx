@@ -2,14 +2,15 @@ import Layout from 'components/BlogLayout'
 import IndexPageHead from 'components/IndexPageHead'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
-import HomeNav from './HomeNav'
-import HomeHero from './HomeHero'
-import Reviews from './TwitterReviews'
-import News from './News'
-import AnimeReviews from './AnimeReviews'
-import HomeTabs from './HomeTabs'
-import RelatedPosts from './RelatedPosts'
+
 import GlobalFooter from '../../components/common/GlobalFooter'
+import AnimeReviews from './AnimeReviews'
+import HomeHero from './HomeHero'
+import HomeNav from './HomeNav'
+import HomeTabs from './HomeTabs'
+import News from './News'
+import RelatedPosts from './RelatedPosts'
+import Reviews from './TwitterReviews'
 
 export interface IndexPageProps {
   preview?: boolean

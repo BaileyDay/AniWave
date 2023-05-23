@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 import Yuki from '../../public/yuki.png'
 
 const HomeHero = () => {
