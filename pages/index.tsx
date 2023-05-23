@@ -26,24 +26,6 @@ interface PreviewData {
 export default function Page(props: PageProps) {
   const { posts, settings, preview, token, newsArticles } = props
 
-  if (preview) {
-    return (
-      <PreviewSuspense
-        fallback={
-          <IndexPage
-            loading
-            preview
-            posts={posts}
-            settings={settings}
-            newsArticles={newsArticles}
-          />
-        }
-      >
-        <PreviewIndexPage token={token} />
-      </PreviewSuspense>
-    )
-  }
-
   return (
     <IndexPage posts={posts} settings={settings} newsArticles={newsArticles} />
   )

@@ -22,13 +22,13 @@ const News = ({ newsArticles }) => {
                   key={index}
                   className="rounded-lg border border-slate-2 bg-slate-1 p-4 shadow-md dark:border-slate-8 dark:bg-slate-4"
                 >
-                  <a href={article.link}>
+                  <Link href={`/posts/${article.slug}`}>
                     <img
                       className="mb-5 rounded-lg"
                       src={urlForImage(article?.coverImage).url()}
                       alt={article.title}
                     />
-                  </a>
+                  </Link>
                   <span className="dark:bg-purple-200 dark:text-purple-900 mr-2 rounded-lg bg-blue-11 px-2.5 py-0.5 text-xs font-semibold text-slate-1">
                     News
                   </span>
