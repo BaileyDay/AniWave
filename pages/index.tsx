@@ -39,19 +39,28 @@ export default function Page(props: PageProps) {
 export async function getServerSideProps(ctx) {
   const { preview = false, previewData = {} } = ctx
 
-  const [settings, posts = [], newsArticles = []] = await Promise.all([
-    getSettings(),
-    getRandomPosts(3),
-    getLatestNews(),
-  ])
+  try {
+    const [settings, posts = [], newsArticles = []] = await Promise.all([
+      getSettings(),
+      getRandomPosts(3),
+      getLatestNews(),
+    ])
 
-  return {
-    props: {
-      posts,
-      settings,
-      preview,
-      newsArticles,
-      token: previewData.token ?? null,
-    },
+    return {
+      props: {
+        posts,
+        settings,
+        preview,
+        newsArticles,
+        token: previewData.token ?? null,
+      },
+    }
+  } catch (error) {
+    console.error(error)
+    return {
+      props: {
+        error: 'Failed to fetch data',
+      },
+    }
   }
 }
