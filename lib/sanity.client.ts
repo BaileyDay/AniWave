@@ -123,6 +123,14 @@ function pickRandom(arr: any[], count: number) {
 }
 
 export async function getRandomPosts(count: number): Promise<Post[]> {
-  const allPosts = await getAllPosts()
-  return pickRandom(allPosts, count)
+  try {
+    const allPosts = await getAllPosts()
+    if (!Array.isArray(allPosts)) {
+      throw new Error('allPosts is not an array')
+    }
+    return pickRandom(allPosts, count)
+  } catch (error) {
+    console.error('Error getting random posts:', error)
+    return []
+  }
 }
