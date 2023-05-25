@@ -74,8 +74,6 @@ export const getStaticProps = async ({ params }) => {
 
   let posts = await getPostsByTag(slug)
 
-  console.log(`Posts for category ${slug}: `, posts) // Add this line
-
   return {
     props: {
       category,
