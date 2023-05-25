@@ -1,17 +1,16 @@
 import { apiVersion, dataset, projectId, useCdn } from 'lib/sanity.api'
 import {
   indexQuery,
+  latestNewsQuery,
+  pageBySlugQuery,
+  pageSlugsQuery,
   Post,
   postAndMoreStoriesQuery,
   postBySlugQuery,
+  postsByTagQuery,
   postSlugsQuery,
   Settings,
   settingsQuery,
-  // Add these imports:
-  pageBySlugQuery,
-  pageSlugsQuery,
-  postsByTagQuery,
-  latestNewsQuery,
 } from 'lib/sanity.queries'
 import { createClient } from 'next-sanity'
 
@@ -114,4 +113,16 @@ export async function getLatestNews(): Promise<Post[]> {
     return (await client.fetch(latestNewsQuery)) || []
   }
   return []
+}
+
+function pickRandom(arr: any[], count: number) {
+  let _arr = [...arr]
+  return [...Array(count)].map(
+    () => _arr.splice(Math.floor(Math.random() * _arr.length), 1)[0]
+  )
+}
+
+export async function getRandomPosts(count: number): Promise<Post[]> {
+  const allPosts = await getAllPosts()
+  return pickRandom(allPosts, count)
 }

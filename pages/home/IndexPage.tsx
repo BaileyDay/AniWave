@@ -36,7 +36,7 @@ export default function IndexPage(props: IndexPageProps) {
         <News newsArticles={newsArticles} />
         <AnimeReviews />
         <HomeTabs />
-        <RelatedPosts />
+        <RelatedPosts posts={posts} />
         <GlobalFooter />
         {/* <Container>
           <BlogHeader title={title} description={description} level={1} />

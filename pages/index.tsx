@@ -1,6 +1,11 @@
 import { PreviewSuspense } from '@sanity/preview-kit'
 import IndexPage from 'pages/home/IndexPage'
-import { getAllPosts, getLatestNews, getSettings } from 'lib/sanity.client'
+import {
+  getAllPosts,
+  getLatestNews,
+  getSettings,
+  getRandomPosts,
+} from 'lib/sanity.client'
 import { Post, Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
 import { lazy } from 'react'
@@ -29,16 +34,12 @@ export default function Page(props: PageProps) {
   )
 }
 
-export const getStaticProps: GetStaticProps<
-  PageProps,
-  Query,
-  PreviewData
-> = async (ctx) => {
+export async function getServerSideProps(ctx) {
   const { preview = false, previewData = {} } = ctx
 
   const [settings, posts = [], newsArticles = []] = await Promise.all([
     getSettings(),
-    getAllPosts(),
+    getRandomPosts(3),
     getLatestNews(),
   ])
 
