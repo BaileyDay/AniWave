@@ -4,7 +4,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import Link from 'next/link'
 import Logo from '../../components/common/Logo'
 import MobileLogo from '../../components/common/MobileLogo'
-import WavingTurtle from '../../public/turtlewaving.svg'
+import Yuki from '../../public/Yuki.png'
 
 const GlobalNav = () => {
   const [navClass, setNavClass] = useState('')
@@ -257,8 +257,8 @@ const GlobalNav = () => {
             transition={{ duration: 0.4, delay: 0.05 }}
           >
             <Image
-              src={WavingTurtle}
-              className="z-10 translate-x-28 scale-150 overflow-hidden lg:hidden "
+              src={Yuki}
+              className="z-10 translate-x-28 scale-100 overflow-hidden lg:hidden "
             />
           </motion.div>
         </div>
