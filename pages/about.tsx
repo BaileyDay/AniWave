@@ -9,6 +9,10 @@ const AboutPage = ({ authors }) => {
     <>
       <Head>
         <title>AniWave | About</title>
+        <meta
+          name="description"
+          content="Meet the AniWave team! A passionate community of anime lovers creating content that celebrates the magical world of anime and manga. Discover our journey, meet our team members, and see how we're dedicated to bringing you the best in anime news, reviews, and more. Join us in our love for all things anime!"
+        ></meta>
       </Head>
       <GlobalNav />
       <People authors={authors} />
