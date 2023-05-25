@@ -2,6 +2,7 @@ import { urlForImage } from 'lib/sanity.image'
 import Link from 'next/link'
 
 const RelatedPosts = ({ posts }) => {
+  console.log(posts)
   return (
     <div className="bg-slate-1 py-24 text-slatedark-12 dark:bg-slatedark-1 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

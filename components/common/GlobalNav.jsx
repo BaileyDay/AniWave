@@ -4,7 +4,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import Link from 'next/link'
 import Logo from '../../components/common/Logo'
 import MobileLogo from '../../components/common/MobileLogo'
-import Yuki from '../../public/Yuki.png'
+import Yuki from '../../public/yuki.png'
 
 const GlobalNav = () => {
   const [navClass, setNavClass] = useState('')

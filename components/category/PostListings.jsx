@@ -73,7 +73,9 @@ export default function PostListings({ category, posts }) {
                         </a>
                       </h3>
                       <p className="mt-5 text-sm leading-6 text-slate-9">
-                        {post?.excerpt}
+                        {post?.excerpt && post?.excerpt.length > 200
+                          ? `${post?.excerpt.substring(0, 200)}...`
+                          : post?.excerpt}
                       </p>
                     </div>
                     <div className="mt-2 flex border-t border-slate-12/5 pt-6">
