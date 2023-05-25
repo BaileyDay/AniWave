@@ -6,6 +6,7 @@ import GlobalNav from '../../components/common/GlobalNav'
 import PostListings from '../../components/category/PostListings'
 import GlobalFooter from '../../components/common/GlobalFooter'
 import { getPostsByTag } from 'lib/sanity.client'
+import Head from 'next/head'
 
 // Mock data
 const mockCategories = [
@@ -92,6 +93,9 @@ const CategoryPage = ({ category, posts }) => {
 
   return (
     <>
+      <Head>
+        <title>AniWave | {category.title}</title>
+      </Head>
       <GlobalNav />
       <div className="lg:mt-24">
         <PostListings category={category} posts={posts} />

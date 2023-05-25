@@ -11,6 +11,7 @@ import {
   postSlugsQuery,
   Settings,
   settingsQuery,
+  authorQuery,
 } from 'lib/sanity.queries'
 import { createClient } from 'next-sanity'
 
@@ -21,6 +22,22 @@ export type Page = {
   slug: {
     current: string
   }
+}
+
+type Image = {
+  _type: string
+  asset: {
+    _ref: string
+    _type: string
+  }
+}
+
+export type Author = {
+  _id: string
+  name: string
+  picture: Image
+  description: string
+  role: string
 }
 /**
  * Checks if it's safe to create a client instance, as `@sanity/client` will throw an error if `projectId` is false
@@ -133,4 +150,11 @@ export async function getRandomPosts(count: number): Promise<Post[]> {
     console.error('Error getting random posts:', error)
     return []
   }
+}
+
+export async function getAllAuthors(): Promise<Author[]> {
+  if (client) {
+    return (await client.fetch(authorQuery)) || []
+  }
+  return []
 }

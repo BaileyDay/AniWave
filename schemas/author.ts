@@ -20,5 +20,15 @@ export default defineType({
       options: { hotspot: true },
       validation: (rule) => rule.required(),
     }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+    }),
+    defineField({
+      name: 'role',
+      title: 'Role',
+      type: 'string',
+    }),
   ],
 })

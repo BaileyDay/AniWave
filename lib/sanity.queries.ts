@@ -72,6 +72,14 @@ export const latestNewsQuery = groq`
 }
 `
 
+export const authorQuery = `*[_type == "author"]{
+  _id,
+  name,
+  picture,
+  description,
+  role
+}`
+
 export interface Author {
   name?: string
   picture?: any
