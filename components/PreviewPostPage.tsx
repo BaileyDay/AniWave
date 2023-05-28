@@ -7,6 +7,7 @@ export default function PreviewPostPage({
   token,
   post,
   settings,
+  randomPosts,
 }: {
   token: null | string
 } & PostPageProps) {
@@ -21,6 +22,7 @@ export default function PreviewPostPage({
       post={postPreview}
       morePosts={morePosts}
       settings={settings}
+      randomPosts={randomPosts}
     />
   )
 }
