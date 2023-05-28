@@ -47,13 +47,13 @@ const ScrollingShare = () => {
         className="relative ml-auto hidden xl:block"
         aria-labelledby="sidebar-label"
       >
-        <div className="sticky top-40 rounded-lg border border-slate-4 bg-slate-3 p-2 dark:border-slatedark-3 dark:bg-slatedark-2">
+        <div className="dark:border-slatedark-3 sticky top-40 rounded-lg border border-slate-200 bg-slate-100 p-2 dark:bg-zinc-800">
           {socialNetworks.map((network) => (
             <button
               key={network.name}
               onClick={() => handleShare(network.shareUrl)}
               data-tooltip-target={`share-${network.name}`}
-              className="mb-2 flex items-center rounded-lg bg-slate-3 p-2 text-center text-sm font-medium text-slate-9 hover:bg-slate-4 focus:outline-none focus:ring-4 focus:ring-slate-3 dark:bg-slatedark-2 dark:text-slate-1 dark:hover:bg-slatedark-2 dark:focus:ring-slatedark-3"
+              className="dark:focus:ring-slatedark-3 mb-2 flex items-center rounded-lg bg-slate-100 p-2 text-center text-sm font-medium text-slate-500 hover:bg-slate-300 focus:outline-none focus:ring-4 focus:ring-slate-300 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-800"
               type="button"
             >
               <i className={`fa-brands ${network.icon}`}></i>
@@ -66,7 +66,7 @@ const ScrollingShare = () => {
           key={network.name}
           id={`share-${network.name}`}
           role="tooltip"
-          className="tooltip invisible absolute z-10 inline-block rounded-lg bg-slatedark-1 px-3 py-2 text-sm font-medium text-slate-1 opacity-0 shadow-sm transition-opacity duration-300 dark:bg-slatedark-2"
+          className="tooltip invisible absolute z-10 inline-block rounded-lg bg-zinc-900 px-3 py-2 text-sm font-medium text-white opacity-0 shadow-sm transition-opacity duration-300 dark:bg-zinc-800"
         >
           {`Share on ${
             network.name.charAt(0).toUpperCase() + network.name.slice(1)

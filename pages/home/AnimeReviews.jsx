@@ -67,11 +67,11 @@ const Stars = ({ rating }) => {
 
   for (let i = 1; i <= 5; i++) {
     if (i <= Math.floor(rating)) {
-      stars.push(<i key={i} className="fas fa-star text-slate-1"></i>)
+      stars.push(<i key={i} className="fas fa-star text-white"></i>)
     } else if (i - rating > 0 && i - rating < 1) {
-      stars.push(<i key={i} className="fas fa-star-half-alt text-slate-1"></i>)
+      stars.push(<i key={i} className="fas fa-star-half-alt text-white"></i>)
     } else {
-      stars.push(<i key={i} className="far fa-star text-slate-1"></i>)
+      stars.push(<i key={i} className="far fa-star text-white"></i>)
     }
   }
 
@@ -82,10 +82,10 @@ const AnimeReviews = () => {
   return (
     <div className="container mx-auto px-4 py-12 lg:max-w-[90rem]">
       <div className="text-center">
-        <h2 className="dark:text-white text-2xl font-bold text-blue-11">
+        <h2 className="text-2xl font-bold text-sky-500 dark:text-white">
           Rare Rates 🏆
         </h2>
-        <h2 className="dark:text-white text-3xl font-bold text-slate-12 dark:text-slatedark-12">
+        <h2 className="text-3xl font-bold text-slate-900  dark:text-white">
           Anime Reviews
         </h2>
       </div>
@@ -94,23 +94,23 @@ const AnimeReviews = () => {
         {reviews.map((review) => (
           <li
             key={review.id}
-            className="h-[30rem] w-11/12 max-w-sm flex-shrink-0 snap-center overflow-hidden rounded-xl bg-slate-1 py-12 dark:bg-slatedark-1 lg:w-full lg:flex-shrink"
+            className="h-[30rem] w-11/12 max-w-sm flex-shrink-0 snap-center overflow-hidden rounded-xl bg-white py-12 dark:bg-zinc-900 lg:w-full lg:flex-shrink"
           >
             <div
               className="relative h-full w-full rounded-xl bg-cover bg-center"
               style={{ backgroundImage: `url(${review.imageUrl})` }}
             >
               {/* Add the gradient overlay */}
-              <div className="via-s absolute inset-0 rounded-xl bg-gradient-to-t from-slatedark-2 to-transparent"></div>
+              <div className="via-s absolute inset-0 rounded-xl bg-gradient-to-t from-zinc-800 to-transparent"></div>
 
               {/* Add the review information as an overlay on the image */}
               <div className="absolute bottom-0 left-0 w-full p-4">
-                <h3 className="rounded-xl bg-blue-9 bg-opacity-50 p-2 text-2xl font-bold text-slate-1">
+                <h3 className="rounded-xl bg-blue-500 bg-opacity-50 p-2 text-2xl font-bold text-white">
                   {review.title}
                 </h3>
-                <span className="text-lg text-gray-4">{review.tagline}</span>
+                <span className="text-lg text-slate-200">{review.tagline}</span>
                 <div className="mt-2 flex items-center space-x-1">
-                  <span className="text-4xl font-bold text-slate-1">
+                  <span className="text-4xl font-bold text-white">
                     {review.rating}/5
                   </span>
                   {/* Add the stars component here */}
@@ -123,8 +123,8 @@ const AnimeReviews = () => {
           </li>
         ))}
       </ul>
-      <button class="group-hover:from-cyan-500 focus:ring-cyan-200 group relative mb-2 mr-2 inline-flex  w-full items-center  justify-center overflow-hidden rounded-lg bg-gradient-to-br from-sky-9 to-blue-9 p-0.5 text-sm font-medium text-slate-11 hover:text-slate-1 focus:outline-none focus:ring-4 group-hover:to-blue-9 dark:text-slate-1 dark:focus:ring-sky-8 lg:w-auto">
-        <span class="relative w-full items-center justify-center rounded-md bg-slate-1 px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0 dark:bg-slatedark-1">
+      <button class="dark:focus:ring-sky-8 group relative mb-2 mr-2 inline-flex w-full  items-center justify-center  overflow-hidden rounded-lg bg-gradient-to-br from-sky-500 to-blue-500 p-0.5 text-sm font-medium text-slate-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-cyan-200 group-hover:from-cyan-500 group-hover:to-blue-500 dark:text-white lg:w-auto">
+        <span class="relative w-full items-center justify-center rounded-md bg-white px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0 dark:bg-zinc-900">
           <div class="flex items-center justify-center">
             <span>More Reviews</span>
             <svg

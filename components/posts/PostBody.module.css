@@ -6,15 +6,15 @@
 .portableText ul,
 .portableText ol,
 .portableText blockquote {
-  @apply my-6 dark:text-slate-1;
+  @apply my-6 text-slate-900 dark:text-slate-100;
 }
 
 .portableText h2 {
-  @apply mb-4 mt-12 text-3xl leading-snug dark:text-slate-1;
+  @apply mb-4 mt-12 text-3xl leading-snug text-slate-900 dark:text-slate-100;
 }
 
 .portableText figcaption {
-  @apply text-center text-sm text-slate-9 dark:text-slatedark-11;
+  @apply text-center text-sm text-slate-500 dark:text-slate-100;
 }
 
 .portableText img {
@@ -26,8 +26,9 @@
 }
 
 .portableText a {
-  @apply text-blue-11 underline;
+  @apply text-sky-600 underline;
 }
+
 .portableText a:hover {
-  @apply text-blue-12;
+  @apply text-sky-700;
 }

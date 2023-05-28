@@ -1,27 +1,22 @@
-import BlogHeader from 'components/BlogHeader'
 import Layout from 'components/BlogLayout'
-import MoreStories from 'components/MoreStories'
-import PostBody from 'components/posts/PostBody'
-import PostHeader from 'components/PostHeader'
 import PostPageHead from 'components/PostPageHead'
+import PostBody from 'components/posts/PostBody'
 import PostTitle from 'components/PostTitle'
-import SectionSeparator from 'components/SectionSeparator'
-import * as demo from 'lib/demo.data'
+import { urlForImage } from 'lib/sanity.image'
 import type { Post, Settings } from 'lib/sanity.queries'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
+
 import GlobalFooter from '../../components/common/GlobalFooter'
 import GlobalNav from '../../components/common/GlobalNav'
+import EmailForm from '../common/EmailForm'
 import AdvertisingModal from './AdvertisingModal'
 import AniwavePromise from './AniwavePromise'
 import Container from './BlogContainer'
 import ScrollingShare from './ScrollingShare'
 import SideBar from './SideBar'
-import EmailForm from '../common/EmailForm'
-
-import { urlForImage } from 'lib/sanity.image'
 
 export interface PostPageProps {
   preview?: boolean
@@ -29,12 +24,20 @@ export interface PostPageProps {
   post: Post
   morePosts: Post[]
   settings: Settings
+  randomPosts: Post[]
 }
 
 const NO_POSTS: Post[] = []
 
 export default function PostPage(props: PostPageProps) {
-  const { preview, loading, morePosts = NO_POSTS, post, settings } = props
+  const {
+    preview,
+    loading,
+    morePosts = NO_POSTS,
+    post,
+    settings,
+    randomPosts,
+  } = props
   const [disclosureOpen, setDisclosureOpen] = useState(false)
   const [sectionTitles, setSectionTitles] = useState([])
 
@@ -80,7 +83,7 @@ export default function PostPage(props: PostPageProps) {
                 open={disclosureOpen}
                 setOpen={setDisclosureOpen}
               />
-              <main className="bg-slate-1 py-8 dark:bg-slatedark-1 lg:py-16">
+              <main className="bg-white py-8 dark:bg-zinc-900 lg:py-16">
                 <div className="mx-auto flex max-w-screen-xl justify-between px-1 lg:px-4">
                   <ScrollingShare />
 
@@ -88,28 +91,28 @@ export default function PostPage(props: PostPageProps) {
                     <header className="not-format mb-4 lg:mb-6">
                       <nav className="flex" aria-label="Breadcrumb"></nav>
 
-                      <h1 className="mb-2 text-3xl font-semibold leading-tight text-slatedark-1 dark:text-slate-1 lg:mb-6 lg:text-4xl">
+                      <h1 className="mb-2 text-3xl font-semibold leading-tight text-zinc-900 dark:text-white lg:mb-6 lg:text-4xl">
                         {post?.title}
                       </h1>
 
                       <div className=" flex items-center justify-between  py-4">
                         <div className="mr-4 text-xl">
-                          <address className="inline font-light not-italic text-slate-12 dark:text-slatedark-12">
+                          <address className="inline font-light not-italic text-slate-900 dark:text-white">
                             By{' '}
                             <Link
                               rel="author"
-                              className="font-bold text-slatedark-1 no-underline hover:underline dark:text-blue-9 "
+                              className="font-bold text-zinc-900 no-underline hover:underline dark:text-blue-500 "
                               href="#"
                             >
                               {post?.author.name}
                             </Link>
                           </address>{' '}
                           <span>
-                            <span className="font-light text-slate-12 dark:text-slatedark-12">
+                            <span className="font-light text-slate-900 dark:text-white">
                               on{' '}
                             </span>
                             <time
-                              className="font-semibold text-slate-12 dark:text-blue-9"
+                              className="font-semibold text-slate-900 dark:text-blue-500"
                               dateTime={post?.date}
                               title={new Date(post?.date).toLocaleDateString(
                                 'en-US',
@@ -130,17 +133,17 @@ export default function PostPage(props: PostPageProps) {
                         </div>
                       </div>
                       <div className="flex pb-2">
-                        <span className="dark:text-slatedark-12">
-                          <i className="fa-regular fa-clock mr-1 text-slate-12 dark:text-slatedark-12 "></i>
+                        <span className="dark:text-white">
+                          <i className="fa-regular fa-clock mr-1 text-slate-900 dark:text-white "></i>
                           {post?.readTime} Min Read
                         </span>
-                        <span className="mx-2 text-slate-12 dark:text-slatedark-12">
+                        <span className="mx-2 text-slate-900 dark:text-white">
                           •
                         </span>
                         <div>
-                          <i className="fa-regular fa-clipboard mr-1 text-slate-12 dark:text-slatedark-12"></i>
+                          <i className="fa-regular fa-clipboard mr-1 text-slate-900 dark:text-white"></i>
                           <button
-                            className=" font-semibold text-blue-11"
+                            className=" font-semibold text-sky-500"
                             onClick={() => setDisclosureOpen(true)}
                           >
                             Advertising Disclosure
@@ -150,7 +153,7 @@ export default function PostPage(props: PostPageProps) {
                       <AniwavePromise />
                     </header>
                     <div>
-                      <p className="text-[1.25rem] text-lg text-slate-12 dark:text-slatedark-12 lg:text-xl">
+                      <p className="text-[1.25rem] text-lg text-slate-900 dark:text-white lg:text-xl">
                         {post?.excerpt}
                       </p>
                     </div>
@@ -163,7 +166,7 @@ export default function PostPage(props: PostPageProps) {
                         className="rounded-xl"
                       />
                     </div>
-                    <div className="mt-4 flex  w-full items-center gap-6 border-b border-t border-slate-8 bg-slate-1 py-6 pl-3 dark:bg-slatedark-1  dark:text-slatedark-12 lg:hidden lg:border-slate-3 lg:px-10">
+                    <div className="border-slate-8 lg:border-slate-3  mt-4 flex w-full items-center gap-6 border-b border-t bg-white py-6 pl-3  dark:bg-zinc-900 dark:text-white lg:hidden lg:px-10">
                       On this Page
                       <ul className="scrollbar-hide flex h-full flex-1 snap-x snap-mandatory items-center gap-8 overflow-x-auto overscroll-x-contain whitespace-nowrap lg:w-full lg:flex-col lg:items-start ">
                         {sectionTitles.map(({ id, title }) => (
@@ -185,133 +188,30 @@ export default function PostPage(props: PostPageProps) {
 
               <aside
                 aria-label="Related articles"
-                className="bg-gray-50 dark:bg-gray-800 py-8 lg:py-16"
+                className=" py-8 dark:bg-gray-800 lg:py-16"
               >
                 <div className="mx-auto max-w-screen-xl px-4">
-                  <h2 className="mb-8 text-2xl font-bold text-slatedark-1 dark:text-slate-1">
+                  <h2 className="mb-8 text-2xl font-bold text-zinc-900 dark:text-white">
                     Read Next
                   </h2>
                   <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    <article>
-                      <a href="#">
-                        <img
-                          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/wordpress/image-1.jpg"
-                          className="mb-5 w-full max-w-full rounded-lg"
-                          alt="Image 1"
-                        />
-                      </a>
-                      <h2 className="mb-2 text-xl font-bold leading-tight text-slatedark-1 dark:text-slate-1">
-                        <a href="#">
-                          Flowbite enables IT to automate Apple device
-                          configuration
-                        </a>
-                      </h2>
-                      <a
-                        href="#"
-                        className="text-primary-600 dark:text-primary-500 inline-flex items-center font-medium underline underline-offset-4 hover:no-underline"
-                      >
-                        Read more
-                      </a>
-                    </article>
-                    <article>
-                      <a href="#">
-                        <img
-                          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/wordpress/image-2.jpg"
-                          className="mb-5 w-full max-w-full rounded-lg"
-                          alt="Image 2"
-                        />
-                      </a>
-                      <h2 className="mb-2 text-xl font-bold leading-tight text-slatedark-1 dark:text-slate-1">
-                        <a href="#">How AI is transforming your smartphone</a>
-                      </h2>
-                      <a
-                        href="#"
-                        className="text-primary-600 dark:text-primary-500 inline-flex items-center font-medium underline underline-offset-4 hover:no-underline"
-                      >
-                        Read more
-                      </a>
-                    </article>
-                    <article>
-                      <a href="#">
-                        <img
-                          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/wordpress/image-3.jpg"
-                          className="mb-5 w-full max-w-full rounded-lg"
-                          alt="Image 3"
-                        />
-                      </a>
-                      <h2 className="mb-2 text-xl font-bold leading-tight text-slatedark-1 dark:text-slate-1">
-                        <a href="#">
-                          Android, ChromeOS, and the future of app discovery
-                        </a>
-                      </h2>
-                      <a
-                        href="#"
-                        className="text-primary-600 dark:text-primary-500 inline-flex items-center font-medium underline underline-offset-4 hover:no-underline"
-                      >
-                        Read more
-                      </a>
-                    </article>
-                    <article>
-                      <a href="#">
-                        <img
-                          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/wordpress/image-4.jpg"
-                          className="mb-5 w-full max-w-full rounded-lg"
-                          alt="Image 4"
-                        />
-                      </a>
-                      <h2 className="mb-2 text-xl font-bold leading-tight text-slatedark-1 dark:text-slate-1">
-                        <a href="#">
-                          What Google collaboration app offers remote teams
-                        </a>
-                      </h2>
-                      <a
-                        href="#"
-                        className="text-primary-600 dark:text-primary-500 inline-flex items-center font-medium underline underline-offset-4 hover:no-underline"
-                      >
-                        Read more
-                      </a>
-                    </article>
-                    <article>
-                      <a href="#">
-                        <img
-                          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/wordpress/image-5.jpg"
-                          className="mb-5 w-full max-w-full rounded-lg"
-                          alt="Image 5"
-                        />
-                      </a>
-                      <h2 className="mb-2 text-xl font-bold leading-tight text-slatedark-1 dark:text-slate-1">
-                        <a href="#">
-                          Collaboration app spending grows in the face of crisis
-                        </a>
-                      </h2>
-                      <a
-                        href="#"
-                        className="text-primary-600 dark:text-primary-500 inline-flex items-center font-medium underline underline-offset-4 hover:no-underline"
-                      >
-                        Read more
-                      </a>
-                    </article>
-                    <article>
-                      <a href="#">
-                        <img
-                          src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/articles/wordpress/image-6.jpg"
-                          className="mb-5 w-full max-w-full rounded-lg"
-                          alt="Image 6"
-                        />
-                      </a>
-                      <h2 className="mb-2 text-xl font-bold leading-tight text-slatedark-1 dark:text-slate-1">
-                        <a href="#">
-                          For developers, too many meetings, too little focus
-                          time
-                        </a>
-                      </h2>
-                      <a
-                        href="#"
-                        className="text-primary-600 dark:text-primary-500 inline-flex items-center font-medium underline underline-offset-4 hover:no-underline"
-                      >
-                        Read more
-                      </a>
-                    </article>
+                    {randomPosts.map((post, index) => (
+                      <article key={index}>
+                        <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-lg">
+                          <a href={`/posts/${post.slug}`}>
+                            <Image
+                              src={urlForImage(post?.coverImage).url()}
+                              alt={post.title}
+                              layout="fill"
+                              objectFit="cover"
+                            />
+                          </a>
+                        </div>
+                        <h2 className="mb-2 text-xl font-bold leading-tight text-zinc-900 dark:text-white">
+                          <a href={`/posts/${post.slug}`}>{post.title}</a>
+                        </h2>
+                      </article>
+                    ))}
                   </div>
                 </div>
               </aside>

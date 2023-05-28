@@ -5,13 +5,13 @@ const News = ({ newsArticles }) => {
   return (
     <aside
       aria-label="Related articles"
-      className="bg-slate-1 py-6 dark:bg-slatedark-1"
+      className="bg-white py-6 dark:bg-zinc-900"
     >
       <div className="mx-auto w-full max-w-screen-xl px-4">
-        <h2 className="dark:text-white text-2xl font-bold text-blue-11">
+        <h2 className="text-2xl font-bold text-sky-500 dark:text-white">
           Fresh Rolls 🍱
         </h2>
-        <h3 className="dark:text-white mb-8 text-2xl font-bold text-slate-12 dark:text-slatedark-12">
+        <h3 className="mb-8 text-2xl font-bold text-slate-900 dark:text-white dark:text-white">
           Top Anime News
         </h3>
         <section className="bg-white dark:bg-gray-900">
@@ -20,7 +20,7 @@ const News = ({ newsArticles }) => {
               {newsArticles?.map((article, index) => (
                 <article
                   key={index}
-                  className="rounded-lg border border-slate-2 bg-slate-1 p-4 shadow-md dark:border-slate-8 dark:bg-slate-4"
+                  className="rounded-lg border border-slate-200 bg-white p-4 shadow-md dark:border-slate-800 dark:bg-neutral-300"
                 >
                   <Link href={`/posts/${article?.slug}`}>
                     <img
@@ -29,15 +29,15 @@ const News = ({ newsArticles }) => {
                       alt={article?.title}
                     />
                   </Link>
-                  <span className="dark:bg-purple-200 dark:text-purple-900 mr-2 rounded-lg bg-blue-11 px-2.5 py-0.5 text-xs font-semibold text-slate-1">
+                  <span className="mr-2 rounded-lg bg-sky-500 px-2.5 py-0.5 text-xs font-semibold text-white dark:bg-slate-200 ">
                     News
                   </span>
-                  <h2 className="text-gray-900 dark:text-white my-2 text-2xl font-bold tracking-tight">
+                  <h2 className="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     <Link href={`/posts/${article?.slug}`}>
                       {article?.title}
                     </Link>
                   </h2>
-                  <p className="text-gray-500 dark:text-gray-400 mb-4 font-light">
+                  <p className="mb-4 font-light text-gray-500 dark:text-gray-400">
                     {article?.excerpt && article?.excerpt.length > 200
                       ? `${article?.excerpt.substring(0, 200)}...`
                       : article?.excerpt}
@@ -48,11 +48,11 @@ const News = ({ newsArticles }) => {
                       src={urlForImage(article?.author.picture).url()}
                       alt={article?.author.name}
                     />
-                    <div className="dark:text-white font-medium">
-                      <div>{article?.author.name}</div>
-                      <div className="text-gray-500 dark:text-gray-400 text-sm font-normal">
+                    <div className="font-medium dark:text-white">
+                      <div className="text-sky-500">{article?.author.name}</div>
+                      <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
                         <time
-                          className="font-semibold text-slate-12 dark:text-blue-9"
+                          className="font-semibold text-slate-900 dark:text-blue-500"
                           dateTime={article?.date}
                           title={new Date(article?.date).toLocaleDateString(
                             'en-US',
@@ -79,10 +79,10 @@ const News = ({ newsArticles }) => {
           </div>
         </section>
         <Link
-          class="group-hover:from-cyan-500 focus:ring-cyan-200 group relative mb-2 mr-2 inline-flex  w-full items-center  justify-center overflow-hidden rounded-lg bg-gradient-to-br from-sky-9 to-blue-9 p-0.5 text-sm font-medium text-slate-11 hover:text-slate-1 focus:outline-none focus:ring-4 group-hover:to-blue-9 dark:text-slate-1 dark:focus:ring-sky-8 lg:w-auto"
+          class="dark:focus:ring-sky-8 group relative mb-2 mr-2 inline-flex w-full  items-center justify-center  overflow-hidden rounded-lg bg-gradient-to-br from-sky-500 to-blue-500 p-0.5 text-sm font-medium text-slate-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-cyan-200 group-hover:from-cyan-500 group-hover:to-blue-500 dark:text-white lg:w-auto"
           href="/category/news"
         >
-          <span class="relative w-full items-center justify-center rounded-md bg-slate-1 px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0 dark:bg-slatedark-1">
+          <span class="relative w-full items-center justify-center rounded-md bg-white px-5 py-2.5 transition-all duration-75 ease-in group-hover:bg-opacity-0 dark:bg-zinc-900">
             <div class="flex items-center justify-center">
               <span>More News</span>
               <svg

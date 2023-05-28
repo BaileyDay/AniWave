@@ -8,14 +8,14 @@ const SideBar = ({ sectionTitles }) => {
         <h3 id="sidebar-label" className="sr-only">
           Sidebar
         </h3>
-        <div className="dark:bg-gray-800 dark:text-gray-400  sticky top-40 mb-6  rounded-lg  border border-slate-5 bg-slate-1  p-5 font-medium text-slate-12 shadow  dark:border-slatedark-3 dark:bg-slatedark-2">
-          <h4 className="mb-2 text-sm font-bold uppercase text-slatedark-1 dark:text-slate-1">
+        <div className="border-slate-5 dark:border-slatedark-3  sticky top-40 mb-6  rounded-lg  border bg-white p-5  font-medium text-slate-900 shadow dark:bg-gray-800  dark:bg-zinc-800 dark:text-gray-400">
+          <h4 className="mb-2 text-sm font-bold uppercase text-zinc-900 dark:text-white">
             On this page
           </h4>
           <div className="flex items-center py-2">
             <ul>
               {sectionTitles.map(({ id, title }) => (
-                <li key={id} className="font-base p-2 dark:text-slate-1">
+                <li key={id} className="font-base p-2 dark:text-white">
                   <a href={`#${id}`}>{title}</a>
                 </li>
               ))}

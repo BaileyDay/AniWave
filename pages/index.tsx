@@ -8,7 +8,7 @@ import {
 } from 'lib/sanity.client'
 import { Post, Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
-import { lazy } from 'react'
+
 
 interface PageProps {
   posts: Post[]

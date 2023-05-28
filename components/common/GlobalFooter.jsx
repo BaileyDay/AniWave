@@ -47,21 +47,21 @@ const GlobalFooter = () => {
         viewBox="100 450 800 150"
         preserveAspectRatio="none"
         version="1.1"
-        className="z-20 w-auto fill-slate-4 dark:fill-slatedark-2"
+        className="z-20 w-auto fill-slate-100 dark:fill-zinc-800"
       >
         <path d="M0 514L37.5 522.2C75 530.3 150 546.7 225 551.3C300 556 375 549 450 530C525 511 600 480 675 475.2C750 470.3 825 491.7 862.5 502.3L900 513L900 601L862.5 601C825 601 750 601 675 601C600 601 525 601 450 601C375 601 300 601 225 601C150 601 75 601 37.5 601L0 601Z"></path>
       </svg>
-      <footer className="bg-slate-4 dark:bg-slatedark-2 dark:text-slatedark-12">
+      <footer className="bg-slate-100 dark:bg-zinc-800 dark:text-white">
         <div className="lg:-10 mx-auto max-w-screen-xl p-4 py-6 md:p-8">
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-6">
             <div className="col-span-2">
               <a
                 href="https://aniwave.io"
-                className="text-gray-900 dark:text-white mb-2 flex items-center text-2xl font-semibold sm:mb-0"
+                className="mb-2 flex items-center text-2xl font-semibold text-gray-900 dark:text-white sm:mb-0"
               >
                 <Logo />
               </a>
-              <p className="text-gray-500 dark:text-gray-400 my-4 font-light">
+              <p className="my-4 font-light text-neutral-900 dark:text-gray-400">
                 AniWave is your ultimate destination for all things anime,
                 offering a unique media publishing site and newsletter to keep
                 you updated on the latest trends, news, and insights in the
@@ -71,7 +71,7 @@ const GlobalFooter = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                    className="text-neutral-900 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                   >
                     <svg
                       className="h-5 w-5"
@@ -90,7 +90,7 @@ const GlobalFooter = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                    className="text-neutral-900 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                   >
                     <svg
                       className="h-5 w-5"
@@ -109,7 +109,7 @@ const GlobalFooter = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                    className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                   >
                     <svg
                       className="h-5 w-5"
@@ -124,7 +124,7 @@ const GlobalFooter = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                    className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                   >
                     <svg
                       className="h-5 w-5"
@@ -143,7 +143,7 @@ const GlobalFooter = () => {
                 <li>
                   <a
                     href="#"
-                    className="text-gray-500 hover:text-gray-900 dark:hover:text-white dark:text-gray-400"
+                    className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                   >
                     <svg
                       className="h-5 w-5"
@@ -164,10 +164,10 @@ const GlobalFooter = () => {
 
             {footerLinks.map((category) => (
               <div className="lg:mx-auto" key={category.category}>
-                <h2 className="text-gray-900 dark:text-white mb-6 text-sm font-semibold uppercase">
+                <h2 className="mb-6 text-sm font-bold uppercase text-gray-900 dark:text-white">
                   {category.category}
                 </h2>
-                <ul className="text-gray-500 dark:text-gray-400">
+                <ul className="text-neutral-900 dark:text-gray-400">
                   {category.links.map((link) => (
                     <li className="mb-4" key={link.name}>
                       <Link href={link.url} className="hover:underline">
@@ -179,8 +179,8 @@ const GlobalFooter = () => {
               </div>
             ))}
           </div>
-          <hr className="border-gray-200 dark:border-gray-700 my-6 sm:mx-auto lg:my-8" />
-          <span className="text-gray-500 dark:text-gray-400 block text-center text-sm">
+          <hr className="my-6 border-slate-700 dark:border-gray-700 sm:mx-auto lg:my-8" />
+          <span className="block text-center text-sm text-slate-700 dark:text-gray-400">
             © {new Date().getFullYear()}{' '}
             <a href="#" className="hover:underline">
               AniWave™

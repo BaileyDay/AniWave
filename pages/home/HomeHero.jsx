@@ -1,11 +1,11 @@
 import Image from 'next/image'
 
-import Yuki from '../../public/yuki.png'
+import Yuki from '../../public/yuki.webp'
 
 const HomeHero = () => {
   return (
     <>
-      <div className="relative flex h-[59vw] items-end justify-center overflow-hidden bg-gradient-to-br from-blue-9 to-sky-9 lg:hidden lg:h-[50vw]">
+      <div className="relative flex h-[59vw] items-end justify-center overflow-hidden bg-gradient-to-br from-blue-500 to-sky-300 lg:hidden lg:h-[50vw]">
         <svg
           id="visual"
           viewBox="0 0 900 600"
@@ -13,7 +13,7 @@ const HomeHero = () => {
           height="100%"
           preserveAspectRatio="none"
           version="1.1"
-          className="z-20 fill-slate-1 dark:fill-slatedark-1"
+          className="z-20 fill-white dark:fill-zinc-900"
         >
           <path d="M0 514L37.5 522.2C75 530.3 150 546.7 225 551.3C300 556 375 549 450 530C525 511 600 480 675 475.2C750 470.3 825 491.7 862.5 502.3L900 513L900 601L862.5 601C825 601 750 601 675 601C600 601 525 601 450 601C375 601 300 601 225 601C150 601 75 601 37.5 601L0 601Z"></path>
         </svg>
@@ -25,26 +25,31 @@ const HomeHero = () => {
           }}
           className="s/12 absolute z-10 w-1/3 overflow-hidden"
         >
-          <Image src={Yuki} className="z-10 overflow-hidden lg:hidden " />
+          <Image
+            src={Yuki}
+            alt="Yuki Aniwave Mascot"
+            className="z-10 overflow-hidden lg:hidden "
+            priority={true}
+          />
         </div>
       </div>
-      <div className=" relative z-10 mt-4 w-full overflow-hidden bg-slate-1 px-4 pb-32 dark:bg-slatedark-1 lg:mt-32 lg:flex lg:h-full lg:items-center lg:bg-transparent lg:p-48 lg:pt-32">
+      <div className=" relative z-10 mt-4 w-full overflow-hidden bg-white px-4 pb-32 dark:bg-zinc-900 lg:mt-32 lg:flex lg:h-full lg:items-center lg:bg-transparent lg:p-48 lg:pt-32">
         <div className="container mx-auto lg:flex lg:max-w-[72rem]">
           <div className="space-y-7  lg:mx-0 lg:w-1/2 lg:space-y-8">
             <div className="space-y-6 lg:space-y-10">
               <div className="space-y-4 lg:space-y-8">
-                <h1 className="text-3xl leading-snug  dark:text-slatedark-12 sm:leading-normal lg:text-6xl lg:font-light">
+                <h1 className="text-3xl leading-snug  dark:text-white sm:leading-normal lg:text-6xl lg:font-light">
                   Immerse yourself in the world of{' '}
                   <strong className="font-semibold">Anime & Manga</strong>
                 </h1>
-                <p className="text-md leading-normal text-slate-9 sm:leading-relaxed lg:text-xl lg:font-light lg:leading-normal">
+                <p className="text-md text-slate-9 leading-normal sm:leading-relaxed lg:text-xl lg:font-light lg:leading-normal">
                   Join our community of fans who receive our regular newsletter,
                   covering the essentials of the anime and manga industry.
                 </p>
               </div>
               <form className="w-full lg:relative">
                 <input
-                  className="z-20 h-20 w-full rounded-[20px] bg-slate-4 pl-8 pr-10 text-slate-12 outline-none ring-0 placeholder:text-slate-11 focus:ring-0 focus-visible:outline-none"
+                  className="placeholder:text-slate-11 z-20 h-20 w-full rounded-[20px] bg-neutral-100 pl-8 pr-10 text-slate-900 outline-none ring-0 focus:ring-0 focus-visible:outline-none"
                   type="email"
                   placeholder="Enter email address..."
                   defaultValue=""
@@ -54,10 +59,10 @@ const HomeHero = () => {
                   <button
                     as="button"
                     type="submit"
-                    className="z-20 block w-full justify-center rounded-xl  bg-blue-9 py-8 font-semibold text-slate-1 transition duration-300 ease-in-out  lg:inline-flex lg:px-10 lg:py-6 lg:hover:bg-blue-10"
+                    className="z-20 block w-full justify-center rounded-xl bg-blue-500 py-8 font-semibold text-white transition duration-300 ease-in-out  lg:inline-flex lg:px-10 lg:py-6 lg:hover:bg-blue-600"
                   >
                     <span>
-                      <span className="overflow-hidden transition duration-300 ease-in-out ">
+                      <span className="overflow-hidden text-white transition duration-300 ease-in-out ">
                         Subscribe
                       </span>
                     </span>
@@ -115,7 +120,9 @@ const HomeHero = () => {
           >
             <Image
               src={Yuki}
+              alt="Yuki Aniwave Mascot"
               className="z-10 hidden overflow-hidden lg:block"
+              priority={true}
             />
           </div>
         </div>

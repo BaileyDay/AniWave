@@ -8,6 +8,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      aspectRatio: {},
       spacing: {
         28: '7rem',
       },
@@ -29,5 +30,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-radix-colors')],
+  plugins: [],
 }

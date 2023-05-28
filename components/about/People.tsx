@@ -6,10 +6,10 @@ export default function People({ authors }) {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-gray-900 text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             The AniWave Team
           </h2>
-          <p className="text-gray-600 mt-6 text-lg leading-8">
+          <p className="mt-6 text-lg leading-8 text-gray-600">
             Welcome to AniWave, your beacon in the vast universe of anime and
             manga! We&apos;re a passionate crew of otaku enthusiasts committed
             to bringing you the latest insights, reviews, and events from the
@@ -29,13 +29,13 @@ export default function People({ authors }) {
                 src={urlForImage(author?.picture).url()}
                 alt=""
               />
-              <h3 className="text-gray-900 mt-6 text-lg font-bold leading-8 tracking-tight">
+              <h3 className="mt-6 text-lg font-bold leading-8 tracking-tight text-gray-900">
                 {author?.name}
               </h3>
-              <p className="text-base font-semibold leading-7 text-blue-9">
+              <p className="text-base font-semibold leading-7 text-sky-500">
                 {author?.role}
               </p>
-              <p className="text-gray-600 text-base leading-7">
+              <p className="text-base leading-7 text-gray-600">
                 {author?.description}
               </p>
               {/* <ul role="list" className="mt-6 flex gap-x-6">

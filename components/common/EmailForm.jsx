@@ -1,34 +1,33 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Subscribe = () => {
   return (
     <>
-      <section className="mt-24 rounded-xl bg-slate-3 dark:bg-slatedark-4">
-        <div className="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
-          <div className="mx-auto max-w-screen-md sm:text-center">
-            <h2 className="text-gray-900 dark:text-white mb-4 text-3xl font-extrabold tracking-tight dark:text-slate-1 sm:text-4xl">
-              🚀 Join the AniWave Universe! 🌌
+      <section class="bg-white dark:bg-gray-900">
+        <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
+          <div class="mx-auto max-w-screen-md sm:text-center">
+            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+              Ride the Anime Wave with AniWave! 🌊 🚀
             </h2>
-            <p className="text-md mx-auto mb-8 max-w-xl font-light text-slate-12 dark:text-slate-8 sm:text-lg md:mb-12">
-              By subscribing to our AniWave newsletter, you become a part of our
-              close-knit otaku family. You&apos;ll get first dibs on the
-              freshest anime news, insider peeks into upcoming releases, and
-              exclusive discounts! 🎉 And it&apos;s not just news - we&apos;re
-              bringing you engaging stories, discussions, and personal insights
-              into the anime world.
+            <p class="mx-auto mb-8 max-w-2xl font-light text-gray-500 dark:text-gray-400 sm:text-xl md:mb-12">
+              Be the first to explore latest anime & manga news, enjoy exclusive
+              discounts, and immerse in a vibrant community. Transform your
+              inbox - sign up today!
             </p>
             <form action="#">
-              <div className="mx-auto mb-3 max-w-screen-sm items-center space-y-4 sm:flex sm:space-y-0">
-                <div className="relative w-full">
+              <div class="mx-auto mb-3 max-w-screen-sm items-center space-y-4 sm:flex sm:space-y-0">
+                <div class="relative w-full">
                   <label
-                    htmlFor="email"
-                    className="text-gray-900 dark:text-gray-300 mb-2 hidden text-sm font-medium"
+                    for="email"
+                    class="mb-2 hidden text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     Email address
                   </label>
-                  <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                  <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                     <svg
-                      className="dark:text-slate7 h-5 w-5 fill-slate-9 text-slate-9"
+                      class="h-5 w-5 text-gray-500 dark:text-gray-400"
+                      fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
                     >
@@ -37,7 +36,7 @@ const Subscribe = () => {
                     </svg>
                   </div>
                   <input
-                    className="focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-slate-6 bg-slate-4 p-3 pl-10 text-sm text-slate-11 sm:rounded-none sm:rounded-l-lg"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 pl-10 text-sm text-gray-900 focus:border-sky-500 focus:ring-sky-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-sky-500 dark:focus:ring-sky-500 sm:rounded-none sm:rounded-l-lg"
                     placeholder="Enter your email"
                     type="email"
                     id="email"
@@ -47,11 +46,21 @@ const Subscribe = () => {
                 <div>
                   <button
                     type="submit"
-                    className="dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 w-full cursor-pointer rounded-lg border border-blue-9 bg-blue-11 px-5 py-3 text-center text-sm font-medium text-slate-1 hover:bg-blue-10 focus:ring-4 focus:ring-blue-4 sm:rounded-none sm:rounded-r-lg"
+                    class="w-full cursor-pointer rounded-lg border border-sky-600 bg-sky-700 px-5 py-3 text-center text-sm font-medium text-white hover:bg-sky-800 focus:ring-4 focus:ring-sky-300 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800 sm:rounded-none sm:rounded-r-lg"
                   >
                     Subscribe
                   </button>
                 </div>
+              </div>
+              <div class="newsletter-form-footer mx-auto max-w-screen-sm text-left text-sm text-gray-500 dark:text-gray-300">
+                We care about the protection of your data.{' '}
+                <Link
+                  href="/privacy-policy"
+                  class="font-medium text-sky-600 hover:underline dark:text-sky-500"
+                >
+                  Read our Privacy Policy
+                </Link>
+                .
               </div>
             </form>
           </div>

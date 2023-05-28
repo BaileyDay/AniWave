@@ -5,7 +5,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import Logo from '../../components/common/Logo'
 import MobileLogo from '../../components/common/MobileLogo'
-import Yuki from '../../public/yuki.png'
+import Yuki from '../../public/yuki.webp'
 
 const HomeNav = () => {
   const [navClass, setNavClass] = useState('')
@@ -18,7 +18,7 @@ const HomeNav = () => {
       setNavClass(
         `${
           drawerOpen ? 'shadow-none' : 'shadow-md'
-        } lg:pt-4 bg-blue-11 lg:bg-blue-1 lg:dark:bg-slatedark-3`
+        } lg:pt-4 bg-sky-700 lg:bg-white lg:dark:bg-slatedark-3`
       )
       controls.start({
         scale: 0.95,
@@ -26,7 +26,7 @@ const HomeNav = () => {
         transition: { duration: 0.2 },
       })
     } else {
-      setNavClass('lg:pt-12 lg:dark:bg-slatedark-1 bg-transparent')
+      setNavClass('lg:pt-12 lg:dark:bg-zinc-900 bg-transparent')
       controls.start({ scale: 1, translateY: 0, transition: { duration: 0.3 } })
     }
   }, [drawerOpen, controls])
@@ -84,17 +84,17 @@ const HomeNav = () => {
                     <div className="relative flex h-[50px] w-[50px] transform items-center justify-center overflow-hidden rounded-full transition-all duration-200">
                       <div className="flex h-[20px] w-[20px] origin-center transform flex-col justify-between overflow-hidden transition-all duration-300">
                         <div
-                          className={`h-[2px] w-7 origin-left transform bg-slate-1 transition-all duration-300 ${
+                          className={`h-[2px] w-7 origin-left transform bg-white transition-all duration-300 ${
                             drawerOpen ? 'translate-x-10' : ''
                           }`}
                         ></div>
                         <div
-                          className={`h-[2px] w-7 transform rounded bg-slate-1 transition-all delay-75 duration-300 ${
+                          className={`h-[2px] w-7 transform rounded bg-white transition-all delay-75 duration-300 ${
                             drawerOpen ? 'translate-x-10' : ''
                           }`}
                         ></div>
                         <div
-                          className={`h-[2px] w-7 origin-left transform bg-slate-1 transition-all delay-150 duration-300 ${
+                          className={`h-[2px] w-7 origin-left transform bg-white transition-all delay-150 duration-300 ${
                             drawerOpen ? 'translate-x-10' : ''
                           }`}
                         ></div>
@@ -105,12 +105,12 @@ const HomeNav = () => {
                           }`}
                         >
                           <div
-                            className={`absolute h-[2px] w-5 rotate-0 transform bg-slate-1 transition-all delay-300 duration-500 ${
+                            className={`absolute h-[2px] w-5 rotate-0 transform bg-white transition-all delay-300 duration-500 ${
                               drawerOpen ? 'rotate-45' : ''
                             }`}
                           ></div>
                           <div
-                            className={`absolute h-[2px] w-5 -rotate-0 transform bg-slate-1 transition-all delay-300 duration-500 ${
+                            className={`absolute h-[2px] w-5 -rotate-0 transform bg-white transition-all delay-300 duration-500 ${
                               drawerOpen ? '-rotate-45' : ''
                             }`}
                           ></div>
@@ -137,7 +137,7 @@ const HomeNav = () => {
                       <Link
                         href="/"
                         title="Home"
-                        className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
+                        className="block text-slate-900 hover:text-sky-500 dark:text-white"
                         aria-current="page"
                       >
                         Home
@@ -147,7 +147,7 @@ const HomeNav = () => {
                       <Link
                         href="/category/news"
                         title="News"
-                        className="block  text-slate-12 hover:text-blue-11 dark:text-slate-1"
+                        className="block  text-slate-900 hover:text-sky-500 dark:text-white"
                       >
                         News
                       </Link>
@@ -156,7 +156,7 @@ const HomeNav = () => {
                       <Link
                         href="/category/reviews"
                         title="Reviews"
-                        className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
+                        className="block text-slate-900 hover:text-sky-500 dark:text-white"
                       >
                         Reviews
                       </Link>
@@ -165,7 +165,7 @@ const HomeNav = () => {
                       <Link
                         href="/category/streaming"
                         title="Streaming"
-                        className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
+                        className="block text-slate-900 hover:text-sky-500 dark:text-white"
                       >
                         Streaming
                       </Link>
@@ -174,7 +174,7 @@ const HomeNav = () => {
                       <Link
                         href="/category/manga"
                         title="Manga"
-                        className="block flex-none text-slate-12 hover:text-blue-11 dark:text-slate-1"
+                        className="block flex-none text-slate-900 hover:text-sky-500 dark:text-white"
                       >
                         Manga
                       </Link>
@@ -183,7 +183,7 @@ const HomeNav = () => {
                       <Link
                         href="/category/events"
                         title="Events"
-                        className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
+                        className="block text-slate-900 hover:text-sky-500 dark:text-white"
                       >
                         Events
                       </Link>
@@ -192,7 +192,7 @@ const HomeNav = () => {
                       <Link
                         href="/category/culture"
                         title="Culture"
-                        className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
+                        className="block text-slate-900 hover:text-sky-500 dark:text-white"
                       >
                         Culture
                       </Link>
@@ -201,7 +201,7 @@ const HomeNav = () => {
                       <Link
                         href="/category/merchandise"
                         title="Merchandise"
-                        className="block text-slate-12 hover:text-blue-11 dark:text-slate-1"
+                        className="block text-slate-900 hover:text-sky-500 dark:text-white"
                       >
                         Merchandise
                       </Link>
@@ -211,10 +211,12 @@ const HomeNav = () => {
                 <Link
                   href="/subscribe"
                   type="button"
-                  className="ml-8 inline-flex  flex-none rounded-full border border-slate-1 p-2 text-center text-sm
-                  font-light text-blue-1 transition duration-300  ease-in-out hover:text-slate-1 focus:outline-none focus:ring-4 lg:mr-0 lg:rounded-xl lg:border-2 lg:border-none lg:bg-gradient-to-br lg:from-blue-10 lg:to-sky-10 lg:px-10  lg:py-6 lg:font-semibold lg:hover:from-blue-11 lg:hover:to-sky-11"
+                  className="relative ml-8 inline-flex flex-none overflow-hidden rounded-full border border-white p-2 text-center text-sm
+  font-light text-white transition duration-300 ease-in-out hover:text-white focus:outline-none focus:ring-4 lg:mr-0 lg:rounded-xl lg:border-2 lg:border-none lg:px-10 lg:py-6 lg:font-semibold"
                 >
-                  Subscribe
+                  <span className="absolute left-0 top-0 z-0 h-full w-full transition-opacity duration-300 ease-in-out lg:bg-gradient-to-br lg:from-blue-500 lg:to-sky-400"></span>
+                  <span className="absolute left-0 top-0 z-0 h-full w-full opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 lg:bg-gradient-to-br lg:from-blue-600 lg:to-sky-500"></span>
+                  <span className="relative z-10">Subscribe</span>
                 </Link>
               </div>
             </div>
@@ -222,11 +224,11 @@ const HomeNav = () => {
         </motion.div>
       </nav>
       <div
-        className={` container fixed left-0 top-[74px] z-40 h-[110%]  w-full -translate-y-20  bg-blue-11 pl-4 pt-24 transition-transform duration-300 ease-in-out ${drawerStyle}`}
+        className={` container fixed left-0 top-[74px] z-40 h-[110%]  w-full -translate-y-20  bg-blue-500 pl-4 pt-24 transition-transform duration-300 ease-in-out ${drawerStyle}`}
       >
         <div className="container mx-auto lg:max-w-[72rem]">
           <ul
-            className="relative z-10 flex flex-col text-slate-1 md:text-center"
+            className="relative z-10 flex flex-col text-white md:text-center"
             style={{ opacity: 1 }}
           >
             {navItems.map(({ text, href }) => (
@@ -236,11 +238,11 @@ const HomeNav = () => {
                 style={{ transform: 'translateX(0%) translateZ(0px)' }}
               >
                 <Link
-                  className="text-white focus:text-milkroad-blue-500 group relative inline-block overflow-hidden py-2 text-5xl font-black hover:text-blue-5"
+                  className="hover:text-blue-5 group relative inline-block overflow-hidden py-2 text-5xl font-black text-white focus:text-blue-500"
                   href={href}
                 >
                   <span className="relative z-10">{text}</span>
-                  <span className="bg-white absolute inset-0 inline-block translate-y-[101%]  transition duration-300 ease-in-out group-hover:translate-y-0 group-focus:translate-y-0"></span>
+                  <span className="absolute inset-0 inline-block translate-y-[101%] bg-white  transition duration-300 ease-in-out group-hover:translate-y-0 group-focus:translate-y-0"></span>
                 </Link>
               </li>
             ))}
@@ -255,6 +257,7 @@ const HomeNav = () => {
             <Image
               src={Yuki}
               className="z-10 translate-x-28 scale-100 overflow-hidden lg:hidden "
+              alt="Yuki Aniwave mascot"
             />
           </motion.div>
         </div>

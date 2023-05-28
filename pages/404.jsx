@@ -6,16 +6,16 @@ const Page404 = () => {
   return (
     <>
       <GlobalNav />
-      <section class="mt-20 bg-slate-1 dark:bg-slatedark-1 lg:mt-48">
+      <section class="mt-20 bg-white dark:bg-zinc-900 lg:mt-48">
         <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
           <div class="mx-auto max-w-screen-sm text-center">
-            <h1 class="dark:text-primary-500 mb-4 text-7xl font-extrabold tracking-tight text-blue-11 lg:text-9xl">
+            <h1 class="dark:text-primary-500 mb-4 text-7xl font-extrabold tracking-tight text-blue-700 lg:text-9xl">
               404
             </h1>
-            <p class="text-gray-900 mb-4 text-3xl font-bold tracking-tight dark:text-slate-1 md:text-4xl">
+            <p class="mb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white md:text-4xl">
               Something&apos;s missing.
             </p>
-            <p class="mb-4 text-lg font-light text-slate-9 dark:text-slate-1">
+            <p class="text-slate-9 mb-4 text-lg font-light dark:text-white">
               Sorry, we can&apos;t find that page. You&apos;ll find lots to
               explore on the home page.{' '}
             </p>
