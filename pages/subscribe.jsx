@@ -38,7 +38,7 @@ const Subscribe = () => {
         <title>Subscribe</title>
       </Head>
       {emailStatus && <SuccessToast setEmailStatus={setEmailStatus} />}
-      <div className="relative -mt-12 bg-gradient-to-br from-blue-500 to-sky-300 lg:h-2/3 lg:w-full ">
+      <div className="relative -mt-14 bg-gradient-to-br from-blue-500 to-sky-400 lg:h-2/3 lg:w-full ">
         <div className="  flex items-center justify-center">
           <div className="relative -left-16 top-24 lg:-left-64 lg:top-28">
             <svg
@@ -87,7 +87,7 @@ const Subscribe = () => {
         <section class="-mt-16 flex items-center bg-white dark:bg-zinc-900 ">
           <div class="z-10 mx-auto max-w-screen-xl px-2">
             <div class="mx-auto max-w-screen-md text-left">
-              <h2 class="mb-2 text-5xl font-extrabold tracking-tight dark:text-white">
+              <h2 class="mb-2 text-5xl font-extrabold leading-snug tracking-tight dark:text-white">
                 Immerse yourself in the world of <br class="lg:hidden" />
                 <span class="text-sky-500 lg:text-white">Anime</span>{' '}
                 <span className="text-slate-900 dark:text-white">&amp; </span>

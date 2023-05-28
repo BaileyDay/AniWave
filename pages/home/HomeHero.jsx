@@ -68,7 +68,7 @@ const HomeHero = () => {
           <div className="space-y-7  lg:mx-0 lg:w-1/2 lg:space-y-8">
             <div className="space-y-6 lg:space-y-10">
               <div className="space-y-4 lg:space-y-8">
-                <h1 className="text-3xl leading-snug  dark:text-white sm:leading-normal lg:text-6xl lg:font-light ">
+                <h1 className="text-3xl leading-snug tracking-tight dark:text-white sm:leading-normal lg:text-6xl lg:font-light ">
                   Immerse yourself in the world of{' '}
                   <strong className="font-bold">Anime & Manga</strong>
                 </h1>
