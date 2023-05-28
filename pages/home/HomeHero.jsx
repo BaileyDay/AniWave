@@ -1,11 +1,41 @@
 import Image from 'next/image'
+import { useState } from 'react'
 
+import SuccessToast from '../../components/common/SuccessToast'
 import Yuki from '../../public/yuki.webp'
 
 const HomeHero = () => {
+  const [emailStatus, setEmailStatus] = useState(false)
+  const submitSubscription = async (email) => {
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      if (response.ok) {
+        setEmailStatus(true)
+      } else {
+        setEmailStatus(false)
+      }
+    } catch (error) {
+      console.log('Subscription error', error)
+    }
+  }
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault()
+    const email = event.target.email.value
+    submitSubscription(email)
+  }
+
   return (
     <>
-      <div className="relative flex h-[59vw] items-end justify-center overflow-hidden bg-gradient-to-br from-blue-500 to-sky-300 lg:hidden lg:h-[50vw]">
+      {emailStatus && <SuccessToast setEmailStatus={setEmailStatus} />}
+      <div className="relative flex h-[59vw] items-end justify-center overflow-hidden bg-gradient-to-br from-blue-500 to-sky-400 lg:hidden lg:h-[50vw]">
         <svg
           id="visual"
           viewBox="0 0 900 600"
@@ -38,17 +68,18 @@ const HomeHero = () => {
           <div className="space-y-7  lg:mx-0 lg:w-1/2 lg:space-y-8">
             <div className="space-y-6 lg:space-y-10">
               <div className="space-y-4 lg:space-y-8">
-                <h1 className="text-3xl leading-snug  dark:text-white sm:leading-normal lg:text-6xl lg:font-light">
+                <h1 className="text-3xl leading-snug  dark:text-white sm:leading-normal lg:text-6xl lg:font-light ">
                   Immerse yourself in the world of{' '}
-                  <strong className="font-semibold">Anime & Manga</strong>
+                  <strong className="font-bold">Anime & Manga</strong>
                 </h1>
-                <p className="text-md text-slate-9 leading-normal sm:leading-relaxed lg:text-xl lg:font-light lg:leading-normal">
+                <p className="text-md leading-normal text-slate-500 sm:leading-relaxed lg:text-xl lg:font-light lg:leading-normal">
                   Join our community of fans who receive our regular newsletter,
                   covering the essentials of the anime and manga industry.
                 </p>
               </div>
-              <form className="w-full lg:relative">
+              <form className="w-full lg:relative" onSubmit={handleFormSubmit}>
                 <input
+                  name="email" // add a name attribute to the input
                   className="placeholder:text-slate-11 z-20 h-20 w-full rounded-[20px] bg-neutral-100 pl-8 pr-10 text-slate-900 outline-none ring-0 focus:ring-0 focus-visible:outline-none"
                   type="email"
                   placeholder="Enter email address..."
@@ -59,7 +90,7 @@ const HomeHero = () => {
                   <button
                     as="button"
                     type="submit"
-                    className="z-20 block w-full justify-center rounded-xl bg-blue-500 py-8 font-semibold text-white transition duration-300 ease-in-out  lg:inline-flex lg:px-10 lg:py-6 lg:hover:bg-blue-600"
+                    className="z-20 block w-full justify-center rounded-xl bg-sky-500 py-8 font-semibold text-white transition duration-300 ease-in-out  lg:inline-flex lg:px-10 lg:py-6 lg:hover:bg-blue-600"
                   >
                     <span>
                       <span className="overflow-hidden text-white transition duration-300 ease-in-out ">

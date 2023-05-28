@@ -6,7 +6,7 @@ const TabItem = ({ title, isActive, onClick }) => (
       onClick={onClick}
       className={`inline-block rounded-t-lg p-4 focus:outline-none ${
         isActive
-          ? 'border-b-2 border-blue-500 text-blue-500 dark:border-blue-700 dark:text-blue-500'
+          ? 'border-b-2 border-sky-500 text-sky-500 dark:border-sky-700 dark:text-sky-500'
           : 'border-b-2 border-transparent text-slate-900 dark:border-gray-700  dark:text-white '
       }`}
     >
@@ -22,7 +22,7 @@ const TabContent = ({ content, isActive, buttonText, buttonLink }) => {
       <a href={buttonLink}>
         <button
           type="button"
-          className=" via-blue-10 shadow-blue-12/50 focus:ring-blue-3 dark:focus:ring-blue-8 mt-4 w-full rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white shadow-lg hover:bg-gradient-to-br focus:outline-none focus:ring-4 dark:shadow-lg dark:shadow-blue-500/80 lg:w-1/4"
+          className=" via-blue-10 shadow-blue-12/50 focus:ring-blue-3 dark:focus:ring-blue-8 mt-4 w-full rounded-lg bg-gradient-to-r from-sky-500 to-blue-500 px-5 py-2.5 text-center text-sm font-medium text-white shadow-lg hover:bg-gradient-to-br focus:outline-none focus:ring-4 dark:shadow-lg dark:shadow-blue-500/80 lg:w-1/4"
         >
           {buttonText}
         </button>
@@ -46,7 +46,7 @@ const HomeTabs = () => {
   return (
     <div className="mx-auto text-slate-900 dark:text-white">
       <div className="mx-auto mt-4 w-full max-w-screen-xl px-4">
-        <h2 className=" text-2xl font-bold text-blue-700">The Aniverse 🪐💫</h2>
+        <h2 className=" text-2xl font-bold text-sky-500">The Aniverse 🪐💫</h2>
         <h3 className=" mb-8 text-2xl font-bold text-slate-900 dark:text-white">
           Discover All
         </h3>

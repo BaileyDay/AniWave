@@ -1,10 +1,39 @@
 import Link from 'next/link'
 import React from 'react'
+import SuccessToast from './SuccessToast'
+import { useState } from 'react'
 
 const Subscribe = () => {
+  const [emailStatus, setEmailStatus] = useState(false)
+  const submitSubscription = async (email) => {
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      if (response.ok) {
+        setEmailStatus(true)
+      } else {
+        setEmailStatus(false)
+      }
+    } catch (error) {
+      console.log('Subscription error', error)
+    }
+  }
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault()
+    const email = event.target.email.value
+    submitSubscription(email)
+  }
   return (
     <>
-      <section class="bg-white dark:bg-gray-900">
+      {emailStatus && <SuccessToast setEmailStatus={setEmailStatus} />}
+      <section class="rounded-xl bg-slate-100 dark:bg-gray-900">
         <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
           <div class="mx-auto max-w-screen-md sm:text-center">
             <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
@@ -15,7 +44,7 @@ const Subscribe = () => {
               discounts, and immerse in a vibrant community. Transform your
               inbox - sign up today!
             </p>
-            <form action="#">
+            <form action="#" onSubmit={handleFormSubmit}>
               <div class="mx-auto mb-3 max-w-screen-sm items-center space-y-4 sm:flex sm:space-y-0">
                 <div class="relative w-full">
                   <label
@@ -39,14 +68,15 @@ const Subscribe = () => {
                     class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 pl-10 text-sm text-gray-900 focus:border-sky-500 focus:ring-sky-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 dark:focus:border-sky-500 dark:focus:ring-sky-500 sm:rounded-none sm:rounded-l-lg"
                     placeholder="Enter your email"
                     type="email"
-                    id="email"
-                    required=""
+                    name="email"
+                    defaultValue=""
+                    data-form-type="email"
                   />
                 </div>
                 <div>
                   <button
                     type="submit"
-                    class="w-full cursor-pointer rounded-lg border border-sky-600 bg-sky-700 px-5 py-3 text-center text-sm font-medium text-white hover:bg-sky-800 focus:ring-4 focus:ring-sky-300 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800 sm:rounded-none sm:rounded-r-lg"
+                    class="w-full cursor-pointer rounded-lg border border-sky-400 bg-sky-500 px-5 py-3 text-center text-sm font-medium text-white hover:bg-sky-600  focus:ring-0 dark:bg-sky-600  dark:hover:bg-sky-700 sm:rounded-none sm:rounded-r-lg"
                   >
                     Subscribe
                   </button>

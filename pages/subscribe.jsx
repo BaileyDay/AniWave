@@ -1,15 +1,43 @@
 import React from 'react'
 import Image from 'next/image'
 import sideImage from '../public/side.png'
-
+import SuccessToast from '../components/common/SuccessToast'
 import Head from 'next/head'
+import { useState } from 'react'
 
 const Subscribe = () => {
+  const [emailStatus, setEmailStatus] = useState(false)
+  const submitSubscription = async (email) => {
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      if (response.ok) {
+        setEmailStatus(true)
+      } else {
+        setEmailStatus(false)
+      }
+    } catch (error) {
+      console.log('Subscription error', error)
+    }
+  }
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault()
+    const email = event.target.email.value
+    submitSubscription(email)
+  }
   return (
     <div className="relative overflow-hidden">
       <Head>
         <title>Subscribe</title>
       </Head>
+      {emailStatus && <SuccessToast setEmailStatus={setEmailStatus} />}
       <div className="relative -mt-12 bg-gradient-to-br from-blue-500 to-sky-300 lg:h-2/3 lg:w-full ">
         <div className="  flex items-center justify-center">
           <div className="relative -left-16 top-24 lg:-left-64 lg:top-28">
@@ -65,12 +93,16 @@ const Subscribe = () => {
                 <span className="text-slate-900 dark:text-white">&amp; </span>
                 <span class="text-sky-500 lg:text-white">Manga</span>
               </h2>
-              <p class="text-slate-9 dark:text-slate-8 lg:text-slate-11 mb-6 text-sm font-light lg:text-lg">
+              <p class="dark:text-slate-8 lg:text-slate-11 mb-6 text-sm font-light text-slate-500 lg:text-lg">
                 Sign up for our newsletter to stay up-to-date with the latest
                 anime and manga news, reviews, and more. Get access to exclusive
                 content and personalized recommendations tailored just for you.
               </p>
-              <form action="#" class="mx-auto max-w-screen-sm">
+              <form
+                action="#"
+                class="mx-auto max-w-screen-sm "
+                onSubmit={handleFormSubmit}
+              >
                 <div class="mb-3 flex items-center">
                   <div class="relative mr-3 w-full">
                     <label
@@ -94,22 +126,22 @@ const Subscribe = () => {
                       class="focus:ring-primary-500 dark:focus:ring-primary-500 bg-slate-3 focus:border-blue-8 dark:border-slate-8 dark:placeholder-slate-11 dark:focus:border-blue-8 block w-full rounded-3xl border border-none bg-slate-100 p-8 pl-10 text-sm text-slate-900 dark:bg-gray-700 dark:text-white"
                       placeholder="Enter your email"
                       type="email"
-                      name="member[email]"
-                      id="member_email"
-                      required=""
+                      name="email"
+                      defaultValue=""
+                      data-form-type="email"
                     />
                   </div>
                   <div></div>
                 </div>
+                <button
+                  type="submit"
+                  class="dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 hover:bg-blue-10 focus:ring-blue-7 w-full cursor-pointer rounded-xl bg-sky-500 px-5 py-6 text-center text-sm font-medium text-white focus:ring-4"
+                  name="member_submit"
+                  id="member_submit"
+                >
+                  Subscribe
+                </button>
               </form>
-              <button
-                type="submit"
-                class="dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 hover:bg-blue-10 focus:ring-blue-7 w-full cursor-pointer rounded-xl bg-sky-500 px-5 py-6 text-center text-sm font-medium text-white focus:ring-4"
-                name="member_submit"
-                id="member_submit"
-              >
-                Subscribe
-              </button>
             </div>
           </div>
         </section>

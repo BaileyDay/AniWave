@@ -6,10 +6,10 @@ const RelatedPosts = ({ posts }) => {
     <div className="bg-white py-24 text-white dark:bg-zinc-900 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl font-bold text-blue-700 dark:text-white">
+          <h2 className="text-2xl font-bold text-sky-500 dark:text-white">
             Discover More 🚀
           </h2>
-          <h3 className="mb-8 text-2xl font-bold text-slate-900 dark:text-white dark:text-white">
+          <h3 className="mb-8 text-2xl font-bold text-slate-900 dark:text-white">
             Related Posts
           </h3>
         </div>
@@ -46,7 +46,7 @@ const RelatedPosts = ({ posts }) => {
                     </time>
                   </div>
                   <div className="flex items-center gap-x-4">
-                    <div className="flex gap-x-2.5">
+                    <div className="font-lg flex gap-x-2.5 text-white">
                       <img
                         src={urlForImage(post?.author.picture).url()}
                         alt={post?.author.name}

@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Noto Sans', 'sans-serif'],
+      },
       aspectRatio: {},
       spacing: {
         28: '7rem',

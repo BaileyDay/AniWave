@@ -18,7 +18,7 @@ const HomeNav = () => {
       setNavClass(
         `${
           drawerOpen ? 'shadow-none' : 'shadow-md'
-        } lg:pt-4 bg-sky-700 lg:bg-white lg:dark:bg-slatedark-3`
+        } lg:pt-4 bg-sky-500 lg:bg-white lg:dark:bg-slatedark-3`
       )
       controls.start({
         scale: 0.95,
@@ -224,7 +224,7 @@ const HomeNav = () => {
         </motion.div>
       </nav>
       <div
-        className={` container fixed left-0 top-[74px] z-40 h-[110%]  w-full -translate-y-20  bg-blue-500 pl-4 pt-24 transition-transform duration-300 ease-in-out ${drawerStyle}`}
+        className={` container fixed left-0 top-[74px] z-40 h-[110%]  w-full -translate-y-20  bg-sky-500 pl-4 pt-24 transition-transform duration-300 ease-in-out ${drawerStyle}`}
       >
         <div className="container mx-auto lg:max-w-[72rem]">
           <ul
@@ -238,11 +238,10 @@ const HomeNav = () => {
                 style={{ transform: 'translateX(0%) translateZ(0px)' }}
               >
                 <Link
-                  className="hover:text-blue-5 group relative inline-block overflow-hidden py-2 text-5xl font-black text-white focus:text-blue-500"
+                  className="hover:text-blue-5 group relative inline-block overflow-hidden py-2 text-5xl font-black text-white "
                   href={href}
                 >
                   <span className="relative z-10">{text}</span>
-                  <span className="absolute inset-0 inline-block translate-y-[101%] bg-white  transition duration-300 ease-in-out group-hover:translate-y-0 group-focus:translate-y-0"></span>
                 </Link>
               </li>
             ))}

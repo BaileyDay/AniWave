@@ -48,7 +48,7 @@ const News = ({ newsArticles }) => {
                       src={urlForImage(article?.author.picture).url()}
                       alt={article?.author.name}
                     />
-                    <div className="font-medium dark:text-white">
+                    <div className="font-normal dark:text-white">
                       <div className="text-sky-500">{article?.author.name}</div>
                       <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
                         <time
