@@ -8,19 +8,17 @@ const News = ({ newsArticles }) => {
       className="bg-white py-6 dark:bg-zinc-900"
     >
       <div className="mx-auto w-full max-w-screen-xl px-4">
-        <h2 className="text-2xl font-bold text-sky-500 dark:text-white">
-          Fresh Rolls 🍱
-        </h2>
-        <h3 className="mb-8 text-2xl font-bold text-slate-900 dark:text-white dark:text-white">
+        <h2 className="text-2xl font-bold text-sky-500 ">Fresh Rolls 🍱</h2>
+        <h3 className="mb-8 text-2xl font-bold text-slate-900 dark:text-white">
           Top Anime News
         </h3>
-        <section className="bg-white dark:bg-gray-900">
+        <section className="bg-white dark:bg-zinc-900">
           <div className="mx-auto max-w-screen-xl px-4 pb-8 lg:px-6 lg:pb-16">
             <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {newsArticles?.map((article, index) => (
                 <article
                   key={index}
-                  className="rounded-lg border border-slate-200 bg-white p-4 shadow-md dark:border-slate-800 dark:bg-neutral-300"
+                  className="rounded-lg border border-slate-200 bg-white p-4 shadow-md  dark:border-zinc-800 dark:bg-zinc-800"
                 >
                   <Link href={`/posts/${article?.slug}`}>
                     <img
@@ -29,7 +27,7 @@ const News = ({ newsArticles }) => {
                       alt={article?.title}
                     />
                   </Link>
-                  <span className="mr-2 rounded-lg bg-sky-500 px-2.5 py-0.5 text-xs font-semibold text-white dark:bg-slate-200 ">
+                  <span className="mr-2 rounded-lg bg-sky-500 px-2.5 py-0.5 text-xs font-semibold text-white">
                     News
                   </span>
                   <h2 className="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -37,7 +35,7 @@ const News = ({ newsArticles }) => {
                       {article?.title}
                     </Link>
                   </h2>
-                  <p className="mb-4 font-light text-gray-500 dark:text-gray-400">
+                  <p className="mb-4 font-light text-slate-500 dark:text-slate-300">
                     {article?.excerpt && article?.excerpt.length > 200
                       ? `${article?.excerpt.substring(0, 200)}...`
                       : article?.excerpt}
@@ -49,10 +47,12 @@ const News = ({ newsArticles }) => {
                       alt={article?.author.name}
                     />
                     <div className="font-normal dark:text-white">
-                      <div className="text-sky-500">{article?.author.name}</div>
-                      <div className="text-sm font-normal text-gray-500 dark:text-gray-400">
+                      <div className="text-sky-500 ">
+                        {article?.author.name}
+                      </div>
+                      <div className="text-sm font-normal text-slate-500 dark:text-slate-300">
                         <time
-                          className="font-semibold text-slate-900 dark:text-blue-500"
+                          className="font-semibold text-slate-900 dark:text-slate-100"
                           dateTime={article?.date}
                           title={new Date(article?.date).toLocaleDateString(
                             'en-US',

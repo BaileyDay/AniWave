@@ -10,13 +10,13 @@ export default function PostListings({ category, posts }) {
   }
 
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white py-24 dark:bg-zinc-900 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-4xl">
           <h2 className="text-3xl font-bold tracking-tight text-sky-500 sm:text-4xl">
             {category?.title}
           </h2>
-          <p className="mt-2 text-lg leading-8 text-slate-900">
+          <p className="mt-2 text-lg leading-8 text-slate-900 dark:text-slate-100">
             {category?.description}
           </p>
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
@@ -41,7 +41,7 @@ export default function PostListings({ category, posts }) {
                   <div>
                     <div className="flex items-center gap-x-4 text-xs">
                       <time
-                        className="font-semibold text-slate-900 dark:text-blue-500"
+                        className="font-semibold text-slate-900 dark:text-sky-500"
                         dateTime={post?.date}
                         title={new Date(post?.date).toLocaleDateString(
                           'en-US',
@@ -60,7 +60,7 @@ export default function PostListings({ category, posts }) {
                       </time>
                       <a
                         href={post.category?.href}
-                        className="relative z-10 rounded-full bg-slate-300 px-3 py-1.5 font-medium text-slate-900 hover:bg-slate-300"
+                        className="relative z-10 rounded-full bg-slate-300 px-3 py-1.5 font-medium text-slate-900 hover:bg-slate-600 dark:bg-slate-800 dark:text-slate-100"
                       >
                         {category?.title}
                       </a>
@@ -72,13 +72,13 @@ export default function PostListings({ category, posts }) {
                           {post?.title}
                         </a>
                       </h3>
-                      <p className="text-slate-9 mt-5 text-sm leading-6">
+                      <p className="mt-5 text-sm leading-6 text-slate-900 dark:text-slate-100">
                         {post?.excerpt && post?.excerpt.length > 200
                           ? `${post?.excerpt.substring(0, 200)}...`
                           : post?.excerpt}
                       </p>
                     </div>
-                    <div className="mt-2 flex border-t border-slate-900/5 pt-6">
+                    <div className="mt-2 flex border-t border-slate-900/5 pt-6 dark:border-slate-100">
                       <div className="relative flex items-center gap-x-4">
                         <img
                           src={urlForImage(post?.author.picture).url()}

@@ -101,7 +101,7 @@ export default function PostPage(props: PostPageProps) {
                             By{' '}
                             <Link
                               rel="author"
-                              className="font-bold text-zinc-900 no-underline hover:underline dark:text-blue-500 "
+                              className="font-bold text-zinc-900 no-underline hover:underline dark:text-sky-500 "
                               href="#"
                             >
                               {post?.author.name}
@@ -112,7 +112,7 @@ export default function PostPage(props: PostPageProps) {
                               on{' '}
                             </span>
                             <time
-                              className="font-semibold text-slate-900 dark:text-blue-500"
+                              className="font-semibold text-slate-900 dark:text-sky-500"
                               dateTime={post?.date}
                               title={new Date(post?.date).toLocaleDateString(
                                 'en-US',

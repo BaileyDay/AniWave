@@ -33,7 +33,7 @@ const Subscribe = () => {
   return (
     <>
       {emailStatus && <SuccessToast setEmailStatus={setEmailStatus} />}
-      <section class="rounded-xl bg-slate-100 dark:bg-gray-900">
+      <section class="rounded-xl bg-slate-100 dark:bg-zinc-800">
         <div class="mx-auto max-w-screen-xl px-4 py-8 lg:px-6 lg:py-16">
           <div class="mx-auto max-w-screen-md sm:text-center">
             <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
