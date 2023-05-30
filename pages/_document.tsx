@@ -13,6 +13,12 @@ export default function Document() {
           href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap"
           rel="stylesheet"
         />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="RSS Feed for Aniwave"
+          href="/api/rss"
+        />
       </Head>
       <body className="bg-white font-sans text-black dark:bg-zinc-900">
         <Main />

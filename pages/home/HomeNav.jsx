@@ -18,7 +18,7 @@ const HomeNav = () => {
       setNavClass(
         `${
           drawerOpen ? 'shadow-none' : 'shadow-md'
-        } lg:pt-4 bg-sky-500 lg:bg-zinc-800 lg:dark:bg-slatedark-3`
+        } lg:pt-4 bg-sky-500 lg:bg-white lg:dark:bg-slatedark-3`
       )
       controls.start({
         scale: 0.95,

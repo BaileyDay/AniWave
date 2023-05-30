@@ -6,7 +6,7 @@ const footerLinks = [
     category: 'About',
     links: [
       { name: 'About Us', url: '/about' },
-      { name: 'Contact Us', url: '/contact' },
+      { name: 'Rss Feed', url: '/api/rss' },
       { name: 'Privacy Policy', url: '/privacy-policy' },
       { name: 'Terms of Service', url: '/terms-of-service' },
     ],
