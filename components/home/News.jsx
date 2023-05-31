@@ -1,6 +1,6 @@
 import { urlForImage } from 'lib/sanity.image'
 import Link from 'next/link'
-
+import Image from 'next/image'
 const News = ({ newsArticles }) => {
   return (
     <aside
@@ -21,11 +21,15 @@ const News = ({ newsArticles }) => {
                   className="rounded-lg border border-slate-200 bg-white p-4 shadow-md  dark:border-zinc-800 dark:bg-zinc-800"
                 >
                   <Link href={`/posts/${article?.slug}`}>
-                    <img
-                      className="mb-5 rounded-lg"
-                      src={urlForImage(article?.coverImage).url()}
-                      alt={article?.title}
-                    />
+                    <div className="aspect-w-16 aspect-h-9 rounded-20 relative mb-2 h-48">
+                      <Image
+                        src={urlForImage(article?.coverImage).url()}
+                        alt={article?.title}
+                        layout="fill"
+                        objectFit="cover"
+                        className="rounded-lg"
+                      />
+                    </div>
                   </Link>
                   <span className="mr-2 rounded-lg bg-sky-500 px-2.5 py-0.5 text-xs font-semibold text-white">
                     News
@@ -41,11 +45,15 @@ const News = ({ newsArticles }) => {
                       : article?.excerpt}
                   </p>
                   <div className="flex items-center space-x-4">
-                    <img
-                      className="h-10 w-10 rounded-full"
-                      src={urlForImage(article?.author.picture).url()}
-                      alt={article?.author.name}
-                    />
+                    <div className="relative h-10 w-10">
+                      <Image
+                        src={urlForImage(article?.author.picture).url()}
+                        alt={article?.author.name}
+                        layout="fill"
+                        objectFit="cover"
+                        className="rounded-full"
+                      />
+                    </div>
                     <div className="font-normal dark:text-white">
                       <div className="text-sky-500 ">
                         {article?.author.name}

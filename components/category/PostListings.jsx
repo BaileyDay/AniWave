@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { urlForImage } from 'lib/sanity.image'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function PostListings({ category, posts }) {
   const [visiblePosts, setVisiblePosts] = useState(5)
@@ -29,11 +30,13 @@ export default function PostListings({ category, posts }) {
                   className="relative isolate flex flex-col gap-8 lg:flex-row"
                   href={`/posts/${post.slug}`}
                 >
-                  <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-                    <img
+                  <div className="relative aspect-[16/9] h-64 sm:aspect-[2/1] lg:aspect-[1/1] lg:w-64 lg:shrink-0">
+                    <Image
                       src={urlForImage(post?.coverImage).url()}
                       alt=""
-                      className="absolute inset-0 h-full w-full rounded-2xl bg-slate-500 object-cover"
+                      layout="fill"
+                      objectFit="cover"
+                      className="absolute inset-0 h-full w-full rounded-2xl bg-slate-500"
                     />
 
                     <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10" />
@@ -80,11 +83,15 @@ export default function PostListings({ category, posts }) {
                     </div>
                     <div className="mt-2 flex border-t border-slate-900/5 pt-6 dark:border-slate-100">
                       <div className="relative flex items-center gap-x-4">
-                        <img
-                          src={urlForImage(post?.author.picture).url()}
-                          alt=""
-                          className="bg-slate-5 h-10 w-10 rounded-full"
-                        />
+                        <div className="bg-slate-5 relative h-10 w-10 rounded-full">
+                          <Image
+                            src={urlForImage(post?.author.picture).url()}
+                            alt=""
+                            layout="fill"
+                            objectFit="cover"
+                            className="rounded-full"
+                          />
+                        </div>
                         <div className="text-sm leading-6">
                           <p className="font-semibold text-slate-900 dark:text-white">
                             <a href={post.author.href}>

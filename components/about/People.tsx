@@ -1,4 +1,5 @@
 import { urlForImage } from 'lib/sanity.image'
+import Image from 'next/image'
 
 export default function People({ authors }) {
   console.log(authors)
@@ -24,11 +25,15 @@ export default function People({ authors }) {
         >
           {authors.map((author) => (
             <li key={author?.name}>
-              <img
-                className="aspect-[3/2] w-full rounded-2xl object-cover"
-                src={urlForImage(author?.picture).url()}
-                alt=""
-              />
+              <div className="pb-2/3 relative h-72">
+                <Image
+                  className="absolute left-0 top-0 h-full w-full rounded-2xl object-cover"
+                  src={urlForImage(author?.picture).url()}
+                  alt=""
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
               <h3 className="mt-6 text-lg font-bold leading-8 tracking-tight text-gray-900 dark:text-slate-100">
                 {author?.name}
               </h3>

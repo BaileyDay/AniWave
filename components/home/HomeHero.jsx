@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 
-import SuccessToast from '../../components/common/SuccessToast'
+import SuccessToast from '../common/SuccessToast'
 import Yuki from '../../public/yuki.webp'
 
 const HomeHero = () => {

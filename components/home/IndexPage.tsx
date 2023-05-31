@@ -3,7 +3,7 @@ import IndexPageHead from 'components/IndexPageHead'
 import * as demo from 'lib/demo.data'
 import type { Post, Settings } from 'lib/sanity.queries'
 
-import GlobalFooter from '../../components/common/GlobalFooter'
+import GlobalFooter from '../common/GlobalFooter'
 import AnimeReviews from './AnimeReviews'
 import HomeHero from './HomeHero'
 import HomeNav from './HomeNav'

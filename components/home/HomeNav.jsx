@@ -3,8 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useCallback, useEffect, useState } from 'react'
 
-import Logo from '../../components/common/Logo'
-import MobileLogo from '../../components/common/MobileLogo'
+import Logo from '../common/Logo'
+import MobileLogo from '../common/MobileLogo'
 import Yuki from '../../public/yuki.webp'
 
 const HomeNav = () => {
@@ -18,7 +18,7 @@ const HomeNav = () => {
       setNavClass(
         `${
           drawerOpen ? 'shadow-none' : 'shadow-md'
-        } lg:pt-4 bg-sky-500 lg:bg-white lg:dark:bg-slatedark-3`
+        } lg:pt-4 bg-sky-500 lg:bg-white dark:lg:bg-zinc-800`
       )
       controls.start({
         scale: 0.95,

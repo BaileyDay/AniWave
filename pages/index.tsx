@@ -1,5 +1,5 @@
 import { PreviewSuspense } from '@sanity/preview-kit'
-import IndexPage from 'pages/home/IndexPage'
+import IndexPage from 'components/home/IndexPage'
 import {
   getAllPosts,
   getLatestNews,
@@ -8,7 +8,6 @@ import {
 } from 'lib/sanity.client'
 import { Post, Settings } from 'lib/sanity.queries'
 import { GetStaticProps } from 'next'
-
 
 interface PageProps {
   posts: Post[]

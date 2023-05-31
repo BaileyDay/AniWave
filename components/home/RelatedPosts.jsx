@@ -1,4 +1,5 @@
 import { urlForImage } from 'lib/sanity.image'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const RelatedPosts = ({ posts }) => {
@@ -20,13 +21,14 @@ const RelatedPosts = ({ posts }) => {
               className="relative isolate flex h-10 flex-col justify-end overflow-hidden rounded-2xl bg-slate-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
             >
               <Link href={`/posts/${post?.slug}`}>
-                <img
+                <Image
                   src={urlForImage(post?.coverImage).url()}
                   alt={post?.title}
-                  className="absolute inset-0 -z-10 h-full w-full object-cover"
+                  layout="fill"
+                  objectFit="cover"
+                  className="absolute inset-0 -z-10"
                 />
-                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-slate-900 via-slate-900/40" />
-                <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-slate-900/10" />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-sky-500 via-zinc-900/40" />
                 <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
                   <div className="mr-2 rounded-lg bg-sky-500 px-1">
                     <time
@@ -47,12 +49,16 @@ const RelatedPosts = ({ posts }) => {
                   </div>
                   <div className="flex items-center gap-x-4">
                     <div className="font-lg flex gap-x-2.5 text-white">
-                      <img
-                        src={urlForImage(post?.author.picture).url()}
-                        alt={post?.author.name}
-                        className="h-6 w-6 flex-none rounded-full bg-white/10"
-                      />
-                      {post?.author.name}
+                      <div className="relative h-10 w-10">
+                        <Image
+                          src={urlForImage(post?.author.picture).url()}
+                          alt={post?.author.name}
+                          className="rounded-full bg-white/10"
+                          layout="fill"
+                          objectFit="cover"
+                        />
+                      </div>
+                      <div className="mt-2">{post?.author.name}</div>
                     </div>
                   </div>
                 </div>
