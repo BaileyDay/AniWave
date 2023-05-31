@@ -21,7 +21,7 @@ export default async function handler(req, res) {
 
     posts.forEach((post) => {
       smStream.write({
-        url: `/posts/${post.slug}`,
+        url: `/${post?.category?.current}/${post.slug}`,
         changefreq: 'weekly',
         priority: 0.9,
       })
@@ -29,13 +29,14 @@ export default async function handler(req, res) {
 
     pages.forEach((page) => {
       smStream.write({
-        url: `/${page.slug.current}`,
+        url: `/page/${page.slug.current}`,
         changefreq: 'monthly',
         priority: 0.8,
       })
     })
 
     smStream.write({ url: '/subscribe', changefreq: 'monthly', priority: 0.7 })
+    smStream.write({ url: '/about', changefreq: 'monthly', priority: 0.7 })
 
     streamToPromise(smStream).then((value) => {
       sitemap = value.toString()

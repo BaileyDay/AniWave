@@ -17,10 +17,10 @@ export default async function handler(req, res) {
       rss += `
       <item>
         <title>${post?.title}</title>
-        <link>https://aniwave.io/posts/${post?.slug}</link>
+        <link>https://aniwave.io/${post?.category?.current}/${post?.slug}</link>
         <description>${post?.excerpt}</description>
         <pubDate>${post?.date}</pubDate>
-        <guid>https://aniwave.io/posts/${post.slug}</guid>
+        <guid>https://aniwave.io/${post?.category?.current}/${post.slug}</guid>
       </item>`
     })
 
