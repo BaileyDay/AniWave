@@ -76,7 +76,7 @@ export const getServerSideProps = async (ctx) => {
 
   const [settings, { post, morePosts }, randomPosts = []] = await Promise.all([
     getSettings(),
-    getPostAndMoreStories(params.slug, token),
+    getPostAndMoreStories(params.category, params.slug, token), // Adjust this function to consider category and slug
     getRandomPosts(3),
   ])
 

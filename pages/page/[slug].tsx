@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next'
-import Page from '../components/static/Page' // Create or use your own page component
+import Page from '../../components/static/Page' // Create or use your own page component
 import { getPage, getAllPagesSlugs } from 'lib/sanity.client' // Ensure you have these methods in your sanity client
 import { Page as PageType } from 'lib/sanity.queries' // Create a type for your page data in your sanity queries file
 
@@ -37,7 +37,7 @@ export const getStaticPaths = async () => {
   const slugs = await getAllPagesSlugs()
 
   return {
-    paths: slugs?.map(({ slug }) => `/${slug.current}`) || [],
+    paths: slugs?.map(({ slug }) => `/page/${slug.current}`) || [],
     fallback: 'blocking',
   }
 }

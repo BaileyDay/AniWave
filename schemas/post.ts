@@ -97,6 +97,12 @@ export default defineType({
       of: [{ type: 'reference', to: { type: 'tag' } }],
     }),
     defineField({
+      name: 'category',
+      title: 'Category',
+      type: 'reference',
+      to: { type: 'category' },
+    }),
+    defineField({
       name: 'readTime',
       title: 'Read Time',
       type: 'number',

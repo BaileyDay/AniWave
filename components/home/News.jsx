@@ -20,7 +20,9 @@ const News = ({ newsArticles }) => {
                   key={index}
                   className="rounded-lg border border-slate-200 bg-white p-4 shadow-md  dark:border-zinc-800 dark:bg-zinc-800"
                 >
-                  <Link href={`/posts/${article?.slug}`}>
+                  <Link
+                    href={`/${article?.category?.current}/${article?.slug}`}
+                  >
                     <div className="aspect-w-16 aspect-h-9 rounded-20 relative mb-2 h-48">
                       <Image
                         src={urlForImage(article?.coverImage).url()}
@@ -35,7 +37,9 @@ const News = ({ newsArticles }) => {
                     News
                   </span>
                   <h2 className="my-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                    <Link href={`/posts/${article?.slug}`}>
+                    <Link
+                      href={`/${article?.category?.current}/${article?.slug}`}
+                    >
                       {article?.title}
                     </Link>
                   </h2>

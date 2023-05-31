@@ -28,7 +28,7 @@ export default function PostListings({ category, posts }) {
               >
                 <Link
                   className="relative isolate flex flex-col gap-8 lg:flex-row"
-                  href={`/posts/${post.slug}`}
+                  href={`/${post?.category?.current}/${post.slug}`}
                 >
                   <div className="relative aspect-[16/9] h-64 sm:aspect-[2/1] lg:aspect-[1/1] lg:w-64 lg:shrink-0">
                     <Image

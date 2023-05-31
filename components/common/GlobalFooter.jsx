@@ -7,8 +7,8 @@ const footerLinks = [
     links: [
       { name: 'About Us', url: '/about' },
       { name: 'Rss Feed', url: '/api/rss' },
-      { name: 'Privacy Policy', url: '/privacy-policy' },
-      { name: 'Terms of Service', url: '/terms-of-service' },
+      { name: 'Privacy Policy', url: '/page/privacy-policy' },
+      { name: 'Terms of Service', url: '/page/terms-of-service' },
     ],
   },
   {

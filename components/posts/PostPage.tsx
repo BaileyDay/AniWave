@@ -198,7 +198,7 @@ export default function PostPage(props: PostPageProps) {
                     {randomPosts.map((post, index) => (
                       <article key={index}>
                         <div className="relative mb-5 aspect-[16/9] w-full overflow-hidden rounded-lg">
-                          <a href={`/posts/${post.slug}`}>
+                          <a href={`/${post?.category?.current}/${post.slug}`}>
                             <Image
                               src={urlForImage(post?.coverImage).url()}
                               alt={post.title}

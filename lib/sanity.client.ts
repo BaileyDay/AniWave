@@ -76,6 +76,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
 }
 
 export async function getPostAndMoreStories(
+  category: string,
   slug: string,
   token?: string | null
 ): Promise<{ post: Post; morePosts: Post[] }> {
@@ -87,7 +88,7 @@ export async function getPostAndMoreStories(
       useCdn,
       token: token || undefined,
     })
-    return await client.fetch(postAndMoreStoriesQuery, { slug })
+    return await client.fetch(postAndMoreStoriesQuery, { category, slug })
   }
   return { post: null, morePosts: [] }
 }

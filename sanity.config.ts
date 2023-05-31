@@ -16,6 +16,7 @@ import page from 'schemas/page'
 import postType from 'schemas/post'
 import settingsType from 'schemas/settings'
 import tag from 'schemas/tag'
+import category from 'schemas/category'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'AniWave'
 
@@ -26,7 +27,7 @@ export default defineConfig({
   title,
   schema: {
     // If you want more content types, you can add them to this array
-    types: [authorType, postType, settingsType, tag, page],
+    types: [authorType, postType, settingsType, tag, page, category],
   },
   plugins: [
     deskTool({

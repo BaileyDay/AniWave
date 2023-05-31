@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const RelatedPosts = ({ posts }) => {
+  console.log(posts)
   return (
     <div className="bg-white py-24 text-white dark:bg-zinc-900 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -20,7 +21,7 @@ const RelatedPosts = ({ posts }) => {
               key={post?._id}
               className="relative isolate flex h-10 flex-col justify-end overflow-hidden rounded-2xl bg-slate-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
             >
-              <Link href={`/posts/${post?.slug}`}>
+              <Link href={`/${post?.category?.current}/${post?.slug}`}>
                 <Image
                   src={urlForImage(post?.coverImage).url()}
                   alt={post?.title}

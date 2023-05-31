@@ -82,6 +82,7 @@ const Subscribe = () => {
           <Image
             src={sideImage}
             className="hidden rounded-3xl shadow-xl lg:block"
+            alt="subscribe image"
           />
         </div>
         <section class="-mt-16 flex items-center bg-white dark:bg-zinc-900 ">

@@ -8,6 +8,7 @@ const postFields = groq`
   excerpt,
   coverImage,
   "slug": slug.current,
+  "category": category->slug, 
   "author": author->{name, picture},
 `
 
@@ -19,25 +20,27 @@ export const indexQuery = groq`
 }`
 
 export const postAndMoreStoriesQuery = groq`
-{
-  "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
-    content[]{
-      ...,
-      "asset": asset-> // This fetches the asset fields for the image blocks
-    },
-    ${postFields}
-  },
-  "morePosts": *[_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc) [0...2] {
-    content[]{
-      ...,
-      "asset": asset-> // This fetches the asset fields for the image blocks
-    },
-    ${postFields}
-  }
-}`
+    {
+      "post": *[_type == "post" && slug.current == $slug && category->slug.current == $category] | order(_updatedAt desc) [0] {
+        content[]{
+          ...,
+          "asset": asset-> // This fetches the asset fields for the image blocks
+        },
+        ${postFields}
+      },
+      "morePosts": *[_type == "post" && slug.current != $slug && category->slug.current != $category] | order(date desc, _updatedAt desc) [0...2] {
+        content[]{
+          ...,
+          "asset": asset-> // This fetches the asset fields for the image blocks
+        },
+        ${postFields}
+      }
+    }
+  `
 
 export const postSlugsQuery = groq`
-*[_type == "post" && defined(slug.current)][].slug.current
+*[_type == "post" && defined(slug.current)][]
+  {"category": category->slug.current, "slug": slug.current}
 `
 
 export const postBySlugQuery = groq`
@@ -61,13 +64,13 @@ export const pageSlugsQuery = `*[_type == "page" && defined(slug.current)]{
 }`
 
 export const postsByTagQuery = groq`
-*[_type == "post" && references(*[_type == "tag" && slug.current == $tag]._id)] {
+*[_type == "post" && references(*[_type == "category" && slug.current == $tag]._id)] {
   ${postFields}
 } | order(date desc)
 `
 
 export const latestNewsQuery = groq`
-*[_type == "post" && references(*[_type == "tag" && slug.current == "news"]._id)] | order(date desc) [0...3] {
+*[_type == "post" && references(*[_type == "category" && slug.current == "news"]._id)] | order(date desc) [0...3] {
   ${postFields}
 }
 `
@@ -86,6 +89,7 @@ export interface Author {
 }
 
 export interface Post {
+  category: any
   _id: string
   title?: string
   coverImage?: any
