@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 import SuccessToast from '../common/SuccessToast'
-import Yuki from '../../public/yuki.webp'
+import Yuki from '../../public/yuki.svg'
 
 const HomeHero = () => {
   const [emailStatus, setEmailStatus] = useState(false)
