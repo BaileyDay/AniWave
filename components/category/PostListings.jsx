@@ -30,13 +30,13 @@ export default function PostListings({ category, posts }) {
                   className="relative isolate flex flex-col gap-8 lg:flex-row"
                   href={`/${post?.category?.current}/${post.slug}`}
                 >
-                  <div className="relative aspect-[16/9] h-64 sm:aspect-[2/1] lg:aspect-[1/1] lg:w-64 lg:shrink-0">
+                  <div className="relative aspect-[16/9] h-48 w-full sm:aspect-[2/1] lg:aspect-[1/1] lg:h-64 lg:w-64 lg:shrink-0">
                     <Image
                       src={urlForImage(post?.coverImage).url()}
                       alt=""
                       layout="fill"
                       objectFit="cover"
-                      className="absolute inset-0 h-full w-full rounded-2xl bg-slate-500"
+                      className="absolute inset-0 h-full rounded-2xl bg-slate-500"
                     />
 
                     <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10" />

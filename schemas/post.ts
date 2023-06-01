@@ -3,6 +3,7 @@ import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
 
 import authorType from './author'
+import streamingService from './streamingService'
 
 /**
  * This file is the schema definition for a post.
@@ -45,6 +46,7 @@ export default defineType({
       type: 'array',
       of: [
         { type: 'block' },
+        { type: 'streamingService' },
         {
           type: 'image',
           fields: [
