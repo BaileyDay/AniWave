@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const RelatedPosts = ({ posts }) => {
-  console.log(posts)
   return (
     <div className="bg-white py-24 text-white dark:bg-zinc-900 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

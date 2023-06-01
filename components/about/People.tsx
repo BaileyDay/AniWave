@@ -2,7 +2,6 @@ import { urlForImage } from 'lib/sanity.image'
 import Image from 'next/image'
 
 export default function People({ authors }) {
-  console.log(authors)
   return (
     <div className="bg-white py-24 dark:bg-zinc-900 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

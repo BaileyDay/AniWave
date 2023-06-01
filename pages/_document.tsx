@@ -1,4 +1,5 @@
 import { Head, Html, Main, NextScript } from 'next/document'
+import Script from 'next/script'
 export default function Document() {
   return (
     <Html lang="en">
@@ -23,6 +24,20 @@ export default function Document() {
       <body className="bg-white font-sans text-black dark:bg-zinc-900">
         <Main />
         <NextScript />
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-11202249480"
+        />
+
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_TAG}');
+            `}
+        </Script>
       </body>
     </Html>
   )
