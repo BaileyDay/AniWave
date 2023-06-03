@@ -29,6 +29,7 @@ const Subscribe = () => {
     event.preventDefault()
     const email = event.target.email.value
     submitSubscription(email)
+    window.gtag_report_conversion()
   }
   return (
     <>

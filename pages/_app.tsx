@@ -5,6 +5,7 @@ import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import ReactGA from 'react-ga4'
+import Script from 'next/script'
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -26,5 +27,25 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, [router.events])
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Script id="gtag-conversion" strategy="afterInteractive">
+        {`
+        function gtag_report_conversion(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'conversion', {
+              'send_to': '${process.env.NEXT_PUBLIC_GOOGLE_TAG}/797ACNSLx6YYEIiG090p',
+              'event_callback': callback
+          });
+          return false;
+        }
+      `}
+      </Script>
+      <Component {...pageProps} />
+    </>
+  )
 }
