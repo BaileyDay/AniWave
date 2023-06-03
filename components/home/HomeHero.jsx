@@ -18,6 +18,7 @@ const HomeHero = () => {
 
       if (response.ok) {
         setEmailStatus(true)
+        window.gtag_report_conversion()
       } else {
         setEmailStatus(false)
       }
@@ -30,7 +31,6 @@ const HomeHero = () => {
     event.preventDefault()
     const email = event.target.email.value
     submitSubscription(email)
-    window.gtag_report_conversion()
   }
 
   return (

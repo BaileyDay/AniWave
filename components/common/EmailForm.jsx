@@ -17,6 +17,7 @@ const Subscribe = () => {
 
       if (response.ok) {
         setEmailStatus(true)
+        window.gtag_report_conversion()
       } else {
         setEmailStatus(false)
       }
@@ -29,7 +30,6 @@ const Subscribe = () => {
     event.preventDefault()
     const email = event.target.email.value
     submitSubscription(email)
-    window.gtag_report_conversion()
   }
   return (
     <>
