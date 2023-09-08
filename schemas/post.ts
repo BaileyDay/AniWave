@@ -58,14 +58,14 @@ export default defineType({
                   {
                     name: 'href',
                     type: 'url',
-                    title: 'URL'
+                    title: 'URL',
                   },
                   {
                     title: 'Open in new tab',
                     name: 'blank',
-                    type: 'boolean'
-                  }
-                ]
+                    type: 'boolean',
+                  },
+                ],
               },
               {
                 name: 'internalLink',
@@ -80,19 +80,19 @@ export default defineType({
                     to: [
                       { type: 'post' },
                       // other types you may want to link to
-                    ]
+                    ],
                   },
                   {
                     title: 'Open in new tab',
                     name: 'blank',
-                    type: 'boolean'
-                  }
-                ]
-              }
-            ]
-          }
+                    type: 'boolean',
+                  },
+                ],
+              },
+            ],
+          },
         },
-        
+
         {
           type: 'image',
           fields: [

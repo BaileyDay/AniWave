@@ -25,12 +25,12 @@ export default function People({ authors }) {
           {authors.map((author) => (
             <li key={author?.name}>
               <div className="pb-2/3 relative h-72">
-              <Image
-              className="absolute left-0 top-0 h-full w-full rounded-2xl object-cover"
-              src={urlForImage(author?.picture).url()}
-              alt="Author's picture"  // alt is now required
-              style={{ objectFit: 'cover' }}  // Replacing objectFit prop
-              />
+                <Image
+                  className="absolute left-0 top-0 h-full w-full rounded-2xl object-cover"
+                  src={urlForImage(author?.picture).url()}
+                  alt="Author's picture" // alt is now required
+                  style={{ objectFit: 'cover' }} // Replacing objectFit prop
+                />
               </div>
               <h3 className="mt-6 text-lg font-bold leading-8 tracking-tight text-gray-900 dark:text-slate-100">
                 {author?.name}
