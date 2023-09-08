@@ -5,7 +5,7 @@ const query = (ttl) =>
 const tag = 'preview.secret'
 
 export async function getSecret(
-  client: import('next-sanity').SanityClient | import('sanity').SanityClient,
+  client: import('next-sanity').SanityClient,
   id: `${string}.${string}`,
   createIfNotExists?: true | (() => string)
 ): Promise<string | null> {
