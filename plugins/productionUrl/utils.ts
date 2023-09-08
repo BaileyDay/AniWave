@@ -5,7 +5,7 @@ const query = (ttl) =>
 const tag = 'preview.secret'
 
 export async function getSecret(
-  client: import('next-sanity').SanityClient,
+  client: import('next-sanity').SanityClient | import('sanity').SanityClient,
   id: `${string}.${string}`,
   createIfNotExists?: true | (() => string)
 ): Promise<string | null> {
@@ -22,10 +22,11 @@ export async function getSecret(
         ? Math.random().toString(36).slice(2)
         : createIfNotExists()
     try {
-      const patch = client.patch(id).set({ secret: newSecret })
+      const patch = (client.patch(id) as any).set({ secret: newSecret });
       await client
         .transaction()
         .createIfNotExists({ _id: id, _type: id })
+        // @ts-ignore
         .patch(patch)
         .commit({ tag })
       return newSecret
