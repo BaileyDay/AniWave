@@ -39,12 +39,12 @@ export default function AdvertisingModal({ open, setOpen }) {
                   onClick={() => setOpen(false)}
                 >
                   <span className="sr-only">Close</span>
-                  <i class="fa-solid fa-xmark h-6 w-6"></i>
+                  <i className="fa-solid fa-xmark h-6 w-6"></i>
                 </button>
               </div>
               <div className="sm:flex sm:items-start">
                 <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full  sm:mx-0 sm:h-10 sm:w-10">
-                  <i class="fa-solid fa-circle-exclamation  text-3xl text-yellow-400"></i>
+                  <i className="fa-solid fa-circle-exclamation  text-3xl text-yellow-400"></i>
                 </div>
                 <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                   <Dialog.Title

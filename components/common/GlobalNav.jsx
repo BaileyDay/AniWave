@@ -19,16 +19,10 @@ const GlobalNav = () => {
           drawerOpen ? 'shadow-none' : 'shadow-md'
         } lg:pt-4 bg-sky-500 lg:bg-white lg:dark:bg-zinc-800`
       )
-      controls.start({
-        scale: 0.95,
-        translateY: 0,
-        transition: { duration: 0.2 },
-      })
     } else {
       setNavClass('lg:pt-12 lg:dark:bg-zinc-900')
-      controls.start({ scale: 1, translateY: 0, transition: { duration: 0.3 } })
     }
-  }, [drawerOpen, controls])
+  }, [drawerOpen])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -36,6 +30,18 @@ const GlobalNav = () => {
       window.removeEventListener('scroll', handleScroll)
     }
   }, [drawerOpen, handleScroll])
+
+  useEffect(() => {
+    if (window.scrollY > 0) {
+      controls.start({
+        scale: 0.95,
+        translateY: 0,
+        transition: { duration: 0.2 },
+      })
+    } else {
+      controls.start({ scale: 1, translateY: 0, transition: { duration: 0.3 } })
+    }
+  }, [navClass, controls])
 
   const turtleAnimation = {
     hidden: { y: '100%', opacity: 0 },

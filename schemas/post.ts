@@ -1,21 +1,9 @@
-import { BookIcon } from '@sanity/icons'
+import { BookIcon, LinkIcon, ColorWheelIcon } from '@sanity/icons'
 import { format, parseISO } from 'date-fns'
 import { defineField, defineType } from 'sanity'
 
 import authorType from './author'
 import streamingService from './streamingService'
-
-/**
- * This file is the schema definition for a post.
- *
- * Here you'll be able to edit the different fields that appear when you 
- * create or edit a post in the studio.
- * 
- * Here you can see the different schema types that are available:
-
-  https://www.sanity.io/docs/schema-types
-
- */
 
 export default defineType({
   name: 'post',
@@ -45,8 +33,66 @@ export default defineType({
       title: 'Content',
       type: 'array',
       of: [
-        { type: 'block' },
-        { type: 'streamingService' },
+        {
+          type: 'block',
+          marks: {
+            annotations: [
+              {
+                name: 'textColor',
+                type: 'object',
+                icon: ColorWheelIcon,
+                title: 'Text Color',
+                fields: [
+                  {
+                    name: 'color',
+                    type: 'color',
+                    title: 'Color',
+                  },
+                ],
+              },
+              {
+                name: 'link',
+                type: 'object',
+                title: 'External link',
+                fields: [
+                  {
+                    name: 'href',
+                    type: 'url',
+                    title: 'URL'
+                  },
+                  {
+                    title: 'Open in new tab',
+                    name: 'blank',
+                    type: 'boolean'
+                  }
+                ]
+              },
+              {
+                name: 'internalLink',
+                type: 'object',
+                title: 'Internal link',
+                icon: LinkIcon, // Add the icon property here
+                fields: [
+                  {
+                    name: 'reference',
+                    type: 'reference',
+                    title: 'Reference',
+                    to: [
+                      { type: 'post' },
+                      // other types you may want to link to
+                    ]
+                  },
+                  {
+                    title: 'Open in new tab',
+                    name: 'blank',
+                    type: 'boolean'
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        
         {
           type: 'image',
           fields: [

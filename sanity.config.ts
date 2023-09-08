@@ -18,6 +18,7 @@ import settingsType from 'schemas/settings'
 import tag from 'schemas/tag'
 import category from 'schemas/category'
 import streamingService from 'schemas/streamingService'
+import {colorInput} from '@sanity/color-input'
 
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'AniWave'
 
@@ -58,5 +59,7 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
     media(),
+    colorInput(),
+
   ],
 })

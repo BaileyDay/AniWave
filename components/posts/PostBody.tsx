@@ -26,6 +26,27 @@ const serializers = {
         </figure>
       )
     },
+    marks: {
+      internalLink: ({ mark, children }) => {
+        const { reference } = mark;
+        const href = `/${reference.slug.current}`;
+        return <a href={href}>{children}</a>;
+      },
+      link: ({ mark, children }) => {
+        const { href, blank } = mark;
+        return blank ? (
+          <a href={href} target="_blank" rel="noopener noreferrer">
+            {children}
+          </a>
+        ) : (
+          <a href={href}>{children}</a>
+        );
+      },
+      textColor: ({ mark, children }) => {
+        const { hex } = mark.color; // You can also use hsl, hsv, or rgb
+        return <span style={{ color: hex }}>{children}</span>;
+      },
+    },
   },
 }
 

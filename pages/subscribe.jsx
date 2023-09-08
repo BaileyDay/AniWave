@@ -78,7 +78,7 @@ const Subscribe = () => {
           ></path>
         </svg>
       </div>
-      <div class="lg:-mt-[em] mx-auto mb-24 max-w-screen-xl items-center gap-8 px-4 lg:-mt-[24em] lg:grid lg:grid-cols-2 lg:px-6 xl:gap-16">
+      <div className="lg:-mt-[em] mx-auto mb-24 max-w-screen-xl items-center gap-8 px-4 lg:-mt-[24em] lg:grid lg:grid-cols-2 lg:px-6 xl:gap-16">
         <div className="z-10">
           <Image
             src={sideImage}
@@ -86,36 +86,36 @@ const Subscribe = () => {
             alt="subscribe image"
           />
         </div>
-        <section class="-mt-16 flex items-center bg-white dark:bg-zinc-900 ">
-          <div class="z-10 mx-auto max-w-screen-xl px-2">
-            <div class="mx-auto max-w-screen-md text-left">
-              <h2 class="mb-2 text-5xl font-extrabold leading-snug tracking-tight dark:text-white">
-                Immerse yourself in the world of <br class="lg:hidden" />
-                <span class="text-sky-500 lg:text-white">Anime</span>{' '}
+        <section className="-mt-16 flex items-center bg-white dark:bg-zinc-900 ">
+          <div className="z-10 mx-auto max-w-screen-xl px-2">
+            <div className="mx-auto max-w-screen-md text-left">
+              <h2 className="mb-2 text-5xl font-extrabold leading-snug tracking-tight dark:text-white">
+                Immerse yourself in the world of <br className="lg:hidden" />
+                <span className="text-sky-500 lg:text-white">Anime</span>{' '}
                 <span className="text-slate-900 dark:text-white">&amp; </span>
-                <span class="text-sky-500 lg:text-white">Manga</span>
+                <span className="text-sky-500 lg:text-white">Manga</span>
               </h2>
-              <p class="dark:text-slate-8 lg:text-slate-11 mb-6 text-sm font-light text-slate-500 lg:text-lg">
+              <p className="dark:text-slate-8 lg:text-slate-11 mb-6 text-sm font-light text-slate-500 lg:text-lg">
                 Sign up for our newsletter to stay up-to-date with the latest
                 anime and manga news, reviews, and more. Get access to exclusive
                 content and personalized recommendations tailored just for you.
               </p>
               <form
                 action="#"
-                class="mx-auto max-w-screen-sm "
+                className="mx-auto max-w-screen-sm "
                 onSubmit={handleFormSubmit}
               >
-                <div class="mb-3 flex items-center">
-                  <div class="relative mr-3 w-full">
+                <div className="mb-3 flex items-center">
+                  <div className="relative mr-3 w-full">
                     <label
                       for="member_email"
-                      class="dark:text-slate-8 mb-2 hidden text-sm font-medium text-slate-900"
+                      className="dark:text-slate-8 mb-2 hidden text-sm font-medium text-slate-900"
                     >
                       Email address
                     </label>
-                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                    <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                       <svg
-                        class="dark:text-slate-7 h-5 w-5 text-slate-500"
+                        className="dark:text-slate-7 h-5 w-5 text-slate-500"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +125,7 @@ const Subscribe = () => {
                       </svg>
                     </div>
                     <input
-                      class="focus:ring-primary-500 dark:focus:ring-primary-500 bg-slate-3 focus:border-blue-8 dark:border-slate-8 dark:placeholder-slate-11 dark:focus:border-blue-8 block w-full rounded-3xl border border-none bg-slate-100 p-8 pl-10 text-sm text-slate-900 dark:bg-gray-700 dark:text-white"
+                      className="focus:ring-primary-500 dark:focus:ring-primary-500 bg-slate-3 focus:border-blue-8 dark:border-slate-8 dark:placeholder-slate-11 dark:focus:border-blue-8 block w-full rounded-3xl border border-none bg-slate-100 p-8 pl-10 text-sm text-slate-900 dark:bg-gray-700 dark:text-white"
                       placeholder="Enter your email"
                       type="email"
                       name="email"
@@ -137,7 +137,7 @@ const Subscribe = () => {
                 </div>
                 <button
                   type="submit"
-                  class="dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 hover:bg-blue-10 focus:ring-blue-7 w-full cursor-pointer rounded-xl bg-sky-500 px-5 py-6 text-center text-sm font-medium text-white focus:ring-4"
+                  className="dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 hover:bg-blue-10 focus:ring-blue-7 w-full cursor-pointer rounded-xl bg-sky-500 px-5 py-6 text-center text-sm font-medium text-white focus:ring-4"
                   name="member_submit"
                   id="member_submit"
                 >
