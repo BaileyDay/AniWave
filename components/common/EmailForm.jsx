@@ -49,7 +49,7 @@ const Subscribe = () => {
               <div className="mx-auto mb-3 max-w-screen-sm items-center space-y-4 sm:flex sm:space-y-0">
                 <div className="relative w-full">
                   <label
-                    for="email"
+                    htmlFor="email"
                     className="mb-2 hidden text-sm font-medium text-gray-900 dark:text-gray-300"
                   >
                     Email address

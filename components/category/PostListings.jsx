@@ -31,13 +31,12 @@ export default function PostListings({ category, posts }) {
                   href={`/${post?.category?.current}/${post.slug}`}
                 >
                   <div className="relative aspect-[16/9] h-48 w-full sm:aspect-[2/1] lg:aspect-[1/1] lg:h-64 lg:w-64 lg:shrink-0">
-                    <Image
-                      src={urlForImage(post?.coverImage).url()}
-                      alt=""
-                      layout="fill"
-                      objectFit="cover"
-                      className="absolute inset-0 h-full rounded-2xl bg-slate-500"
-                    />
+                  <Image
+        src={urlForImage(post?.author.picture).url()}
+        alt="Post author's picture"  // alt is now required
+        style={{ objectFit: 'cover' }}  // Replacing objectFit prop
+        className="rounded-full"
+      />
 
                     <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10" />
                   </div>
@@ -84,13 +83,12 @@ export default function PostListings({ category, posts }) {
                     <div className="mt-2 flex border-t border-slate-900/5 pt-6 dark:border-slate-100">
                       <div className="relative flex items-center gap-x-4">
                         <div className="bg-slate-5 relative h-10 w-10 rounded-full">
-                          <Image
-                            src={urlForImage(post?.author.picture).url()}
-                            alt=""
-                            layout="fill"
-                            objectFit="cover"
-                            className="rounded-full"
-                          />
+                        <Image
+        src={urlForImage(post?.author.picture).url()}
+        alt="Post author's picture"  // alt is now required
+        style={{ objectFit: 'cover' }}  // Replacing objectFit prop
+        className="rounded-full"
+      />
                         </div>
                         <div className="text-sm leading-6">
                           <p className="font-semibold text-slate-900 dark:text-white">

@@ -74,7 +74,7 @@ const HomeNav = () => {
           animate={controls}
         >
           <div className="container p-4 lg:p-8">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between mx-auto">
               <div className="flex items-center">
                 <div>
                   <button

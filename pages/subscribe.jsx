@@ -108,7 +108,7 @@ const Subscribe = () => {
                 <div className="mb-3 flex items-center">
                   <div className="relative mr-3 w-full">
                     <label
-                      for="member_email"
+                      htmlFor="member_email"
                       className="dark:text-slate-8 mb-2 hidden text-sm font-medium text-slate-900"
                     >
                       Email address
