@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
-import { urlForImage } from 'lib/sanity.image'
-import Link from 'next/link'
-import Image from 'next/image'
+import React, { useState } from 'react';
+import { urlForImage } from 'lib/sanity.image';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function PostListings({ category, posts }) {
-  const [visiblePosts, setVisiblePosts] = useState(5)
+
+  const [visiblePosts, setVisiblePosts] = useState(5);
 
   const loadMorePosts = () => {
-    setVisiblePosts(visiblePosts + 5)
-  }
+    setVisiblePosts(visiblePosts + 5);
+  };
 
   return (
     <div className="bg-white py-24 dark:bg-zinc-900 sm:py-32">
@@ -22,58 +23,35 @@ export default function PostListings({ category, posts }) {
           </p>
           <div className="mt-16 space-y-20 lg:mt-20 lg:space-y-20">
             {posts.slice(0, visiblePosts).map((post) => (
-              <article
-                key={post.id}
-                className="relative isolate flex flex-col gap-8 lg:flex-row"
-              >
-                <Link
-                  className="relative isolate flex flex-col gap-8 lg:flex-row"
-                  href={`/${post?.category?.current}/${post.slug}`}
-                >
-                  <div className="relative aspect-[16/9] h-48 w-full sm:aspect-[2/1] lg:aspect-[1/1] lg:h-64 lg:w-64 lg:shrink-0">
-                    <Image
-                      src={urlForImage(post?.coverImage).url()}
-                      alt=""
-                      layout="fill"
-                      objectFit="cover"
-                      className="absolute inset-0 h-full rounded-2xl bg-slate-500"
-                    />
-
-                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-slate-900/10" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-x-4 text-xs">
-                      <time
-                        className="font-semibold text-slate-900 dark:text-sky-500"
-                        dateTime={post?.date}
-                        title={new Date(post?.date).toLocaleDateString(
-                          'en-US',
-                          {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric',
-                          }
-                        )}
-                      >
+              <article key={post._id} className="relative isolate flex flex-col gap-8 lg:flex-row">
+                <Link href={`/${post?.category?.current}/${post.slug}`}>
+                  
+                    <div className="relative aspect-[16/9] h-48 w-full sm:aspect-[2/1] lg:aspect-[1/1] lg:h-64 lg:w-64 lg:shrink-0">
+                      <Image
+                        src={urlForImage(post?.coverImage).url()}
+                        alt=""
+                        layout="fill"
+                        objectFit="cover"
+                        className="absolute inset-0 h-full rounded-2xl bg-slate-500"
+                      />
+                    </div>
+                    </Link>
+                    <Link href={`/${post?.category?.current}/${post.slug}`}>
+                    <div className="flex items-center gap-x-4 text-xs mt-4">
+                      <time className="font-semibold text-slate-900 dark:text-sky-500" dateTime={post?.date}>
                         {new Date(post.date).toLocaleDateString('en-US', {
                           year: 'numeric',
                           month: 'long',
                           day: 'numeric',
                         })}
                       </time>
-                      <a
-                        href={post.category?.href}
-                        className="relative z-10 rounded-full bg-slate-300 px-3 py-1.5 font-medium text-slate-900 hover:bg-slate-600 dark:bg-slate-800 dark:text-slate-100"
-                      >
+                      <span className="relative z-10 rounded-full bg-slate-300 px-3 py-1.5 font-medium text-slate-900 hover:bg-slate-600 dark:bg-slate-800 dark:text-slate-100">
                         {category?.title}
-                      </a>
+                      </span>
                     </div>
                     <div className="group relative max-w-xl">
                       <h3 className="group-hover:text-slate-9 mt-3 text-lg font-semibold leading-6 text-slate-900 dark:text-white">
-                        <a href={``}>
-                          <span className="absolute inset-0" />
-                          {post?.title}
-                        </a>
+                        {post?.title}
                       </h3>
                       <p className="mt-5 text-sm leading-6 text-slate-900 dark:text-slate-100">
                         {post?.excerpt && post?.excerpt.length > 200
@@ -94,26 +72,22 @@ export default function PostListings({ category, posts }) {
                         </div>
                         <div className="text-sm leading-6">
                           <p className="font-semibold text-slate-900 dark:text-white">
-                            <a href={post.author.href}>
-                              <span className="absolute inset-0 dark:text-white" />
+                            <span className="cursor-pointer" onClick={() => window.location.href = post.author.href}>
                               {post.author.name}
-                            </a>
+                            </span>
                           </p>
                           <p className="text-blue-700">{post.author.role}</p>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  
                 </Link>
               </article>
             ))}
           </div>
           {visiblePosts < posts.length && (
             <div className="mt-8 text-center">
-              <button
-                onClick={loadMorePosts}
-                className="rounded bg-blue-500 px-6 py-2 text-white hover:bg-blue-700"
-              >
+              <button onClick={loadMorePosts} className="rounded bg-blue-500 px-6 py-2 text-white hover:bg-blue-700">
                 Load More
               </button>
             </div>
@@ -121,5 +95,5 @@ export default function PostListings({ category, posts }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

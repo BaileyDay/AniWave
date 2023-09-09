@@ -54,14 +54,14 @@ const HomeTabs = () => {
       <div className=" border-slate-8 mx-auto border-b text-center text-xl font-semibold dark:border-white lg:w-7/12">
         <ul className="flex snap-x snap-mandatory scroll-mr-4 gap-x-4 overflow-x-auto">
           {tabs.map((tab, index) => (
-            <>
+            <React.Fragment key={index}>
               <TabItem
                 key={index}
                 title={tab}
                 isActive={tab === activeTab}
                 onClick={() => setActiveTab(tab)}
               />
-            </>
+            </React.Fragment>
           ))}
         </ul>
       </div>
