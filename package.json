@@ -1,11 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "npm run partytown && next build",
     "dev": "next",
     "format": "npx prettier --write . --ignore-path .gitignore --cache",
     "lint": "next lint -- --ignore-path .gitignore",
     "lint:fix": "npm run format && npm run lint -- --fix",
+    "partytown": "partytown copylib public/~partytown",
     "start": "next start",
     "type-check": "tsc --noEmit"
   },
@@ -14,6 +15,7 @@
     "singleQuote": true
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.8.1",
     "@headlessui/react": "^1.7.14",
     "@portabletext/react": "^3.0.0",
     "@sanity/block-content-to-react": "^3.0.0",
