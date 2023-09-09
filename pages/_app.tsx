@@ -29,7 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <Script id="gtag-conversion" strategy="worker">
+      <Script id="gtag-conversion" strategy="afterInteractive">
         {`
         function gtag_report_conversion(url) {
           var callback = function () {

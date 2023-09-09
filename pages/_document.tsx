@@ -25,11 +25,11 @@ export default function Document() {
         <Main />
         <NextScript />
         <Script
-          strategy="worker"
+          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=AW-11202249480"
         />
 
-        <Script id="gtag-init" strategy="worker">
+        <Script id="gtag-init" strategy="afterInteractive">
           {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
