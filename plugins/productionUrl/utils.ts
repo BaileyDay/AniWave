@@ -22,7 +22,7 @@ export async function getSecret(
         ? Math.random().toString(36).slice(2)
         : createIfNotExists()
     try {
-      const patch = (client.patch(id) as any).set({ secret: newSecret });
+      const patch = (client.patch(id) as any).set({ secret: newSecret })
       await client
         .transaction()
         .createIfNotExists({ _id: id, _type: id })
