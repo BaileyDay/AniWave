@@ -37,7 +37,7 @@ const components = {
       children,
     }: PortableTextMarkComponentProps<any>) => {
       const { reference } = value!
-      const href = `/${reference.slug.current}`
+      const href = reference?.slug ? `/${reference.slug.current}` : '#';
       return <a href={href}>{children}</a>
     },
     link: ({ value, children }: PortableTextMarkComponentProps<any>) => {
