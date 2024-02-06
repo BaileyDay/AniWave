@@ -20,6 +20,11 @@ export default function Document() {
           title="RSS Feed for Aniwave"
           href="/api/rss"
         />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4826368298009418"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
       <body className="bg-white font-sans text-black dark:bg-zinc-900">
         <Main />
